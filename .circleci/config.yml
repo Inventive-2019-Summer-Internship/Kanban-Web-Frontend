@@ -34,5 +34,5 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: sudo u+x /usr/local/bin/yarn
+      - run: sudo chmod u+x /usr/local/bin/yarn
       - run: yarn test
