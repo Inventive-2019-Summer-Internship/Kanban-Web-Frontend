@@ -1,26 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
+import Header from './components/Header';
+import BoardView from './components/BoardView';
+import uuid from 'uuid/v4';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+
+  state = {
+    boards: [
+      {
+        name: "My First Board",
+        id: uuid()
+      },
+      {
+        name: "My First Board",
+        id: uuid()
+      }
+    ]
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Header />
+        <BoardView boards={this.state.boards}/>
+      </div>
+    );
+  }
+  
 }
 
 export default App;
