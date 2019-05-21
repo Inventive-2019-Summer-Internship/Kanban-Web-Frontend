@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-size: calc(7px + 2vmin);
 }
 
 .App-logo {
@@ -7,20 +8,64 @@
   height: 40vmin;
   pointer-events: none;
 }
+form {
+  text-align: left;
+}
+.textBox {
+  margin-left: 5%;
+  margin-top: .25vmin;
+  width: 90%;
+  height: 5vmin;
+  font-size: 2vmin;
+  border-top: none; 
+  border-left: none;
+  border-radius: 5px; 
+}
+.button {
+  background-color: #282c34;
+  color: white;
+  margin-left: 5%;
+  margin-top: .5vmin;
+  width: 90%;
+  height: 5vmin;
+  font-size: 2vmin;
+  border: none;
+  border-radius: 5px;
+}
+
+.standardLink {
+  display:inline;
+  float:right;
+  padding:0px 10px 0px 10px;
+  color:#ffffff;
+  text-decoration:none;
+  font-size:calc(5px + 2vmin);
+}
+.boardRow {
+  color: #000000;
+  text-decoration:none;
+  font-size:calc(10px + 2vmin);
+}
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  height: calc(4vmin);
+  vertical-align: center;
+  font-size: calc(7px + 2vmin);
   color: white;
 }
 
 .App-link {
   color: #61dafb;
+}
+
+.boardListing {
+  background-color: #ededed;
+  padding: 1vmin;
+}
+.boardListing:hover {
+  background-color: #dedede;
+  padding: 2vmin;
 }
 
 @keyframes App-logo-spin {
