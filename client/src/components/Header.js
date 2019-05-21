@@ -1,13 +1,12 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+///////////////  Package Imports  ////////////////////////////////
+import React from 'react'
+import PropTypes from 'prop-types'
+import {Link} from 'react-router-dom'
+////////////// Components Imports ////////////////////////////////
+//////////////////////////////////////////////////////////////////
 
 
-export class Header extends Component {
-  state = {
-    onBoard: false
-  }
-
-
+export class Header extends React.Component {
   render() {
     return (
       <div style={{margin:"0px"}}className="App-header">
@@ -18,6 +17,16 @@ export class Header extends Component {
       </div>
     )
   }
+}
+
+/**
+ * Proptypes object
+ * EDIT THIS WHENEVER YOU CREATE A NEW PROP 
+ * FOR DATA TRANSMISSION
+ */
+//CURRENTLY UNUSED
+Header.propTypes = {
+
 }
 
 export default Header

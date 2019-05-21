@@ -1,9 +1,17 @@
-import React, { Component } from 'react'
+///////////////  Package Imports  ////////////////////////////////
+import React from 'react'
+import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom'
+////////////// Components Imports ////////////////////////////////
+//////////////////////////////////////////////////////////////////
 
-export class BoardListing extends Component {
+/**
+ * This is the BoardListing Component, it is what the user
+ * can click on to get the board that they want as well as just 
+ * see what boards they have registered to their account
+ */
+export class BoardListing extends React.Component {
   render() {
-      console.log(this.props.board.name);
     return (
       <Link className="boardRow" to="/showBoard">
       <div className="boardListing" onClick={this.props.showBoard.bind(this, this.props.board.id)}>
@@ -14,7 +22,14 @@ export class BoardListing extends Component {
   }
 }
 
+/**
+ * Proptypes object
+ * EDIT THIS WHENEVER YOU CREATE A NEW PROP 
+ * FOR DATA TRANSMISSION
+ */
 BoardListing.propTypes = {
-    
+  board: PropTypes.object.isRequired,
+  showBoard: PropTypes.func.isRequired
 };
+
 export default BoardListing
