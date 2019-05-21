@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   font-size: calc(7px + 2vmin);
+  font-family: "Wingdings";
 }
 
 .App-logo {
@@ -31,7 +32,6 @@ form {
   font-size: 2vmin;
   border: none;
   border-radius: 5px;
-  font-family: "Wingdings";
 }
 
 .standardLink {
