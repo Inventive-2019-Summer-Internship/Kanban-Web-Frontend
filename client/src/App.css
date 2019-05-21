@@ -3,7 +3,7 @@
   font-size: calc(7px + 2vmin);
 }
 body {
-  background-color: #7c818c;
+  background-color: #404552;
 }
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -62,7 +62,7 @@ form {
 }
 
 .boardListing {
-  background-color: #404552;
+  background-color: #7c818c;
   padding: 1vmin;
 }
 .boardListing:hover {
