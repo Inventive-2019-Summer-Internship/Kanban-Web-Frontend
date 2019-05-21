@@ -44,7 +44,7 @@ form {
   font-size:calc(5px + 2vmin);
 }
 .boardRow {
-  color: #000000;
+  color: #ffffff;
   text-decoration:none;
   font-size:calc(10px + 2vmin);
 }
@@ -62,12 +62,12 @@ form {
 }
 
 .boardListing {
-  background-color: #7c818c;
+  background-color: #4b5162;
   padding: 1vmin;
 }
 .boardListing:hover {
   background-color: #4b5162;
-  padding: 2vmin;
+  padding: 1vmin;
 }
 
 @keyframes App-logo-spin {
