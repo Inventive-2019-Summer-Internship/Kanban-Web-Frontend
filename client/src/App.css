@@ -1,9 +1,10 @@
 .App {
   text-align: center;
   font-size: calc(7px + 2vmin);
-  font-family: "Wingdings";
 }
-
+body {
+  background-color: #7c818c;
+}
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
@@ -23,7 +24,7 @@ form {
   border-radius: 5px; 
 }
 .button {
-  background-color: #282c34;
+  background-color: #5294e2;
   color: white;
   margin-left: 5%;
   margin-top: .5vmin;
@@ -49,7 +50,7 @@ form {
 }
 
 .App-header {
-  background-color: #9efff9;
+  background-color: #383c4a;
   height: calc(4vmin);
   vertical-align: center;
   font-size: calc(7px + 2vmin);
@@ -61,11 +62,11 @@ form {
 }
 
 .boardListing {
-  background-color: #ededed;
+  background-color: #404552;
   padding: 1vmin;
 }
 .boardListing:hover {
-  background-color: #dedede;
+  background-color: #4b5162;
   padding: 2vmin;
 }
 
