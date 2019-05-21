@@ -6,7 +6,8 @@ export class BoardView extends Component {
   render() {
     return (
       this.props.boards.map((board) => (
-          <BoardListing boardName={board.name} />
+          
+          <BoardListing board={board} showBoard={this.props.showBoard} />
       ))
     );
   }

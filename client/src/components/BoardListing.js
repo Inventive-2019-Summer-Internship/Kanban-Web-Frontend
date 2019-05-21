@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
 
 export class BoardListing extends Component {
   render() {
-      console.log(this.props.boardName);
+      console.log(this.props.board.name);
     return (
-      <div style={{backgroundColor: "#888", margin:"0px"}}>
-        <p>{this.props.boardName}</p>
+      <Link className="boardRow" to="/showBoard">
+      <div className="boardListing" onClick={this.props.showBoard.bind(this, this.props.board.id)}>
+        <p>{this.props.board.name}</p>
       </div>
+      </Link>
     )
   }
 }
