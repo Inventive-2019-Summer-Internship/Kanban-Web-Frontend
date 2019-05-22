@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export class AddSwimLane extends Component {
     AddSwimLane = () => {
         var name = prompt("Name your lane", "Default Lane Name");
-        if(name === "") {
+        if(name === "" || name === null) {
             alert("Try again");
         }
         else {
