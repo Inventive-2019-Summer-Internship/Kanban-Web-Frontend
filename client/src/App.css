@@ -11,11 +11,10 @@ body {
   pointer-events: none;
 }
 form {
-  text-align: left;
+  align-items: center;
 }
+
 .textBox {
-  margin-left: 5%;
-  margin-top: .25vmin;
   width: 90%;
   height: 5vmin;
   font-size: 2vmin;
@@ -26,8 +25,6 @@ form {
 .button {
   background-color: #5294e2;
   color: white;
-  margin-left: 5%;
-  margin-top: .5vmin;
   width: 90%;
   height: 5vmin;
   font-size: 2vmin;
