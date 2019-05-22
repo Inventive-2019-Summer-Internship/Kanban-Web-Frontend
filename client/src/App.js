@@ -20,6 +20,7 @@ class App extends React.Component {
   /**
    * State and Extra Definitions
    */
+  
   BLANK_BOARD = {
     name: "Default Board",
     id: -1,
@@ -33,7 +34,7 @@ class App extends React.Component {
         name: "My First Board",
         id: uuid(),
         swimLanes: [{title: "Sample1"}, {title: "Sample1"}, {title: "Sample1"}],
-        img: "https://codereviewvideos.com/blog/wp-content/uploads/2016/01/fullsize-ubuntu-desktop-at-4k1.png"
+        img: "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.memecdn.com%2Fbest-gif-ever_o_901136.gif&f=1"
       },
       {
         name: "My Second Board",
@@ -67,10 +68,30 @@ class App extends React.Component {
     const newBoard = {
       name,
       id: uuid(),
+      swimLanes: [],
       img: url
     }
     this.setState({boards:[...this.state.boards, newBoard]});
     alert("New Board Created");
+  }
+  deleteBoard = (id) => {
+    var newBoards = this.state.boards.filter(board => board.id !== id);
+    document.getElementById("BoardsButton").click();
+    this.setState({boards: newBoards})
+  }
+  changeBoardName = (name, id) => {
+    var board = this.state.boards.filter(board => board.id === id)[0];
+    board.name = name;
+    var newBoards = [...this.state.boards.filter(board => board.id !== id), board];
+    newBoards.push(newBoards.shift());
+    this.setState({boards: newBoards})
+  }
+  changeBoardBG = (url, id) => {
+    var board = this.state.boards.filter(board => board.id === id)[0];
+    board.img = url;
+    var newBoards = [...this.state.boards.filter(board => board.id !== id), board];
+    newBoards.push(newBoards.shift());
+    this.setState({boards: newBoards})
   }
   addSwimLane = (name, id) => {
     var board = this.state.boards.filter(board => board.id === id)[0];
@@ -97,7 +118,7 @@ class App extends React.Component {
           <Route exact path="/" render={props => 
             (<BoardView boards={this.state.boards} showBoard={this.showBoard}/>)}/>
           <Route path="/addBoard" render={props =>(<NewBoardView addBoard={this.addBoard}/>)}/>
-          <Route path="/showBoard" render={props =>(<OpenBoardView addSwimLane={this.addSwimLane} currentBoard={this.state.currentBoard}/>)}/>
+          <Route path="/showBoard" render={props =>(<OpenBoardView deleteBoard={this.deleteBoard} changeBoardName={this.changeBoardName} changeBoardBG={this.changeBoardBG} addSwimLane={this.addSwimLane} currentBoard={this.state.currentBoard}/>)}/>
         </div>
       </Router>
     );
