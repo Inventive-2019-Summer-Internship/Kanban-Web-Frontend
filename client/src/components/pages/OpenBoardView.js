@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 ////////////// Components Imports ////////////////////////////////
 import SwimLanes from '../SwimLanes'
 import AddSwimLane from '../AddSwimLane'
+
+
 //////////////////////////////////////////////////////////////////
 
 /**
@@ -17,7 +19,7 @@ export class OpenBoardView extends React.Component {
   }
   render() {
     return (
-      <div style={{height:"100%"}}>
+      <div style={{height:"90%"}}>
         <div style={{height:"auto", width: "100%", color:"#ffffff", marginBottom:"1vmin"}}>
           <h3 style={{display:"inline"}}>{this.props.currentBoard.name}</h3>
         </div>
