@@ -45,7 +45,9 @@ export class NewBoardView extends React.Component {
         <div>
         <form onSubmit={this.onSubmit}>
             Name your new board:
-            <input type="text" className="textBox" required={true} name='title' onChange={this.onChange} placeholder='Give it a good name'/>
+            <input type="text" className="textBox" required={true} name='name' onChange={this.onChange} placeholder='Give it a good name'/>
+            Give your board a background:
+
             <input type="submit" className="button" value="Add New Board" />
         </form>
         </div>

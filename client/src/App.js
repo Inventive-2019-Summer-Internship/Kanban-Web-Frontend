@@ -29,11 +29,15 @@ class App extends React.Component {
     boards: [
       {
         name: "My First Board",
-        id: uuid()
+        id: uuid(),
+        swimLanes: [{title: "Sample1"}, {title: "Sample1"}, {title: "Sample1"}],
+        img: null
       },
       {
         name: "My Second Board",
-        id: uuid()
+        id: uuid(),
+        swimLanes: [{title: "Sample"}],
+        img: null
       },
 
     ]
@@ -60,6 +64,14 @@ class App extends React.Component {
     this.setState({boards:[...this.state.boards, newBoard]});
     alert("New Board Created");
   }
+  addSwimLane = (name, id) => {
+    var board = this.state.boards.filter(board => board.id === id)[0];
+    var newSwimlane = {title: name};
+    board.swimLanes = [...board.swimLanes, newSwimlane]
+    var newBoards = [...this.state.boards.filter(board => board.id !== id), board]
+    newBoards.push(newBoards.shift());
+    this.setState({boards: newBoards})
+  }
   /**
    * The Render Method
    */
@@ -72,12 +84,12 @@ class App extends React.Component {
      */
     return (
       <Router>
-        <div className="App">
+        <div style={{height:"100%"}} className="App">
           <Header />
           <Route exact path="/" render={props => 
             (<BoardView boards={this.state.boards} showBoard={this.showBoard}/>)}/>
           <Route path="/addBoard" render={props =>(<NewBoardView addBoard={this.addBoard}/>)}/>
-          <Route path="/showBoard" render={props =>(<OpenBoardView currentBoard={this.state.currentBoard}/>)}/>
+          <Route path="/showBoard" render={props =>(<OpenBoardView addSwimLane={this.addSwimLane} currentBoard={this.state.currentBoard}/>)}/>
         </div>
       </Router>
     );
