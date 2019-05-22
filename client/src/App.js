@@ -74,10 +74,12 @@ class App extends React.Component {
       <Router>
         <div className="App">
           <Header />
-          <Route exact path="/" render={props => 
+          <div id="content"> 
+            <Route exact path="/" render={props => 
             (<BoardView boards={this.state.boards} showBoard={this.showBoard}/>)}/>
-          <Route path="/addBoard" render={props =>(<NewBoardView addBoard={this.addBoard}/>)}/>
-          <Route path="/showBoard" render={props =>(<OpenBoardView currentBoard={this.state.currentBoard}/>)}/>
+            <Route path="/addBoard" render={props =>(<NewBoardView addBoard={this.addBoard}/>)}/>
+            <Route path="/showBoard" render={props =>(<OpenBoardView currentBoard={this.state.currentBoard}/>)}/>
+          </div>
         </div>
       </Router>
     );
