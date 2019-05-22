@@ -22,18 +22,24 @@ class App extends React.Component {
    */
   BLANK_BOARD = {
     name: "Default Board",
-    id: -1
+    id: -1,
+    img: null
   }
   state = {
+    showImage: false,
     currentBoard: this.BLANK_BOARD,
     boards: [
       {
         name: "My First Board",
-        id: uuid()
+        id: uuid(),
+        swimLanes: [{title: "Sample1"}, {title: "Sample1"}, {title: "Sample1"}],
+        img: "https://codereviewvideos.com/blog/wp-content/uploads/2016/01/fullsize-ubuntu-desktop-at-4k1.png"
       },
       {
         name: "My Second Board",
-        id: uuid()
+        id: uuid(),
+        swimLanes: [{title: "Sample"}],
+        img: "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia1.tenor.com%2Fimages%2F42283b6ad92daba7e619865e2e1aa9bd%2Ftenor.gif%3Fitemid%3D13154832&f=1"
       },
 
     ]
@@ -46,19 +52,33 @@ class App extends React.Component {
    */
   showBoard = (id) => {
     this.setState({currentBoard: this.state.boards.filter(board => board.id === id)[0]});
+    this.setState({showImage: true});
+  }
+
+  hideImage = () => {
+    this.setState({showImage: false});
   }
 
   /**
    * addBoard
    * @param name the name of the new board (Comes from NewBoardView)
    */
-  addBoard = (name) => {
+  addBoard = (name, url) => {
     const newBoard = {
       name,
-      id: uuid()
+      id: uuid(),
+      img: url
     }
     this.setState({boards:[...this.state.boards, newBoard]});
     alert("New Board Created");
+  }
+  addSwimLane = (name, id) => {
+    var board = this.state.boards.filter(board => board.id === id)[0];
+    var newSwimlane = {title: name};
+    board.swimLanes = [...board.swimLanes, newSwimlane]
+    var newBoards = [...this.state.boards.filter(board => board.id !== id), board]
+    newBoards.push(newBoards.shift());
+    this.setState({boards: newBoards})
   }
   /**
    * The Render Method
@@ -72,12 +92,12 @@ class App extends React.Component {
      */
     return (
       <Router>
-        <div className="App">
-          <Header />
+        <div style={{backgroundRepeat:'repeat',height:"100%", backgroundImage: (this.state.currentBoard.img && this.state.showImage) ? `url(${this.state.currentBoard.img})`: "none"}} className="App">
+          <Header hideImage={this.hideImage} />
           <Route exact path="/" render={props => 
             (<BoardView boards={this.state.boards} showBoard={this.showBoard}/>)}/>
           <Route path="/addBoard" render={props =>(<NewBoardView addBoard={this.addBoard}/>)}/>
-          <Route path="/showBoard" render={props =>(<OpenBoardView currentBoard={this.state.currentBoard}/>)}/>
+          <Route path="/showBoard" render={props =>(<OpenBoardView addSwimLane={this.addSwimLane} currentBoard={this.state.currentBoard}/>)}/>
         </div>
       </Router>
     );

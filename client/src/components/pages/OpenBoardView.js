@@ -1,7 +1,11 @@
 ///////////////  Package Imports  ////////////////////////////////
 import React from 'react'
 import PropTypes from 'prop-types'
-////////////// Components Imports ////////////////////////////////'
+////////////// Components Imports ////////////////////////////////
+import SwimLanes from '../SwimLanes'
+import AddSwimLane from '../AddSwimLane'
+
+
 //////////////////////////////////////////////////////////////////
 
 /**
@@ -10,10 +14,21 @@ import PropTypes from 'prop-types'
  * TODO: Insert actual board functionality
  */
 export class OpenBoardView extends React.Component {
+  addSwimLane = (name) => {
+    this.props.addSwimLane(name, this.props.currentBoard.id);
+  }
   render() {
     return (
-      <div>
-        Viewing: {this.props.currentBoard.name}/{this.props.currentBoard.id}
+      <div style={{height:"90%"}}>
+        <div style={{height:"auto", width: "100%", color:"#ffffff", marginBottom:"1vmin"}}>
+          <h3 style={{display:"inline"}}>{this.props.currentBoard.name}</h3>
+        </div>
+        
+        <div style={{display:'flex', height:"100%", overflowX:"auto", flexWrap: "nowrap"}}>
+          <SwimLanes currentBoard={this.props.currentBoard}/>
+          <AddSwimLane addSwimLane={this.addSwimLane} />
+        </div>
+        
       </div>
     )
   }
