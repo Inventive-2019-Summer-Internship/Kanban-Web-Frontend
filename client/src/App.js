@@ -59,7 +59,7 @@ class App extends React.Component {
     if(this.state.spaceMode) {
       require('./cssupdate.css');
     } else {
-      require("./App.css");
+      require("./cssupdate.css");
     }
   }
   showBoard = (id) => {
