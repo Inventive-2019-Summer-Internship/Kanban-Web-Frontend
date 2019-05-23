@@ -55,6 +55,7 @@ class App extends React.Component {
    * @param id the id of the board that you want to show (Comes from BoardListing>BoardView>this)
    */
   componentWillMount() {
+    console.log(this.state.darkMode)
     if(this.state.darkMode) {
       require("./App.css");
     } else {
