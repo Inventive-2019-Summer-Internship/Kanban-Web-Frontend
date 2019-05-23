@@ -41,6 +41,7 @@ export class OpenBoardView extends React.Component {
         alert("Board Not Deleted");
     }
     else {
+        
         this.props.deleteBoard(this.props.currentBoard.id);
     }
   }
