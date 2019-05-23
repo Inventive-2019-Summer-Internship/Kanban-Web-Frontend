@@ -41,18 +41,18 @@ export class OpenBoardView extends React.Component {
         alert("Board Not Deleted");
     }
     else {
-
+        
         this.props.deleteBoard(this.props.currentBoard.id);
     }
   }
   render() {
     return (
       <div style={{height:"90%"}}>
-        <div class="options">
+        <div style={{height:"auto", width: "100%", color:"#ffffff", marginBottom:"1vmin"}}>
           <h3 style={{display:"inline"}}>{this.props.currentBoard.name}</h3>
-          <h3 onClick={this.changeBoardName} style={{display:"inline"}}>{"Change Board name"}</h3>
-          <h3 onClick={this.changeBoardBG} style={{display:"inline"}}>{"Change Board Background"}</h3>
-          <h3 onClick={this.deleteBoard} style={{display:"inline"}}>{"🗑 Delete Board"}</h3>
+          <h3 onClick={this.changeBoardName} style={{display:"inline"}}>{">>Change Board name<<"}</h3>
+          <h3 onClick={this.changeBoardBG} style={{display:"inline"}}>{">>Change Board Background<<"}</h3>
+          <h3 onClick={this.deleteBoard} style={{display:"inline"}}>{">>🗑🗑 Delete Board<<"}</h3>
         </div>
         
         <div style={{display:'flex', height:"100%", overflowX:"auto", flexWrap: "nowrap"}}>
