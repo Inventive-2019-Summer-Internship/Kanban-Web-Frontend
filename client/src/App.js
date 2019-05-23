@@ -56,7 +56,7 @@ class App extends React.Component {
    */
   componentWillMount() {
     console.log(this.state.darkMode)
-    if(this.state.darkMode) {
+    if(this.state.darkMode === true) {
       require("./App.css");
     } else {
       require('./cssupdate.css');
@@ -117,7 +117,6 @@ class App extends React.Component {
   toggleSpace = () => {
     let antiCurrentSetting = !(this.state.darkMode)
     this.setState({darkMode: antiCurrentSetting});
-    this.render();
   }
   /**
    * The Render Method
