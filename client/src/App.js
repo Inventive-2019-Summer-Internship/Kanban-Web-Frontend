@@ -58,7 +58,7 @@ class App extends React.Component {
     if(this.state.darkMode) {
       require("./App.css");
     } else {
-      require("./App.css");
+      require('./cssupdate.css');
     }
   }
   showBoard = (id) => {
@@ -86,7 +86,9 @@ class App extends React.Component {
   }
   deleteBoard = (id) => {
     var newBoards = this.state.boards.filter(board => board.id !== id);
+
     window.history.back();
+
     this.setState({boards: newBoards})
   }
   changeBoardName = (name, id) => {
