@@ -11,6 +11,7 @@ import {Link} from 'react-router-dom'
  * see what boards they have registered to their account
  */
 export class BoardListing extends React.Component {
+
   render() {
     return (
       <Link className="boardRow" to="/showBoard">
