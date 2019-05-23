@@ -56,7 +56,7 @@ class App extends React.Component {
    */
   componentWillMount() {
     console.log(this.state.darkMode)
-    if(!this.state.spaceMode) {
+    if(this.state.spaceMode) {
       require('./cssupdate.css');
     } else {
       require("./App.css");
