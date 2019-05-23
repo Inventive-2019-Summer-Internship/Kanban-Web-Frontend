@@ -16,7 +16,8 @@ export class NewBoardView extends React.Component {
      * State and Extra Definitions
      */
     state = {
-        name: ''
+        name: '',
+        url: ''
     }
     ///////////////// Method Bloc
     /**
@@ -26,7 +27,9 @@ export class NewBoardView extends React.Component {
      */
     onSubmit = (evt) => {
         evt.preventDefault();
-        this.props.addBoard(this.state.name);
+        this.props.addBoard(this.state.name, this.state.url);
+        
+
     }
 
     /**
@@ -35,7 +38,7 @@ export class NewBoardView extends React.Component {
      * a text field for submitting a url for the background method, then this method can
      * be changed to accomodate more fields, but more change to the name of the input fields)
      */
-    onChange = (evt) => this.setState({name: evt.target.value});  
+    onChange = (evt) => this.setState({[evt.target.name]: evt.target.value});  
 
     /**
      * The Render Method
@@ -44,8 +47,14 @@ export class NewBoardView extends React.Component {
     return (
         <div>
         <form onSubmit={this.onSubmit}>
-            Name your new board:
-            <input type="text" className="textBox" required={true} name='title' onChange={this.onChange} placeholder='Give it a good name'/>
+        <h1>✨Add a New Board✨</h1><br/>
+    <p /*style={{textAlign: "center"}}*/>Name your new board:</p>
+
+        <input type="text" className="textBox" required={true} name='name' onChange={this.onChange} placeholder=' Give it a good name'/><br></br>
+
+        <p style={{textAlign: "center"}}>Give your board a background url (if you want):</p>
+        <input type="text" className="textBox" required={false} name='url' onChange={this.onChange} placeholder=' Give it a good url'/>
+
             <input type="submit" className="button" value="Add New Board" />
         </form>
         </div>
