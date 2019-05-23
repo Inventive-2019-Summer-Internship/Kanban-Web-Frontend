@@ -9,8 +9,8 @@ import {Link} from 'react-router-dom'
 export class Header extends React.Component {
   render() {
     return (
-      <div style={{margin:"0px"}}className="App-header">
-          <h3 style={{marginTop: "-0.5vmin", marginLeft: "10px", float: "left",display:'inline'}}>Kanban</h3>
+      <div style={{margin:"0px", paddingTop:"5px"}}className="App-header">
+          <h3 class="theStupidFUckingKANBANLogoInTheTopRightCorner__LikeSeriouslyThisLogoIsResponsibleForSooooManyStylingIssues__FuckThisLogo">Kanban</h3>
           <Link to="/addBoard" className="standardLink">+</Link>
           <Link onClick={this.props.hideImage} to="/" className="standardLink">Boards</Link>
           <Link onClick={this.props.toggleSpace} className="standardLink">Toggle Space</Link>

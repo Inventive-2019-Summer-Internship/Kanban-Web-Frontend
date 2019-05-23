@@ -1,3 +1,4 @@
+/* header and body */
 
 .App {
   text-align: center;
@@ -20,7 +21,6 @@
 .App-link {
   color: #61dafb;
 }
-
 .standardLink {
   display:inline;
   float:right;
@@ -39,12 +39,40 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+
+
+/*list of boards page*/
+
 .boardRow {
   color: #000000;
-  text-decoration: none;
   font-size:calc(10px + 2vmin);
+  align: center; 
+}
+.boardListing {
+  background-color: #ead3c1;
+  padding: 1vmin;
+  border: 1px solid #a21747;
+  border-radius: 10px;
+  align: center;
+  /*margin: 20px 150px;*/
+
+}
+.boardListing:hover {
+  background-color: #FFF3EB;
+  padding: 1vmin;
+  border: 1px solid #a21747;
+  border-top-width: 1px;
 }
 
+
+
+/* view one board w options */
+.title{
+  display:"inline";
+  align: center;
+  color: #a21747;
+}
 .options{
   height: auto;
   width: 100%;
@@ -67,21 +95,6 @@ body {
   color: #000000;
 }
 
-
-
-.boardListing {
-  background-color: #ead3c1;
-  padding: 1vmin;
-  border: 1px solid #a21747;
-  border-radius: 10px;
-  margin: 20px 150px;
-}
-.boardListing:hover {
-  background-color: #FFF3EB;
-  padding: 1vmin;
-  border: 1px solid #a21747;
-  border-top-width: 1px;
-}
 
 /* New board page */
 form {
@@ -130,10 +143,6 @@ form {
   background-color: #FFF3EB;
   border: 1px solid #a21747;
 }
-
-
-
-
 
 
 @keyframes App-logo-spin {

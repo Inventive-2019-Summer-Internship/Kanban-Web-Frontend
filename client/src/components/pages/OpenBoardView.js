@@ -48,8 +48,9 @@ export class OpenBoardView extends React.Component {
   render() {
     return (
       <div style={{height:"90%"}}>
+        <h3  class="title">{this.props.currentBoard.name}</h3>
+        <hr/>
         <div class="options">
-          <h3 style={{display:"inline"}}>{this.props.currentBoard.name}</h3>
           <h3 onClick={this.changeBoardName} style={{display:"inline"}}>{"Change Board name"}</h3>
           <h3 onClick={this.changeBoardBG} style={{display:"inline"}}>{"Change Board Background"}</h3>
           <h3 onClick={this.deleteBoard} style={{display:"inline"}}>{"🗑 Delete Board"}</h3>

@@ -12,8 +12,8 @@ export class AddSwimLane extends Component {
     }
     render() {
     return (
-        <div className="newLane" onClick={this.AddSwimLane}>
-            <span style={{fontSize:"10vmin", color:"#a21747"}}>+</span>        
+        <div onClick={this.AddSwimLane} class="newLane">
+            <p class="plusSign">+</p>        
         </div>
     )
     }
