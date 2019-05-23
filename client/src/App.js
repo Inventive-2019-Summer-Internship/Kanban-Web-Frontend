@@ -55,11 +55,12 @@ class App extends React.Component {
    * @param id the id of the board that you want to show (Comes from BoardListing>BoardView>this)
    */
   componentWillMount() {
-    if(this.state.darkMode) {
+    /*if(this.state.darkMode) {
       require("./App.css");
     } else {
       require("./cssupdate.css");
-    }
+    }*/
+    require("./App.css");
   }
   showBoard = (id) => {
     this.setState({currentBoard: this.state.boards.filter(board => board.id === id)[0]});
