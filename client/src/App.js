@@ -27,7 +27,7 @@ class App extends React.Component {
     img: null
   }
   state = {
-    spaceMode: false,
+    darkMode: true,
     showImage: false,
     currentBoard: this.BLANK_BOARD,
     boards: [
@@ -55,9 +55,8 @@ class App extends React.Component {
    * @param id the id of the board that you want to show (Comes from BoardListing>BoardView>this)
    */
   componentWillMount() {
-    console.log(this.state.darkMode)
-    if(this.state.spaceMode) {
-      require('./cssupdate.css');
+    if(this.state.darkMode) {
+      require("./App.css");
     } else {
       require("./cssupdate.css");
     }
@@ -87,9 +86,7 @@ class App extends React.Component {
   }
   deleteBoard = (id) => {
     var newBoards = this.state.boards.filter(board => board.id !== id);
-
     window.history.back();
-
     this.setState({boards: newBoards})
   }
   changeBoardName = (name, id) => {
@@ -115,9 +112,8 @@ class App extends React.Component {
     this.setState({boards: newBoards})
   }
   toggleSpace = () => {
-    let antiCurrentSetting = !(this.state.spaceMode)
-    this.setState({spaceMode: antiCurrentSetting});
-    console.log(this.state.spaceMode);
+    let antiCurrentSetting = !(this.state.darkMode)
+    this.setState({darkMode: antiCurrentSetting});
   }
   /**
    * The Render Method
