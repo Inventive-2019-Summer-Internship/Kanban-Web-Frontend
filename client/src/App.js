@@ -58,7 +58,7 @@ class App extends React.Component {
     if(this.state.darkMode) {
       require("./App.css");
     } else {
-      require("./App.css");
+      require("./cssupdate.css");
     }
   }
   showBoard = (id) => {
