@@ -8,7 +8,7 @@ import BoardView from './components/BoardView';
 import NewBoardView from './components/pages/NewBoardView';
 import OpenBoardView from './components/pages/OpenBoardView';
 /////////////    CSS Imports      ////////////////////////////////
-import './App.css';
+import './cssupdate.css';
 //////////////////////////////////////////////////////////////////
 
 /**
@@ -67,10 +67,30 @@ class App extends React.Component {
     const newBoard = {
       name,
       id: uuid(),
+      swimLanes: [],
       img: url
     }
     this.setState({boards:[...this.state.boards, newBoard]});
     alert("New Board Created");
+  }
+  deleteBoard = (id) => {
+    var newBoards = this.state.boards.filter(board => board.id !== id);
+    document.getElementById("BoardsButton").click();
+    this.setState({boards: newBoards})
+  }
+  changeBoardName = (name, id) => {
+    var board = this.state.boards.filter(board => board.id === id)[0];
+    board.name = name;
+    var newBoards = [...this.state.boards.filter(board => board.id !== id), board];
+    newBoards.push(newBoards.shift());
+    this.setState({boards: newBoards})
+  }
+  changeBoardBG = (url, id) => {
+    var board = this.state.boards.filter(board => board.id === id)[0];
+    board.img = url;
+    var newBoards = [...this.state.boards.filter(board => board.id !== id), board];
+    newBoards.push(newBoards.shift());
+    this.setState({boards: newBoards})
   }
   addSwimLane = (name, id) => {
     var board = this.state.boards.filter(board => board.id === id)[0];
@@ -98,6 +118,8 @@ class App extends React.Component {
             (<BoardView boards={this.state.boards} showBoard={this.showBoard}/>)}/>
           <Route path="/addBoard" render={props =>(<NewBoardView addBoard={this.addBoard}/>)}/>
           <Route path="/showBoard" render={props =>(<OpenBoardView addSwimLane={this.addSwimLane} currentBoard={this.state.currentBoard}/>)}/>
+          <Route path="/showBoard" render={props =>(<OpenBoardView deleteBoard={this.deleteBoard} changeBoardName={this.changeBoardName} changeBoardBG={this.changeBoardBG} addSwimLane={this.addSwimLane} currentBoard={this.state.currentBoard}/>)}/>
+
         </div>
       </Router>
     );
