@@ -117,6 +117,7 @@ class App extends React.Component {
   toggleSpace = () => {
     let antiCurrentSetting = !(this.state.darkMode)
     this.setState({darkMode: antiCurrentSetting});
+    this.render();
   }
   /**
    * The Render Method
