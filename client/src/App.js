@@ -8,7 +8,7 @@ import BoardView from './components/BoardView';
 import NewBoardView from './components/pages/NewBoardView';
 import OpenBoardView from './components/pages/OpenBoardView';
 /////////////    CSS Imports      ////////////////////////////////
-import './cssupdate.css';
+
 //////////////////////////////////////////////////////////////////
 
 /**
@@ -20,12 +20,14 @@ class App extends React.Component {
   /**
    * State and Extra Definitions
    */
+  
   BLANK_BOARD = {
     name: "Default Board",
     id: -1,
     img: null
   }
   state = {
+    darkMode: true,
     showImage: false,
     currentBoard: this.BLANK_BOARD,
     boards: [
@@ -33,7 +35,7 @@ class App extends React.Component {
         name: "My First Board",
         id: uuid(),
         swimLanes: [{title: "Sample1"}, {title: "Sample1"}, {title: "Sample1"}],
-        img: "https://codereviewvideos.com/blog/wp-content/uploads/2016/01/fullsize-ubuntu-desktop-at-4k1.png"
+        img: "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.memecdn.com%2Fbest-gif-ever_o_901136.gif&f=1"
       },
       {
         name: "My Second Board",
@@ -45,11 +47,20 @@ class App extends React.Component {
     ]
     
   }
+
+  
   ///////////////// Method Bloc
   /**
    * showBoard
    * @param id the id of the board that you want to show (Comes from BoardListing>BoardView>this)
    */
+  componentWillMount() {
+    if(this.state.darkMode) {
+      require("./App.css");
+    } else {
+      require('./cssupdate.css');
+    }
+  }
   showBoard = (id) => {
     this.setState({currentBoard: this.state.boards.filter(board => board.id === id)[0]});
     this.setState({showImage: true});
@@ -75,7 +86,9 @@ class App extends React.Component {
   }
   deleteBoard = (id) => {
     var newBoards = this.state.boards.filter(board => board.id !== id);
-    document.getElementById("BoardsButton").click();
+
+    window.history.back();
+
     this.setState({boards: newBoards})
   }
   changeBoardName = (name, id) => {
@@ -100,6 +113,10 @@ class App extends React.Component {
     newBoards.push(newBoards.shift());
     this.setState({boards: newBoards})
   }
+  toggleSpace = () => {
+    let antiCurrentSetting = !(this.state.darkMode)
+    this.setState({darkMode: antiCurrentSetting});
+  }
   /**
    * The Render Method
    */
@@ -113,13 +130,12 @@ class App extends React.Component {
     return (
       <Router>
         <div style={{backgroundRepeat:'repeat',height:"100%", backgroundImage: (this.state.currentBoard.img && this.state.showImage) ? `url(${this.state.currentBoard.img})`: "none"}} className="App">
-          <Header hideImage={this.hideImage} />
-          <Route exact path="/" render={props => 
-            (<BoardView boards={this.state.boards} showBoard={this.showBoard}/>)}/>
+          <Header toggleSpace={this.toggleSpace} hideImage={this.hideImage} />
+          <Route exact path="/" render={() => {
+            if(this.state.showImage) this.hideImage();
+            return(<BoardView boards={this.state.boards} showBoard={this.showBoard}/>)}}/>
           <Route path="/addBoard" render={props =>(<NewBoardView addBoard={this.addBoard}/>)}/>
-          <Route path="/showBoard" render={props =>(<OpenBoardView addSwimLane={this.addSwimLane} currentBoard={this.state.currentBoard}/>)}/>
           <Route path="/showBoard" render={props =>(<OpenBoardView deleteBoard={this.deleteBoard} changeBoardName={this.changeBoardName} changeBoardBG={this.changeBoardBG} addSwimLane={this.addSwimLane} currentBoard={this.state.currentBoard}/>)}/>
-
         </div>
       </Router>
     );

@@ -41,6 +41,7 @@ export class OpenBoardView extends React.Component {
         alert("Board Not Deleted");
     }
     else {
+
         this.props.deleteBoard(this.props.currentBoard.id);
     }
   }
@@ -69,6 +70,9 @@ export class OpenBoardView extends React.Component {
  * FOR DATA TRANSMISSION
  */
 OpenBoardView.propTypes = {
-    currentBoard: PropTypes.object.isRequired
+    currentBoard: PropTypes.object.isRequired,
+    changeBoardName: PropTypes.func.isRequired,
+    changeBoardBG: PropTypes.func.isRequired,
+    deleteBoard: PropTypes.func.isRequired
 }
 export default OpenBoardView
