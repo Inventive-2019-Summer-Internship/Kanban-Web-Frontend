@@ -4,7 +4,7 @@ Progress as of May 23rd 2019 -- 10:48 am
 
 -Able to create boards and swimlanes
 -Able to have background images for boards via url (optional)
--Stores locally meaning that data will be lost once refreshed (no backend so w.e)
+-Stores locally meaning that data will be lost once refreshed (no backend atm so w.e)
 
 Changes to come as of May 23rd 2019 -- 10:51am
 
