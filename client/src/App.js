@@ -27,7 +27,7 @@ class App extends React.Component {
     img: null
   }
   state = {
-    darkMode: true,
+    spaceMode: false,
     showImage: false,
     currentBoard: this.BLANK_BOARD,
     boards: [
@@ -56,10 +56,10 @@ class App extends React.Component {
    */
   componentWillMount() {
     console.log(this.state.darkMode)
-    if(this.state.darkMode === true) {
-      require("./App.css");
-    } else {
+    if(this.state.spaceMode === true) {
       require('./cssupdate.css');
+    } else {
+      require("./App.css");
     }
   }
   showBoard = (id) => {
@@ -115,8 +115,8 @@ class App extends React.Component {
     this.setState({boards: newBoards})
   }
   toggleSpace = () => {
-    let antiCurrentSetting = !(this.state.darkMode)
-    this.setState({darkMode: antiCurrentSetting});
+    let antiCurrentSetting = !(this.state.spaceMode)
+    this.setState({spaceMode: antiCurrentSetting});
   }
   /**
    * The Render Method
