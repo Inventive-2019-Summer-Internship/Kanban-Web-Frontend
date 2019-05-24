@@ -14,6 +14,7 @@ export class AddSwimLane extends Component {
     return (
         <div onClick={this.AddSwimLane} class="newLane" style={{height:"18%"}}>
             <p>+</p>        
+
         </div>
     )
     }
