@@ -1,5 +1,7 @@
+/*/* header and body */
 
 .App {
+
     text-align: center;
     font-size: calc(7px + 2vmin);
     position: fixed;
@@ -143,4 +145,4 @@
     to {
       transform: rotate(360deg);
     }
-  }
+  }*/
