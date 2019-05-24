@@ -135,7 +135,7 @@ class App extends React.Component {
             return(<BoardView boards={this.state.boards} showBoard={this.showBoard}/>)}}/>
           <Route path="/addBoard" render={props =>(<NewBoardView addBoard={this.addBoard}/>)}/>
           <Route path="/showBoard" render={props =>(<OpenBoardView deleteBoard={this.deleteBoard} changeBoardName={this.changeBoardName} changeBoardBG={this.changeBoardBG} addSwimLane={this.addSwimLane} currentBoard={this.state.currentBoard}/>)}/>
-        </div>
+        </div>  
       </Router>
     );
   }
