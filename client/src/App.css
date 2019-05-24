@@ -1,13 +1,13 @@
 /* header and body */
 @import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
-
 .App {
   text-align: center;
   font-size: calc(7px + 2vmin);
   position: fixed;
   width: 100%;
-  font-family: 'Press Start 2P', cursive;
-
+  /* font-family: 'Press Start 2P', cursive; */
+  font-family: 'Palatino';
+  color: white;
 }
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -19,7 +19,6 @@
   height: calc(4vmin);
   vertical-align: center;
   font-size: calc(7px + 2vmin);
-  color: white;
 }
 .App-link {
   color: #61dafb;
@@ -27,11 +26,12 @@
 
 .standardLink {
   display:inline;
-  float:right;
+  float: right;
   padding:0px 10px 0px 10px;
   color:#ffffff;
   text-decoration:none;
   font-size:calc(5px + 2vmin);
+  margin: 3px
 }
 .standardLink:hover{
   color: black;
@@ -52,7 +52,8 @@ body {
   font-size: 18px;
   width: 80%;
   text-decoration: none;
-  font-family: 'Press Start 2P', cursive;
+  /* font-family: 'Press Start 2P', cursive; */
+  font-family: 'Palatino';
 }
 .boardListing {
   background-color: #ead3c1;
@@ -71,43 +72,31 @@ body {
 
 
 /* view one board w options */
-
-
-.theStupidFUckingKANBANLogoInTheTopRightCorner__LikeSeriouslyThisLogoIsResponsibleForSooooManyStylingIssues__FuckThisLogo {
-   margin-left: "10px";
-  float: "left";
-  display: inline;
-}
-
-
 .title{
   color: white;
-  background-color: #000000;
-  border: solid 1px #000000;
-  padding-top: 8px;
+  background-color: black;
+  /* border: solid 1px #282c34; */
   padding-bottom: 8px;
   margin-top: 0px;
-  font-family: 'Press Start 2P', cursive;
+  /* font-family: 'Press Start 2P', cursive; */
+  font-family: 'Palatino';
   
 }
-
 .options{
   height: auto;
   width: 100%;
-  color:"#ffffff";
-  margin-top: 2vmin;
-  margin-bottom: 2vmin;
-}
+  color: white;
+  margin: 15px;
+ }
 .options h3{
   background-color: #282c34;
   color: white;
   margin: 10px;
   padding: 5px;
-  height: 5vmin;
-  font-size: 3vmin;
-  border: none;
+  font-size: 15px;
   border-radius: 5px;
-  border: 1px solid #282c34;;
+  border: 1px solid #282c34;
+  opacity: 0.9;
 }
 .options h3:hover {
   background-color: #FFF3EB;
@@ -115,33 +104,31 @@ body {
   border: 1px solid #a21747;  
 }
 
+
+
 /* swim lanes */
 .newLane {
   background-color: #ead3c1;
   flex: 0 0 auto;
-  border-radius: 7px;
-  margin-left: 3vmin;
+  margin: 0vmin 3vmin 0vmin 3vmin;
   width: 20vmax;
-  height: 15vmin;
   border: 1px solid #a21747;
   border-radius: 10px; 
   color: #a21747;
   font-weight: bold;
   font-family: 'Palantino';
   padding: 5px;
-}
-
-.plusSign {
-  font-size:50px;
-  margin-top: 12px;
+  height: 75%;  /*change this back to 90% when options are moved to drop down menu*/
+  opacity: 0.9;
 }
 .newLane:hover {
-  color: #ffffff;
-  background-color: #282c34;
+  background-color: #FFF3EB;
   border: 1px solid #a21747;
 }
-
-
+.newLane p {
+  font-size: 30px;
+  display: center;
+}
 
 
 
