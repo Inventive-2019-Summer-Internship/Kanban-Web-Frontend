@@ -133,7 +133,9 @@ class App extends React.Component {
           <Route exact path="/" render={() => {
             if(this.state.showImage) this.hideImage();
             return(<BoardView boards={this.state.boards} showBoard={this.showBoard}/>)}}/>
-          <Route path="/addBoard" render={props =>(<NewBoardView addBoard={this.addBoard}/>)}/>
+          <Route path="/addBoard" render={() =>{
+            if(this.state.showImage) this.hideImage();
+            return(<NewBoardView addBoard={this.addBoard}/>)}}/>
           <Route path="/showBoard" render={props =>(<OpenBoardView deleteBoard={this.deleteBoard} changeBoardName={this.changeBoardName} changeBoardBG={this.changeBoardBG} addSwimLane={this.addSwimLane} currentBoard={this.state.currentBoard}/>)}/>
         </div>  
       </Router>
