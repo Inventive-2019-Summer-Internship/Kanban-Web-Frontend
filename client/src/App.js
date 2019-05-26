@@ -114,9 +114,10 @@ class App extends React.Component {
   }
   toggleSpace = () => {
         var audio = new Audio("musicMetroid.mp3");
-        audio.play();
+        this.state.darkMode ?  audio.play() : audio.pause();
     let antiCurrentSetting = !(this.state.darkMode)
     this.setState({darkMode: antiCurrentSetting});
+    console.log(this.state.darkMode)
   }
   /**
    * The Render Method
