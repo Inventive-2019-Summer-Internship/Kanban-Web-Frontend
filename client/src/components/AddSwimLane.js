@@ -4,7 +4,7 @@ export class AddSwimLane extends Component {
     AddSwimLane = () => {
         var name = prompt("Name your lane", "Default Lane Name");
         if(name === "" || name === null) {
-            alert("New swin lane was not created");
+            alert("New swim lane was not created");
         }
         else {
             this.props.addSwimLane(name);
