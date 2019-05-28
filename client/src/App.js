@@ -32,7 +32,7 @@ class App extends React.Component {
         musicList: ["Always_Be_My_Unicorn.mp3","Arms_Dealer.mp3","Half_Bit.mp3",
     "Meteor.mp3","OK_POP_KO.mp3","Orbital_Romance.mp3",
   "Scouting.mp3","Space_Adventure.mp3","Splashing_Around.mp3",
-    "do_dodo_do_dodododooo_DODODO.mp3"],
+    "do_dodo_do_dodododooo_DODODO.mp3","UltimateShowdownOfUltimateDestiny.mp3","tacos.mp3"],
     currentBoard: this.BLANK_BOARD,
     boards: [
       {
