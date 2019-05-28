@@ -32,15 +32,33 @@ class App extends React.Component {
     currentBoard: this.BLANK_BOARD,
     boards: [
       {
-        name: "My First Board",
         id: uuid(),
-        swimLanes: [{title: "Sample1"}, {title: "Sample1"}, {title: "Sample1"}],
+        name: "My First Board",
+        swimLanes: [
+          {
+            title: "Sample1",
+            id: uuid(),
+            cards: [
+              {
+                title: "sample card",
+                description: "This is a sample description",
+                id: uuid()
+              }
+            ]
+          }
+        ],
         img: "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.memecdn.com%2Fbest-gif-ever_o_901136.gif&f=1"
       },
       {
-        name: "My Second Board",
         id: uuid(),
-        swimLanes: [{title: "Sample"}],
+        name: "My Second Board",
+        swimLanes: [
+          {
+            title: "Sample",
+            id: uuid(),
+            cards: []
+          }
+        ],
         img: "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia1.tenor.com%2Fimages%2F42283b6ad92daba7e619865e2e1aa9bd%2Ftenor.gif%3Fitemid%3D13154832&f=1"
       },
 
