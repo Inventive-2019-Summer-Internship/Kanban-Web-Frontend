@@ -78,7 +78,7 @@ class App extends React.Component {
     } else {
       require("./cssupdate.css");
     }*/
-    require("./App.css");
+    require("./Dark.css");
   }
   showBoard = (id) => {
     this.setState({currentBoard: this.state.boards.filter(board => board.id === id)[0]});
