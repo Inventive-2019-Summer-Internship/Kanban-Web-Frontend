@@ -14,6 +14,22 @@ import AddSwimLane from '../AddSwimLane'
  * TODO: Insert actual board functionality
  */
 export class OpenBoardView extends React.Component {
+  showDiv = () => {
+    console.log("ShowDiv");
+    document.getElementById("menuActual").className = "slide-in";
+    window.setTimeout(() => {
+      document.getElementById("menu").style.display = "block";
+      document.getElementById("menuSetup").style.display = "block";
+    },100);
+  }
+  hideDiv = () => {
+    console.log("HideDiv");
+    document.getElementById("menuActual").className = "slide-out";
+    document.getElementById("menuSetup").style.display = "none";
+    window.setTimeout(() => {
+      document.getElementById("menu").style.display = "none";
+    },450);
+  }
   addSwimLane = (name) => {
     this.props.addSwimLane(name, this.props.currentBoard.id);
   }
@@ -41,22 +57,35 @@ export class OpenBoardView extends React.Component {
         alert("Board Not Deleted");
     }
     else {
+
         this.props.deleteBoard(this.props.currentBoard.id);
     }
   }
   render() {
     return (
-      <div style={{height:"100%", width: "100%", marginBottom:"1vmin"}}>
-        <h3 className="title">{this.props.currentBoard.name}</h3>
+      <div style={{height:"90%"}}>
+        <h3 class="title">{this.props.currentBoard.name}</h3>
+        <p onClick={this.showDiv} id="sideBarActivator">&#9776;</p>
         <div class="options">
-          <h3 onClick={this.changeBoardName} style={{display:"inline"}}>{"Change Board name"}</h3>
+          <h3 onClick={this.changeBoardName} style={{display:"inline"}}>{"Change Board Name"}</h3>
           <h3 onClick={this.changeBoardBG} style={{display:"inline"}}>{"Change Board Background"}</h3>
           <h3 onClick={this.deleteBoard} style={{display:"inline"}}>{"🗑 Delete Board"}</h3>
         </div>
         
-        <div style={{display:'flex', height:"100%", overflowX:"auto", flexWrap: "nowrap",height:"100%"}}>
+        <div style={{display:'flex', overflowX:"auto", flexWrap: "nowrap", height:"85%"}}>
           <SwimLanes currentBoard={this.props.currentBoard}/>
-          <AddSwimLane addSwimLane={this.addSwimLane} />
+          <AddSwimLane addSwimLane={this.addSwimLane}/>
+        </div>
+
+        <div id="menu">
+            <div id="menuSetup" onClick={this.hideDiv}>
+              <p>Exit Menu</p>
+            </div>
+            <div id="menuActual">
+                <p onClick={this.changeBoardName}>Change Board Name</p>
+                <p onClick={this.changeBoardBG}>Change Board Background</p>
+                <p onClick={this.deleteBoard}>🗑 Delete Board</p>
+            </div>
         </div>
         
       </div>
