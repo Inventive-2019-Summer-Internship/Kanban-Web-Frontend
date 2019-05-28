@@ -9,12 +9,11 @@ import {Link} from 'react-router-dom'
 export class Header extends React.Component {
   render() {
     return (
-      <div style={{margin:"0px"}}className="App-header">
-          <h3 style={{marginTop: "-0.5vmin", marginLeft: "10px", float: "left",display:'inline'}}>Kanban</h3>
+      <div className="App-header">
+          <h3 style={{float:"left",margin:"3px",fontSize:"calc(5px + 2vmin)"}}>Kanban</h3>
           <Link to="/addBoard" className="standardLink">+</Link>
           <Link onClick={this.props.hideImage} to="/" className="standardLink">Boards</Link>
-          <Link onClick={this.props.toggleSpace} className="standardLink">Toggle Space</Link>
-          
+          <Link onClick={this.props.toggleSpace} className="standardLink">Toggle Space</Link>          
       </div>
     )
   }

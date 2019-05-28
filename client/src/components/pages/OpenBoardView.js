@@ -2,10 +2,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 ////////////// Components Imports ////////////////////////////////
-import SwimLanes from '../SwimLanes'
-import AddSwimLane from '../AddSwimLane'
-
-
+import PopoutMenu from '../PopoutMenu'
+import SwimLaneView from '../SwimLaneView'
+import BoardHeader from '../BoardHeader'
 //////////////////////////////////////////////////////////////////
 
 /**
@@ -14,9 +13,11 @@ import AddSwimLane from '../AddSwimLane'
  * TODO: Insert actual board functionality
  */
 export class OpenBoardView extends React.Component {
+
   addSwimLane = (name) => {
     this.props.addSwimLane(name, this.props.currentBoard.id);
   }
+
   changeBoardName = () => {
     var name = prompt("Name your Board", this.props.currentBoard.name);
     if(name === null || name === "" || name === this.props.currentBoard.name) {
@@ -26,6 +27,7 @@ export class OpenBoardView extends React.Component {
         this.props.changeBoardName(name, this.props.currentBoard.id);
     }
   }
+
   changeBoardBG = () => {
     var name = prompt("Change the Background of your Board", this.props.currentBoard.img);
     if(name === null || name === "" || name === this.props.currentBoard.img) {
@@ -35,31 +37,25 @@ export class OpenBoardView extends React.Component {
         this.props.changeBoardBG(name, this.props.currentBoard.id);
     }
   }
+
   deleteBoard = () => {
     var name = prompt("Are you sure you want to delete this board? Type in the board's name to verify deletion.");
     if(name === null || name === "" || !name.match(new RegExp(this.props.currentBoard.name,'i','g'))) {
         alert("Board Not Deleted");
     }
     else {
-        
         this.props.deleteBoard(this.props.currentBoard.id);
     }
   }
+
   render() {
     return (
-      <div style={{height:"90%"}}>
-        <div style={{height:"auto", width: "100%", color:"#ffffff", marginBottom:"1vmin"}}>
-          <h3 style={{display:"inline"}}>{this.props.currentBoard.name}</h3>
-          <h3 onClick={this.changeBoardName} style={{display:"inline"}}>{">>Change Board name<<"}</h3>
-          <h3 onClick={this.changeBoardBG} style={{display:"inline"}}>{">>Change Board Background<<"}</h3>
-          <h3 onClick={this.deleteBoard} style={{display:"inline"}}>{">>🗑🗑 Delete Board<<"}</h3>
-        </div>
-        
-        <div style={{display:'flex', height:"100%", overflowX:"auto", flexWrap: "nowrap"}}>
-          <SwimLanes currentBoard={this.props.currentBoard}/>
-          <AddSwimLane addSwimLane={this.addSwimLane} />
-        </div>
-        
+      <div style={{height:"90%", width: "100%"}}>
+
+        <BoardHeader currentBoard={this.props.currentBoard} />
+        <SwimLaneView currentBoard={this.props.currentBoard} addSwimLane={this.addSwimLane} />
+        <PopoutMenu changeBoardName={this.changeBoardName} changeBoardBG={this.changeBoardBG} deleteBoard={this.deleteBoard} />
+
       </div>
     )
   }
