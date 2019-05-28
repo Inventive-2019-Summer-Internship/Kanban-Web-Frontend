@@ -141,7 +141,7 @@ class App extends React.Component {
         this.state.darkMode ?  audio.play() : audio.pause();
     let antiCurrentSetting = !(this.state.darkMode)
     this.setState({darkMode: antiCurrentSetting});
-    console.log(this.state.darkMode)
+    console.log(mtitle)
   }
   /**
    * The Render Method
