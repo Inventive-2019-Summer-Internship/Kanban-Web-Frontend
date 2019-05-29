@@ -1,197 +1,211 @@
 /* header and body */
 @import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Bungee+Shade&display=swap');
 .App {
-  text-align: center;
-  font-size: calc(7px + 2vmin);
-  position: fixed;
-  width: 100%;
-  /* font-family: 'Press Start 2P', cursive; */
-  font-family: 'Palatino';
-  color: white;
+ text-align: center;
+ font-size: calc(7px + 2vmin);
+ position: fixed;
+ width: 100%;
+ font-family: 'Press Start 2P', cursive;
+ /* font-family: 'Palatino'; */
+ color: white;
 
 }
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-} 
+ animation: App-logo-spin infinite 20s linear;
+ height: 40vmin;
+ pointer-events: none;
+}
 .App-header {
-  background-color: #000000;
-  height: calc(4vmin);
-  vertical-align: center;
-  font-size: calc(7px + 2vmin);
+ background-color: #000000;
+ height: calc(4vmin);
+ vertical-align: center;
+ font-size: calc(7px + 2vmin);
 
 }
 
 
 .textBox {
-  width: 90%;
-  height: 5vmin;
-  font-size: 2vmin;
-  border-top: none; 
-  border-left: none;
-  border-radius: 5px; 
+ width: 90%;
+ height: 5vmin;
+ font-size: 2vmin;
+ border-top: none;
+ border-left: none;
+ border-radius: 5px;
 }
 .button {
-  background-color: #5294e2;
-  color: white;
-  width: 90%;
-  height: 5vmin;
-  font-size: 2vmin;
-  border: none;
-  border-radius: 5px;
+ background-color: #5294e2;
+ color: white;
+ width: 90%;
+ height: 5vmin;
+ font-size: 2vmin;
+ border: none;
+ border-radius: 5px;
 }
 
 .standardLink {
-  display:inline;
-  float: right;
-  padding:0px 10px 0px 10px;
-  color:#ffffff;
-  text-decoration:none;
-  font-size:calc(5px + 2vmin);
-  margin: 3px
+ display:inline;
+ /* float: right; */
+ padding:0px 10px 0px 10px;
+ color:#ffffff;
+ text-decoration:none;
+ font-size:calc(5px + 2vmin);
+ margin: 3px
 }
 
 .standardLink:hover{
-  color: black;
-  background-color: white;
+ color: black;
+ background-color: white;
 }
 
 body {
-  background-image: url("./spacecropped.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
+ background-image: url("./spacecropped.jpg");
+ background-size: cover;
+ background-repeat: no-repeat;
 }
 
 
 
 /*list of boards page/homepage */
 .boardRow {
-  color: #000000;
-  font-size: 18px;
-  width: 80%;
-  text-decoration: none;
-  /* font-family: 'Press Start 2P', cursive; */
-  font-family: 'Palatino';
+ color: white;
+ font-size: 18px;
+ width: 80%;
+ text-decoration: none;
+ font-family: 'Press Start 2P', cursive;
+ /* font-family: 'Palatino'; */
+}
+.boardRow:hover {
+ color: #a21747;
 }
 .boardListing {
-  background-color: #ead3c1;
-  padding: 1vmin;
-  border: 1px solid #a21747;
-  border-radius: 10px;
-  margin: 1% 10%;
+ background-color: black;
+ padding: 1vmin;
+ border: 1px solid #a21747;
+ border-radius: 10px;
+ margin: 1% 10%;
 
 }
 .boardListing:hover {
-  background-color: #FFF3EB;
-  padding: 1vmin;
-  border: 1px solid #a21747;
-  border-top-width: 1px;
+ background-color: #282c34;
+ padding: 1vmin;
+ border: 1px solid #a21747;
+ border-top-width: 1px;
 }
 
 
 
 /* view one board w options */
 .title{
-  color: white;
-  background-color: black;
-  /* border: solid 1px #282c34; */
-  padding-bottom: 8px;
-  margin-top: 0px;
-  /* font-family: 'Press Start 2P', cursive; */
-  font-family: 'Palatino';
-  
-}
-.options{
-  height: auto;
-  width: 100%;
-  color: white;
-  margin: 15px;
+ color: white;
+ background-color: black;
+ /* border: solid 1px #282c34; */
+ padding-bottom: 8px;
+ font-size: 50px;
+ margin-top: 0px;
+ /* font-family: 'Press Start 2P', cursive; */
+ font-family: 'VT323', 'Palatino';
+ font-weight: lighter;
  }
+.options{
+ height: auto;
+ width: 100%;
+ color: white;
+ margin: 15px;
+}
 .options h3{
-  background-color: #282c34;
-  color: white;
-  margin: 10px;
-  padding: 5px;
-  font-size: 15px;
-  border-radius: 5px;
-  border: 1px solid #282c34;
-  opacity: 0.9;
+ background-color: #282c34;
+ color: white;
+ margin: 10px;
+ padding: 5px;
+ font-size: 15px;
+ border-radius: 5px;
+ border: 1px solid #282c34;
+ opacity: 0.9;
 }
 .options h3:hover {
-  background-color: #FFF3EB;
-  color: #a21747;
-  border: 1px solid #a21747;  
+ background-color: #FFF3EB;
+ color: #a21747;
+ border: 1px solid #a21747; 
 }
 
 .App-link {
-  color: #61dafb;
+ color: #61dafb;
 }
 
 /* swim lanes */
 .newLane {
-  background-color: #ead3c1;
-  flex: 0 0 auto;
-  margin: 0vmin 3vmin 0vmin 3vmin;
-  width: 20vmax;
-  border: 1px solid #a21747;
-  border-radius: 10px; 
-  color: #a21747;
-  font-weight: bold;
-  font-family: 'Palantino';
-  padding: 5px;
-  height: 75%;  /*change this back to 90% when options are moved to drop down menu*/
-  opacity: 0.9;
+ background-color: black;
+ flex: 0 0 auto;
+ margin: 0vmin 3vmin 0vmin 3vmin;
+ width: 20vmax;
+ border: 1px solid #a21747;
+ border-radius: 10px;
+ color: cyan;
+ font-weight: bold;
+ font-family: 'VT323', 'Palatino';
+ padding: 5px;
+ height: 75%;  /*change this back to 90% when options are moved to drop down menu*/
+ opacity: 0.9;
 }
 .newLane:hover {
-  background-color: #FFF3EB;
-  border: 1px solid #a21747;
+ background-color: #282c34;
+ color: #a21747;
+ border: 1px solid #a21747;
 }
-.newLane p {
-  font-size: 30px;
-  display: center;
+/* .newLane p {
+ font-size: 30px;
+ display: center;
+} */
+
+.plusSign {
+ font-family: 'Bungee Shade','Comic Sans';
+ font-size: 60px;
+ font-weight: bold;
+ color: cyan;
+ margin-top: -15px;
 }
-
-
 
 /* create new board page */
 form {
-  text-align: center;
-  padding-top: 20px;
-  color: white;
-  font-family: 'Palatino';
+ text-align: center;
+ padding-top: 20px;
+ color: white;
+ font-family: 'VT323', 'Palatino';
 }
 .textBox {
-  width: 90%;
-  height: 5vmin;
-  font-size: 2vmin;
-  border-top: none; 
-  border-left: none;
-  border-radius: 5px;
-  margin: 5px;
+ width: 90%;
+ height: 5vmin;
+ font-size: 2vmin;
+ border-top: none;
+ border-left: none;
+ border-radius: 5px;
+ margin: 5px;
 }
 .button {
-  background-color: #282c34;
-  color: white;
-  width: 90%;
-  height: 5vmin;
-  font-size: 2vmin;
-  border: none;
-  border-radius: 5px;
-  margin: 5px;
+ background-color: #282c34;
+ color: white;
+ width: 90%;
+ height: 5vmin;
+ font-size: 2vmin;
+ border: none;
+ border-radius: 5px;
+ margin: 5px;
 }
 .button:hover {
-  background-color: #ead3c1;
-  color: #000000;
+ background-color: #ead3c1;
+ color: #000000;
 }
 
 
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+ from {
+   transform: rotate(0deg);
+ }
+ to {
+   transform: rotate(360deg);
+ }
 }
+

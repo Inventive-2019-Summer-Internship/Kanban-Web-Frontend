@@ -60,7 +60,7 @@ class App extends React.Component {
     } else {
       require("./cssupdate.css");
     }*/
-    require("./App.css");
+    // require("./App.css");
   }
   showBoard = (id) => {
     this.setState({currentBoard: this.state.boards.filter(board => board.id === id)[0]});
@@ -113,10 +113,12 @@ class App extends React.Component {
     this.setState({boards: newBoards})
   }
   toggleSpace = () => {
-        var audio = new Audio('./musicMetroid.mp3');
-        audio.play();
+        // var audio = new Audio("musicMetroid.mp3");
+        // this.state.darkMode ?  audio.play() : audio.pause();
+        document.getElementById("audio").play();
     let antiCurrentSetting = !(this.state.darkMode)
     this.setState({darkMode: antiCurrentSetting});
+    console.log(this.state.darkMode)
   }
   /**
    * The Render Method
