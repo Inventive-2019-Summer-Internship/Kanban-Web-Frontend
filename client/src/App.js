@@ -29,18 +29,40 @@ class App extends React.Component {
   state = {
     darkMode: true,
     showImage: false,
+        musicList: ["Always_Be_My_Unicorn.mp3","Arms_Dealer.mp3","Half_Bit.mp3",
+    "Meteor.mp3","OK_POP_KO.mp3","Orbital_Romance.mp3",
+  "Scouting.mp3","Space_Adventure.mp3","Splashing_Around.mp3",
+    "do_dodo_do_dodododooo_DODODO.mp3","UltimateShowdownOfUltimateDestiny.mp3","tacos.mp3"],
     currentBoard: this.BLANK_BOARD,
     boards: [
       {
-        name: "My First Board",
         id: uuid(),
-        swimLanes: [{title: "Sample1"}, {title: "Sample1"}, {title: "Sample1"}],
+        name: "My First Board",
+        swimLanes: [
+          {
+            title: "Sample1",
+            id: uuid(),
+            cards: [
+              {
+                title: "sample card",
+                description: "This is a sample description",
+                id: uuid()
+              }
+            ]
+          }
+        ],
         img: "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.memecdn.com%2Fbest-gif-ever_o_901136.gif&f=1"
       },
       {
-        name: "My Second Board",
         id: uuid(),
-        swimLanes: [{title: "Sample"}],
+        name: "My Second Board",
+        swimLanes: [
+          {
+            title: "Sample",
+            id: uuid(),
+            cards: []
+          }
+        ],
         img: "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia1.tenor.com%2Fimages%2F42283b6ad92daba7e619865e2e1aa9bd%2Ftenor.gif%3Fitemid%3D13154832&f=1"
       },
 
@@ -60,7 +82,7 @@ class App extends React.Component {
     } else {
       require("./cssupdate.css");
     }*/
-    // require("./App.css");
+    require("./Dark.css");
   }
   showBoard = (id) => {
     this.setState({currentBoard: this.state.boards.filter(board => board.id === id)[0]});
@@ -113,12 +135,13 @@ class App extends React.Component {
     this.setState({boards: newBoards})
   }
   toggleSpace = () => {
-        // var audio = new Audio("musicMetroid.mp3");
-        // this.state.darkMode ?  audio.play() : audio.pause();
-        document.getElementById("audio").play();
+                var q = (Math.floor(Math.random()*this.state.musicList.length));
+        var mtitle="music/"+this.state.musicList[q];
+        var audio = new Audio(mtitle);
+        this.state.darkMode ?  audio.play() : audio.pause();
     let antiCurrentSetting = !(this.state.darkMode)
     this.setState({darkMode: antiCurrentSetting});
-    console.log(this.state.darkMode)
+    console.log(mtitle)
   }
   /**
    * The Render Method
@@ -137,7 +160,9 @@ class App extends React.Component {
           <Route exact path="/" render={() => {
             if(this.state.showImage) this.hideImage();
             return(<BoardView boards={this.state.boards} showBoard={this.showBoard}/>)}}/>
-          <Route path="/addBoard" render={props =>(<NewBoardView addBoard={this.addBoard}/>)}/>
+          <Route path="/addBoard" render={() =>{
+            if(this.state.showImage) this.hideImage();
+            return(<NewBoardView addBoard={this.addBoard}/>)}}/>
           <Route path="/showBoard" render={props =>(<OpenBoardView deleteBoard={this.deleteBoard} changeBoardName={this.changeBoardName} changeBoardBG={this.changeBoardBG} addSwimLane={this.addSwimLane} currentBoard={this.state.currentBoard}/>)}/>
         </div>  
       </Router>
