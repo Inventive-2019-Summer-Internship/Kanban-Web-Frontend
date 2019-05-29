@@ -29,6 +29,10 @@ class App extends React.Component {
   state = {
     darkMode: true,
     showImage: false,
+        musicList: ["Always_Be_My_Unicorn.mp3","Arms_Dealer.mp3","Half_Bit.mp3",
+    "Meteor.mp3","OK_POP_KO.mp3","Orbital_Romance.mp3",
+  "Scouting.mp3","Space_Adventure.mp3","Splashing_Around.mp3",
+    "do_dodo_do_dodododooo_DODODO.mp3","UltimateShowdownOfUltimateDestiny.mp3","tacos.mp3"],
     currentBoard: this.BLANK_BOARD,
     boards: [
       {
@@ -131,11 +135,13 @@ class App extends React.Component {
     this.setState({boards: newBoards})
   }
   toggleSpace = () => {
-        var audio = new Audio("music/do_dodo_do_dodododooo_DODODO.mp3");
+                var q = (Math.floor(Math.random()*this.state.musicList.length));
+        var mtitle="music/"+this.state.musicList[q];
+        var audio = new Audio(mtitle);
         this.state.darkMode ?  audio.play() : audio.pause();
     let antiCurrentSetting = !(this.state.darkMode)
     this.setState({darkMode: antiCurrentSetting});
-    console.log(this.state.darkMode)
+    console.log(mtitle)
   }
   /**
    * The Render Method
