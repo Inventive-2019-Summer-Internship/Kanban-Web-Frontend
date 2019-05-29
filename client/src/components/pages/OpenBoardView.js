@@ -14,6 +14,10 @@ import BoardHeader from '../BoardHeader'
  */
 export class OpenBoardView extends React.Component {
 
+  changeSwimlaneTitle = (title, id) => {
+    this.props.changeSwimlaneTitle(this.props.currentBoard.id, title, id)
+  }
+
   addSwimLane = (name) => {
     this.props.addSwimLane(name, this.props.currentBoard.id);
   }
@@ -48,12 +52,12 @@ export class OpenBoardView extends React.Component {
     }
   }
 
-  render() {
+  render(props) {
     return (
       <div style={{height:"90%", width: "100%"}}>
-
+        
         <BoardHeader currentBoard={this.props.currentBoard} />
-        <SwimLaneView currentBoard={this.props.currentBoard} addSwimLane={this.addSwimLane} />
+        <SwimLaneView currentBoard={this.props.currentBoard} addSwimLane={this.addSwimLane} changeTitle={this.changeSwimlaneTitle} deleteSwimlane={this.props.deleteSwimlane} />
         <PopoutMenu changeBoardName={this.changeBoardName} changeBoardBG={this.changeBoardBG} deleteBoard={this.deleteBoard} />
 
       </div>
