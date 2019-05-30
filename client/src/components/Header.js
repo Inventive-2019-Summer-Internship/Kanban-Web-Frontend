@@ -10,7 +10,7 @@ export class Header extends React.Component {
   render() {
     return (
       <div className="App-header">
-          <a href="http://beesbeesbees.com/" ><h3 style={{margin:"0", marginLeft:"10px", float: "left"}}>Kanban</h3></a>
+          <a href="http://beesbeesbees.com/" ><h3 style={{margin:"0", marginLeft:"10px", float:"left", color:"white"}}>Kanban</h3></a>
           <Link to="/addBoard" className="standardLink">+</Link>
           <Link onClick={this.props.hideImage} to="/" className="standardLink">Boards</Link>
           <Link onClick={this.props.toggleSpace} className="standardLink">Toggle Space</Link>          
