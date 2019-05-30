@@ -20,7 +20,7 @@
   cursor: pointer;
 }
 body {
-  background-image: url("./spacecropped.jpg");
+  background-image: url("./spacecropped.gif");
   background-size: cover;
   background-repeat: no-repeat;
 }
