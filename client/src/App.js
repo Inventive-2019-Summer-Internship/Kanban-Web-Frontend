@@ -80,6 +80,25 @@ class App extends React.Component {
     }*/
     require("./Dark.css");
   }
+  changeSwimlaneTitle = (boardId, title, swimlaneId) => {
+    let currentBoard = this.state.currentBoard
+    let swimLanes = currentBoard.swimLanes
+    let swimlaneLoc = -1
+    for(let i = 0; i < swimLanes.length; i++) {
+      if(swimLanes[i].id === swimlaneId) {
+        swimlaneLoc = i;
+        break;
+      }
+    }
+    if (swimlaneLoc !== -1) {
+      currentBoard.swimLanes[swimlaneLoc].title = title
+      var newBoards = [...this.state.boards.filter(board => board.id !== boardId), currentBoard];
+      newBoards.push(newBoards.shift());
+      this.setState({boards: newBoards})
+      this.setState({currentBoard})
+    }
+    
+  }
   showBoard = (id) => {
     this.setState({currentBoard: this.state.boards.filter(board => board.id === id)[0]});
     this.setState({showImage: true});
@@ -108,6 +127,14 @@ class App extends React.Component {
     window.history.back();
     this.setState({boards: newBoards})
   }
+  deleteSwimlane = (id) => {
+    let currentBoard = this.state.currentBoard
+    currentBoard.swimLanes = currentBoard.swimLanes.filter(swimlane => swimlane.id !== id)
+    var newBoards = [...this.state.boards.filter(board => board.id !== currentBoard.id), currentBoard];
+    newBoards.push(newBoards.shift());
+    this.setState({boards: newBoards})
+    this.setState({currentBoard})
+  }
   changeBoardName = (name, id) => {
     var board = this.state.boards.filter(board => board.id === id)[0];
     board.name = name;
@@ -124,11 +151,27 @@ class App extends React.Component {
   }
   addSwimLane = (name, id) => {
     var board = this.state.boards.filter(board => board.id === id)[0];
-    var newSwimlane = {title: name};
+    var newSwimlane = {title: name, id: uuid(), cards: []};
     board.swimLanes = [...board.swimLanes, newSwimlane]
     var newBoards = [...this.state.boards.filter(board => board.id !== id), board]
     newBoards.push(newBoards.shift());
     this.setState({boards: newBoards})
+  }
+  addCard = (title, description, swimlaneId) => {
+    let newCard = {
+      title,
+      description,
+      id: uuid()
+    }
+    let currentBoard = this.state.currentBoard
+    for(var i = 0; i < currentBoard.swimLanes.length; i++) {
+      if(currentBoard.swimLanes[i].id === swimlaneId) {
+        currentBoard.swimLanes[i].cards.push(newCard)
+      }
+    }
+    let boards = [currentBoard,...this.state.boards.filter(board => board.id !== currentBoard.id)]
+    this.setState({currentBoard})
+    this.setState({boards})
   }
   toggleSpace = () => {
     let antiCurrentSetting = !(this.state.darkMode)
@@ -148,13 +191,29 @@ class App extends React.Component {
       <Router>
         <div style={{backgroundRepeat:'repeat',height:"100%", backgroundImage: (this.state.currentBoard.img && this.state.showImage) ? `url(${this.state.currentBoard.img})`: "none"}} className="App">
           <Header toggleSpace={this.toggleSpace} hideImage={this.hideImage} />
+
           <Route exact path="/" render={() => {
-            if(this.state.showImage) this.hideImage();
-            return(<BoardView boards={this.state.boards} showBoard={this.showBoard}/>)}}/>
+              if(this.state.showImage) this.hideImage();
+              return(<BoardView boards={this.state.boards} showBoard={this.showBoard}/>)
+              }
+            }
+          />
+
           <Route path="/addBoard" render={() =>{
-            if(this.state.showImage) this.hideImage();
-            return(<NewBoardView addBoard={this.addBoard}/>)}}/>
-          <Route path="/showBoard" render={props =>(<OpenBoardView deleteBoard={this.deleteBoard} changeBoardName={this.changeBoardName} changeBoardBG={this.changeBoardBG} addSwimLane={this.addSwimLane} currentBoard={this.state.currentBoard}/>)}/>
+              if(this.state.showImage) this.hideImage();
+              return(<NewBoardView addBoard={this.addBoard}/>)
+              }
+            }
+          />
+
+          <Route path="/showBoard" render={props => (
+            <OpenBoardView 
+              deleteBoard={this.deleteBoard} changeBoardName={this.changeBoardName} 
+              changeBoardBG={this.changeBoardBG} addSwimLane={this.addSwimLane} 
+              currentBoard={this.state.currentBoard} changeSwimlaneTitle={this.changeSwimlaneTitle}
+              deleteSwimlane={this.deleteSwimlane} addCard={this.addCard} />
+              )}
+          />
         </div>  
       </Router>
     );

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 export class BoardHeader extends Component {
     showDiv = () => {
-        console.log("ShowDiv");
+        //console.log("ShowDiv");
         document.getElementById("menuActual").className = "slide-in";
         window.setTimeout(() => {
           document.getElementById("menu").style.display = "block";
