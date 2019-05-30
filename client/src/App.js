@@ -170,6 +170,7 @@ class App extends React.Component {
       document.getElementById("pagestyle").setAttribute('href','styles/Dark.css')
          }
       document.getElementById("pagestyle").setAttribute('href','styles/space.css')
+         return {darkMode: !prev.darkMode};
         } )
       require("./App.css");
    //   document.getElementById("SpaceyWacey").remove();
