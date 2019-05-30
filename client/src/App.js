@@ -28,7 +28,7 @@ class App extends React.Component {
   }
   state = {
     darkMode: true,
-    superStyle: require("./Dark.css"),
+   // superStyle: require("./Dark.css"),
 
     showImage: false,
         musicList: ["Always_Be_My_Unicorn.mp3","Arms_Dealer.mp3","Half_Bit.mp3",
@@ -161,16 +161,20 @@ class App extends React.Component {
 
 
 
-          this.setState({superstyle:null})
 
-      this.setState((prev) => {
-        if (prev.darkMode){
-              return {superStyle:require("./Dark.css")}
-        }
-        return {superStyle:require("./space.css")}
-       } )
+
+      //     this.setState({superstyle:null})
+
+      // this.setState((prev) => {
+      //   if (prev.darkMode){
+      //         return {superStyle:require("./Dark.css")}
+      //   }
+      //   return {superStyle:require("./space.css")}
+      //  } )
+      document.getElementById("pagestyle").setAttribute('href','space.css')
       document.getElementById("SpaceyWacey").remove();
 
+   
    
  
   }
@@ -188,6 +192,8 @@ class App extends React.Component {
       <Router>
         <div style={{backgroundRepeat:'repeat',height:"100%", backgroundImage: (this.state.currentBoard.img && this.state.showImage) ? `url(${this.state.currentBoard.img})`: "none"}} className="App">
           <Header toggleSpace={this.toggleSpace} hideImage={this.hideImage} />
+           <link id="pagestyle" rel="stylesheet" type="text/css" href="./Dark.css" /> 
+
           <Route exact path="/" render={() => {
             if(this.state.showImage) this.hideImage();
             return(<BoardView boards={this.state.boards} showBoard={this.showBoard}/>)}}/>
