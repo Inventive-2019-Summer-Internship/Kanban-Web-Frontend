@@ -165,14 +165,14 @@ class App extends React.Component {
 
       //     this.setState({superstyle:null})
 
-      // this.setState((prev) => {
-      //   if (prev.darkMode){
-      //         return {superStyle:require("./Dark.css")}
-      //   }
-      //   return {superStyle:require("./space.css")}
-      //  } )
+       this.setState((prev) => {
+         if (prev.darkMode){
+      document.getElementById("pagestyle").setAttribute('href','styles/Dark.css')
+         }
       document.getElementById("pagestyle").setAttribute('href','styles/space.css')
-      document.getElementById("SpaceyWacey").remove();
+        } )
+      require("app.css");
+   //   document.getElementById("SpaceyWacey").remove();
 
    
    
