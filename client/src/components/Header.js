@@ -13,7 +13,7 @@ export class Header extends React.Component {
           <a href="http://beesbeesbees.com/" ><h3 style={{margin:"0", marginLeft:"10px", float:"left", color:"white"}}>Kanban</h3></a>
           <Link to="/addBoard" className="standardLink">+</Link>
           <Link onClick={this.props.hideImage} to="/" className="standardLink">Boards</Link>
-          <Link onClick={this.props.toggleSpace} className="standardLink">Toggle Space</Link>          
+          <span id="SpaceyWacey" onClick={this.props.toggleSpace} className="standardLink">Activate Space</span>          
       </div>
     )
   }
