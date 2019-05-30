@@ -121,6 +121,7 @@ class App extends React.Component {
     }
     this.setState({boards:[...this.state.boards, newBoard]});
     alert("New Board Created");
+    window.history.back();
   }
   deleteBoard = (id) => {
     var newBoards = this.state.boards.filter(board => board.id !== id);
