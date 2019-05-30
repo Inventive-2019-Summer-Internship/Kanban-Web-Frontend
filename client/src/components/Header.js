@@ -10,10 +10,10 @@ export class Header extends React.Component {
   render() {
     return (
       <div className="App-header">
-          <h3 style={{float:"left",margin:"3px",fontSize:"calc(5px + 2vmin)"}}>Kanban</h3>
+          <a href="http://beesbeesbees.com/" ><h3 style={{float:"left",margin:"3px",fontSize:"calc(5px + 2vmin)",color:"white"}}>Kanban</h3></a>
           <Link to="/addBoard" className="standardLink">+</Link>
           <Link onClick={this.props.hideImage} to="/" className="standardLink">Boards</Link>
-          <Link onClick={this.props.toggleSpace} className="standardLink">Toggle Space</Link>          
+          <span id="SpaceyWacey" onClick={this.props.toggleSpace} className="standardLink">Activate Space</span>          
       </div>
     )
   }

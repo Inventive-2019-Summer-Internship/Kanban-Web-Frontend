@@ -28,11 +28,15 @@ class App extends React.Component {
   }
   state = {
     darkMode: true,
+    superStyle: require("./Dark.css"),
+
     showImage: false,
         musicList: ["Always_Be_My_Unicorn.mp3","Arms_Dealer.mp3","Half_Bit.mp3",
     "Meteor.mp3","OK_POP_KO.mp3","Orbital_Romance.mp3",
   "Scouting.mp3","Space_Adventure.mp3","Splashing_Around.mp3",
-    "do_dodo_do_dodododooo_DODODO.mp3","UltimateShowdownOfUltimateDestiny.mp3","tacos.mp3"],
+    "do_dodo_do_dodododooo_DODODO.mp3","UltimateShowdownOfUltimateDestiny.mp3","tacos.mp3",
+  "musicMetroid.mp3","megacastle.mp3","greenHills.mp3",
+    "greeeeen.mp3","halo.mp3","blops2.mp3"],
     currentBoard: this.BLANK_BOARD,
     boards: [
       {
@@ -82,8 +86,19 @@ class App extends React.Component {
     } else {
       require("./cssupdate.css");
     }*/
-    require("./Dark.css");
-  }
+  //  if (this.state.darkMode){
+  //        this.state.superStyle= require("./Dark.css");
+
+  //   }
+  //   else {
+  //     this.state.superStyle=require("./Space.css")
+  //   }
+    require("./App.css")
+    
+
+      
+    }
+
   showBoard = (id) => {
     this.setState({currentBoard: this.state.boards.filter(board => board.id === id)[0]});
     this.setState({showImage: true});
@@ -141,7 +156,22 @@ class App extends React.Component {
         this.state.darkMode ?  audio.play() : audio.pause();
     let antiCurrentSetting = !(this.state.darkMode)
     this.setState({darkMode: antiCurrentSetting});
-    console.log(mtitle)
+    console.log(this.state.musicList[q])
+
+
+
+          this.setState({superstyle:null})
+
+      this.setState((prev) => {
+        if (prev.darkMode){
+              return {superStyle:require("./Dark.css")}
+        }
+        return {superStyle:require("./space.css")}
+       } )
+      document.getElementById("SpaceyWacey").remove();
+
+   
+ 
   }
   /**
    * The Render Method
