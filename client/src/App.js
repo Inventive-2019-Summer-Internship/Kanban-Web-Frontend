@@ -157,6 +157,22 @@ class App extends React.Component {
     newBoards.push(newBoards.shift());
     this.setState({boards: newBoards})
   }
+  addCard = (title, description, swimlaneId) => {
+    let newCard = {
+      title,
+      description,
+      id: uuid()
+    }
+    let currentBoard = this.state.currentBoard
+    for(var i = 0; i < currentBoard.swimLanes.length; i++) {
+      if(currentBoard.swimLanes[i].id === swimlaneId) {
+        currentBoard.swimLanes[i].cards.push(newCard)
+      }
+    }
+    let boards = [currentBoard,...this.state.boards.filter(board => board.id !== currentBoard.id)]
+    this.setState({currentBoard})
+    this.setState({boards})
+  }
   toggleSpace = () => {
     let antiCurrentSetting = !(this.state.darkMode)
     this.setState({darkMode: antiCurrentSetting});
@@ -195,7 +211,7 @@ class App extends React.Component {
               deleteBoard={this.deleteBoard} changeBoardName={this.changeBoardName} 
               changeBoardBG={this.changeBoardBG} addSwimLane={this.addSwimLane} 
               currentBoard={this.state.currentBoard} changeSwimlaneTitle={this.changeSwimlaneTitle}
-              deleteSwimlane={this.deleteSwimlane} />
+              deleteSwimlane={this.deleteSwimlane} addCard={this.addCard} />
               )}
           />
         </div>  

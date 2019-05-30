@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import PopoutMenu from '../PopoutMenu'
 import SwimLaneView from '../SwimLaneView'
 import BoardHeader from '../BoardHeader'
+import AddCardForm from '../card/AddCardForm';
 //////////////////////////////////////////////////////////////////
 
 /**
@@ -13,6 +14,10 @@ import BoardHeader from '../BoardHeader'
  * TODO: Insert actual board functionality
  */
 export class OpenBoardView extends React.Component {
+
+  state = {
+    currentSwimlane: this.props.currentBoard.swimLanes[0]
+  }
 
   changeSwimlaneTitle = (title, id) => {
     this.props.changeSwimlaneTitle(this.props.currentBoard.id, title, id)
@@ -42,6 +47,11 @@ export class OpenBoardView extends React.Component {
     }
   }
 
+  setCurrentSwimlane = (swimlane) => {
+    this.setState({currentSwimlane: swimlane})
+    console.log(swimlane);
+  }
+
   deleteBoard = () => {
     var name = prompt("Are you sure you want to delete this board? Type in the board's name to verify deletion.");
     if(name === null || name === "" || !name.match(new RegExp(this.props.currentBoard.name,'i','g'))) {
@@ -57,8 +67,9 @@ export class OpenBoardView extends React.Component {
       <div style={{height:"90%", width: "100%"}}>
         
         <BoardHeader currentBoard={this.props.currentBoard} />
-        <SwimLaneView currentBoard={this.props.currentBoard} addSwimLane={this.addSwimLane} changeTitle={this.changeSwimlaneTitle} deleteSwimlane={this.props.deleteSwimlane} />
+        <SwimLaneView setCurrentSwimlane={this.setCurrentSwimlane} currentBoard={this.props.currentBoard} addSwimLane={this.addSwimLane} changeTitle={this.changeSwimlaneTitle} deleteSwimlane={this.props.deleteSwimlane} />
         <PopoutMenu changeBoardName={this.changeBoardName} changeBoardBG={this.changeBoardBG} deleteBoard={this.deleteBoard} />
+        <AddCardForm addCard={this.props.addCard} currentSwimlane={this.state.currentSwimlane} />
 
       </div>
     )
