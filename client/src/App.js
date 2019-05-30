@@ -171,7 +171,7 @@ class App extends React.Component {
          }
       document.getElementById("pagestyle").setAttribute('href','styles/space.css')
         } )
-      require("app.css");
+      require("App.css");
    //   document.getElementById("SpaceyWacey").remove();
 
    
