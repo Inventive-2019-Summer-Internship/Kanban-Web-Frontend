@@ -89,33 +89,13 @@ form {
   background-color: #282c3479;
 }
 
-.options{
-  height: 25px;
-  width: 100%;
-  color:"#ffffff";
-  margin-top: .2em;
-  margin-bottom: 1em;
-}
-.options h3{
-  background-color: #282c34;
-  color: white;
-  margin: 10px;
-  padding: 5px;
-  height: 20px;
-  font-size: 15px;
-  border-radius: 5px;
-}
-.options h3:hover {
-  background-color: #4b5162;
-}
-
 .newLane {
   font-size: 25px;
   background-color: #4b5162ef;
   flex: 0 0 auto;
   margin-left: 10px;
   width: 20vmax;
-  height: 95px;
+  height: 3.6em;
   border-radius: 10px;
 }
 
@@ -124,19 +104,87 @@ form {
 }
 
 .swimLane {
+  text-align: left;
   font-size: 25px;
   background-color: #4b5162ef;
   flex: 0 0 auto;
   margin-left: 10px;
+  padding-left: 10px;
+  margin-left: 10px;
   width: 20vmax;
   height: 95%;
   border-radius: 10px;
-  overflow-y: auto;
-  overflow-x: hidden;
 }
 
-.swimLane:hover {
+/*.swimLane:hover {
   background-color: #70788bef;
+}*/
+
+.SLTitle {
+  width: 80%;
+  height: 30px;
+  color: white;
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.SLHeader {
+  padding-top: 5px;
+}
+
+.SLHeader h3 {
+  margin: 0;
+}
+
+.SLHeader input[type=text] {
+  background-color: transparent;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 3px solid #282c34;
+}
+
+.SLHeader input[type=text]:focus {
+  background-color: white;
+  color: black;
+}
+
+.addCardBtn {
+  height: 75px;
+  width: calc(100%-10vmin);
+  margin: 0;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.addCardBtn:hover {
+  background-color: #70788bef;
+  border-radius: 10px;
+}
+
+.addCardBtn p {
+  padding-top: 15px;
+}
+
+.card {
+  background-color: #70788b;
+  margin: 0;
+  margin-right: 10px;
+  border-radius: 10px;
+}
+
+.card h4 {
+  margin: 0;
+  margin-top: 20px;
+  padding: 0 10px;
+  word-wrap: break-word;
+}
+
+.card p {
+  padding: 0 5px 5px;
+  margin: 0;
+  font-size: 15px;
+  word-wrap: break-word;
 }
 
 #sideBarActivator {
@@ -174,17 +222,6 @@ form {
   font-size: 20px;
   text-align: left;
   padding: 1em 2em;
-}
-
-#addCardForm {
-  display: none;
-  width: 100%;
-  height: 25%;
-  position: absolute;
-  bottom: 0px;
-  z-index: 1;
-  background-color: #282c34;
-  float: right;
 }
 
 .exitPopoutText {
@@ -279,11 +316,35 @@ form {
   100% { -webkit-transform: translateY(0%); }
 }
 
-.form {
+.SLTitle::placeholder {
+  color: white;
+  opacity: 1;
+}
+
+.SLTitle:-ms-input-placeholder {
+  color: white;
+}
+
+.SLTitle::-ms-input-placeholder {
+  color: white;
+}
+
+#addCardForm {
+  display: none;
+  width: 100%;
+  height: 30%;
+  position: absolute;
+  bottom: 0px;
+  z-index: 1;
+  background-color: #282c34;
+  float: right;
+}
+
+.cardForm {
   margin: 0px;
 }
 
-button.form {
+button.cardForm {
   width:95%;
   padding: 15px 0px;
   margin-bottom: 2%;
@@ -294,4 +355,9 @@ button.form {
 }
 button.formAdd {
   background-color: #5479a7;
+  margin: 0 0 25px 0;
+}
+
+button.formAdd:hover {
+  background-color: #7da2cf;
 }
