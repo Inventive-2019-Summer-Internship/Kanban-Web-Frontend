@@ -39,7 +39,6 @@
 }
 
 
-
 /* swim lanes */
 .newLane {
   flex: 0 0 auto;
@@ -118,7 +117,7 @@ form {
   z-index: 999;
 }
 #menuSetup:hover {
-  opacity: .  5;
+  opacity: .5;
 }
 .exitPopoutText {
   vertical-align: middle;
@@ -166,3 +165,4 @@ form {
     transform: rotate(360deg);
   }
 }
+
