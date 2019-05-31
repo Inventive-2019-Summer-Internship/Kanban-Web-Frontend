@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 export class PopoutMenu extends Component {
     hideDiv = () => {
-        console.log("HideDiv");
+        //console.log("HideDiv");
         document.getElementById("menuActual").className = "slide-out";
         document.getElementById("menuSetup").style.display = "none";
         window.setTimeout(() => {
