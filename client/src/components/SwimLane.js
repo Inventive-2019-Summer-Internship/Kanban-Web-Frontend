@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 export class SwimLane extends React.Component {
   render() {
     return (
-      <div className="swimLane">
+      <div className="newLane">
         <div>{this.props.swimlane.title}</div>        
       </div>
     )
