@@ -87,6 +87,7 @@ class App extends React.Component {
       require("./cssupdate.css");
     }*/
     require("./App.css");
+    require("./Dark.css");
   }
   changeSwimlaneTitle = (boardId, title, swimlaneId) => {
     let currentBoard = this.state.currentBoard
