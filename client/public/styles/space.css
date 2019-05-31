@@ -246,9 +246,10 @@ form {
 
 /* new card */
 .newCard {
-    border: 1px solid #FFF3EB;;
+    background-color: #FFF3EB;
+    border: 1px solid #FFF3EB;
     border-radius: 5px;
-    margin: 2px;
+    margin: 4px;
 }
 .newCard p {
     font-size: 15px;
@@ -281,6 +282,19 @@ button.form {
 button.form:hover {
     background-color: #FFF3EB;
     color: #a21747;
+}
+.newCardButton {
+  background-color: #ead3c1;
+  color: #a21747;
+  border: 1px solid #ead3c1;
+  border-radius: 5px;
+  margin: 4px;
+}
+.newCardButton:hover {
+  background-color: #FFF3EB;
+  border: 1px solid #FFF3EB;
+  border-radius: 5px;
+  margin: 4px;
 }
 
 
