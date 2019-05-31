@@ -173,7 +173,7 @@ class App extends React.Component {
          return {darkMode: !prev.darkMode};
         } )
       require("./App.css");
-   //   document.getElementById("SpaceyWacey").remove();
+      document.getElementById("SpaceyWacey").remove();
 
    
    
