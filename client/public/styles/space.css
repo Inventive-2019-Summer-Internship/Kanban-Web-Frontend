@@ -82,14 +82,16 @@ body {
   opacity: 0.9;
 }
 .newLane:hover {
-  background-color: #FFF3EB;
+  background-color: #ead3c1;
   border: 1px solid #a21747;
-  cursor: pointer;
 }
 .newLane p {
   font-size: 25px;
 } 
-
+.newLane p:hover {
+  background-color: #FFF3EB;
+  border: 1px solid #a21747;
+}
 
 
 /* create new board page */
@@ -261,6 +263,16 @@ button.formAdd {
 button.form {
     background-color: #FFF3EB;
     color: #a21747;
+}
+.newCard p {
+    font-size: 15px;
+}
+.newCard h4 {
+    font-size: 25px;
+}
+.newCard:hover {
+  background-color: #FFF3EB;
+  border: 1px solid #a21747;
 }
 
 
