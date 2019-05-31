@@ -88,10 +88,10 @@ body {
 .newLane p {
   font-size: 25px;
 } 
-/* .newLane p:hover {
+#addNewLane:hover {
   background-color: #FFF3EB;
   border: 1px solid #a21747;
-} */
+}
 
 
 /* create new board page */
