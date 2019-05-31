@@ -88,10 +88,10 @@ body {
 .newLane p {
   font-size: 25px;
 } 
-.newLane p:hover {
+/* .newLane p:hover {
   background-color: #FFF3EB;
   border: 1px solid #a21747;
-}
+} */
 
 
 /* create new board page */
@@ -242,39 +242,46 @@ form {
   transition: .25s;
 }
 
+
+
 /* new card */
 .newCard {
-    border: 1px solid black;
+    border: 1px solid #FFF3EB;;
     border-radius: 5px;
     margin: 2px;
 }
-.newCard:hover {
-    background-color:
-}
-
-.unicodeTrashcan{
-    margin: 0px;
-    font-size: 20px
-}
-button.formAdd {
-    background-color: #ead3c1;
-    color: #a21747;
-}
-button.form {
-    background-color: #FFF3EB;
-    color: #a21747;
-}
 .newCard p {
     font-size: 15px;
+    text-align: left;
+    padding: 1px;
 }
 .newCard h4 {
     font-size: 25px;
 }
 .newCard:hover {
   background-color: #FFF3EB;
-  border: 1px solid #a21747;
+  border: 1px solid #FFF3EB;
+}
+.unicodeTrashcan{
+    margin: 0px;
+    font-size: 20px
 }
 
+
+
+/* add a card */
+button.formAdd {
+    background-color: #ead3c1;
+    color: #a21747;
+}
+button.form {
+    background-color: #ead3c1;
+    color: #a21747;
+}
+button.form:hover {
+    background-color: #FFF3EB;
+    color: #a21747;
+}
 
 
 /* animations */
