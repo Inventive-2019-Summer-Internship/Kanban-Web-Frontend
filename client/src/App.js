@@ -226,7 +226,7 @@ class App extends React.Component {
       <Router>
         <div style={{backgroundRepeat:'repeat',height:"100%", backgroundImage: (this.state.currentBoard.img && this.state.showImage) ? `url(${this.state.currentBoard.img})`: "none"}} className="App">
           <Header toggleSpace={this.toggleSpace} hideImage={this.hideImage} />
-           //<link id="pagestyle" rel="stylesheet" type="text/css" href="styles/Dark.css" /> 
+           <link id="pagestyle" rel="stylesheet" type="text/css" href="styles/Dark.css" /> 
 
 
           <Route exact path="/" render={() => {
