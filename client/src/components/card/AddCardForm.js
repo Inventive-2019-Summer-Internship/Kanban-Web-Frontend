@@ -42,19 +42,19 @@ export class AddCardForm extends Component {
     render() {
         return (
             <div id="addCardForm">
-                <h3 className="form">Add Card</h3>
+                <h3 className="cardForm">Add Card</h3>
                 <div style={{display:"inline"}}>
                     <div style={{width:'25%', float:"left"}}>
-                        <p className="form">Title of Card</p>
-                        <input id="addCardName" type="text" placeholder={"Give it a good one"} onChange={this.updateState} name="title" />
+                        <p className="cardForm" style={{margin:"15px 0 0 0"}}>Title of Card</p>
+                        <input id="addCardName" type="text" placeholder={"Give it a Good Title"} onChange={this.updateState} name="title" />
                     </div>
                     <div style={{width:'50%', display: 'inline-block'}}>
-                        <p className="form">Description:</p>
-                        <textarea id="addCardDescription" name="description" placeholder={"Make it useful"} onChange={this.updateState} rows="5" cols="50" />
+                        <p className="cardForm" style={{margin:"0 0 10px 0"}}>Description:</p>
+                        <textarea id="addCardDescription" name="description" placeholder={"Describe Your Card"} onChange={this.updateState} rows="7" cols="50" />
                     </div>
                     <div style={{width:'25%', float:"right"}}>
-                        <button className="form formAdd" name="addCard" onClick={this.getClickAction}>Add Card</button>
-                        <button className="form" name="cancel" onClick={this.getClickAction}>Cancel</button>
+                        <button className="cardForm formAdd" name="addCard" onClick={this.getClickAction}>Add Card</button>
+                        <button className="cardForm" name="cancel" onClick={this.getClickAction}>Cancel</button>
                     </div>
                 </div>
                 
