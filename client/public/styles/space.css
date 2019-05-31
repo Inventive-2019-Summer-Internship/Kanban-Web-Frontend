@@ -5,26 +5,43 @@
   font-size: calc(7px + 2vmin);
   font-family: 'Orbitron', sans-serif;
   color: white;
+  text-align: center;
+  position: fixed;
+  width: 100%;
 }
 .App-header {
   background-color: #000000;
   font-size: calc(7px + 2vmin);
+  height: calc(4vmin);
+  vertical-align: center;
+}
+.App-logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 40vmin;
+    pointer-events: none;
+} 
+.App-link {
+  color: #61dafb;
 }
 .standardLink {
   color:#ffffff;
   font-size:calc(5px + 2vmin);
+  display:inline;
+  float: right;
+  padding:0px 10px 0px 10px;
+  text-decoration:none;
 }
 .standardLink:hover{
   color: black;
   background-color: white;
   cursor: pointer;
+  border-radius: 5px;
 }
 body {
-  background-image: url("./spacecropped.gif");
+  background-image: url("./spacecropped.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
-
 
 
 /*list of boards page/homepage */
@@ -54,6 +71,13 @@ body {
   color: #a21747;
   font-weight: bold;
   font-family: 'Orbitron', sans-serif;
+  flex: 0 0 auto;
+  margin: 0vmin 3vmin 0vmin 3vmin;
+  width: 20vmax;
+  border-radius: 10px; 
+  padding: 5px;
+  height: 90%;
+  opacity: 0.9;
 }
 .newLane:hover {
   background-color: #FFF3EB;
@@ -62,7 +86,7 @@ body {
 }
 .newLane p {
   font-size: 25px;
-}
+} 
 
 
 
@@ -120,34 +144,7 @@ form {
 }
 
 
-/* header and body */
 
-.App {
-  text-align: center;
-  position: fixed;
-  width: 100%;
-}
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-} 
-.App-header {
-  height: calc(4vmin);
-  vertical-align: center;
-}
-.App-link {
-  color: #61dafb;
-}
-.standardLink {
-  display:inline;
-  float: right;
-  padding:0px 10px 0px 10px;
-  text-decoration:none;
-}
-.standardLink:hover{
-  border-radius: 5px;
-}
 
 
 
@@ -161,17 +158,6 @@ form {
 }
 
 
-
-/* swim lanes */
-.newLane {
-  flex: 0 0 auto;
-  margin: 0vmin 3vmin 0vmin 3vmin;
-  width: 20vmax;
-  border-radius: 10px; 
-  padding: 5px;
-  height: 90%;
-  opacity: 0.9;
-}
 
 
 
@@ -240,7 +226,7 @@ form {
   z-index: 999;
 }
 #menuSetup:hover {
-  opacity: .  5;
+  opacity: 0.5;
 }
 .exitPopoutText {
   vertical-align: middle;
@@ -255,36 +241,52 @@ form {
   transition: .25s;
 }
 
+/* new card */
+.newCard {
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 2px;
+}
+.newCard:hover {
+    background-color:
+}
+
+.unicodeTrashcan{
+    margin: 0px;
+    font-size: 20px
+}
+
+
 /* animations */
 .slide-in {
-  animation: slide-in 0.5s forwards;
-  -webkit-animation: slide-in 0.5s forwards;
-}
-.slide-out {
-  animation: slide-out 0.5s forwards;
-  -webkit-animation: slide-out 0.5s forwards;
-}
-@keyframes slide-in {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(0%); }
-}
-@-webkit-keyframes slide-in {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(0%); }
-} 
-@keyframes slide-out {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(100%); }
-}
-@-webkit-keyframes slide-out {
-  0% { -webkit-transform: translateX(0%); }
-  100% { -webkit-transform: translateX(100%); }
-}
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+    animation: slide-in 0.5s forwards;
+    -webkit-animation: slide-in 0.5s forwards;
   }
-  to {
-    transform: rotate(360deg);
+  .slide-out {
+    animation: slide-out 0.5s forwards;
+    -webkit-animation: slide-out 0.5s forwards;
   }
-}
+  @keyframes slide-in {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(0%); }
+  }
+  @-webkit-keyframes slide-in {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(0%); }
+  } 
+  @keyframes slide-out {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(100%); }
+  }
+  @-webkit-keyframes slide-out {
+    0% { -webkit-transform: translateX(0%); }
+    100% { -webkit-transform: translateX(100%); }
+  }
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
