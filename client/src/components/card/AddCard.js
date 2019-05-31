@@ -7,7 +7,7 @@ export class AddCard extends Component {
     }
     render() {
         return (
-            <div style={{height: '50px', backgroundColor: "#888"}} onClick={this.showAddCardForm}>
+            <div className="newCardButton" style={{height: '50px', backgroundColor: "#888"}} onClick={this.showAddCardForm}>
                 <p style={{margin:'0px'}}>+</p>
             </div>
         )
