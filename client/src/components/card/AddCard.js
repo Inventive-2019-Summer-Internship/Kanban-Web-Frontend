@@ -7,8 +7,8 @@ export class AddCard extends Component {
     }
     render() {
         return (
-            <div className="newCardButton" style={{height: '50px'}} onClick={this.showAddCardForm}>
-                <p style={{margin:'0px'}}>+</p>
+            <div className="addCardBtn" onClick={this.showAddCardForm}>
+                <p>+</p>
             </div>
         )
     }
