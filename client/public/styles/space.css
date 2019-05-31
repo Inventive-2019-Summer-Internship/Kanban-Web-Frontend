@@ -283,7 +283,7 @@ button.form:hover {
     background-color: #FFF3EB;
     color: #a21747;
 }
-.newCardButton {
+.addCardBtn {
   background-color: #ead3c1;
   color: #a21747;
   border: 1px solid #ead3c1;
@@ -295,6 +295,19 @@ button.form:hover {
   border: 1px solid #FFF3EB;
   border-radius: 5px;
   margin: 4px;
+}
+.SLTitle {
+    width: 80%;
+    height: 30px;
+    color: #a21747;
+    font-size: 20px;
+    margin-left: 10px;
+}
+.SLHeader input[type=text] {
+    background-color: transparent;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 3px solid #a21747;
 }
 
 
