@@ -36,6 +36,7 @@
   background-color: white;
   cursor: pointer;
   border-radius: 5px;
+  height: 20px;
 }
 body {
   background-image: url("./spacecropped.jpg");
@@ -59,6 +60,7 @@ body {
   background-color: #FFF3EB;
   border: 1px solid #a21747;
   border-top-width: 1px;
+  border-radius: 10px;
   cursor: pointer;
 }
 
@@ -153,9 +155,6 @@ form {
   width: 80%;
   text-decoration: none;
 }
-.boardListing {
-  margin: 1% 10%;
-}
 
 
 
@@ -190,7 +189,7 @@ form {
   float: right;
   width: 50px;
   margin-right: 10px;
-  margin-top:-50px;
+  margin-top:-30px;
 }
 #sideBarActivator:hover {
   height: 25px;
@@ -255,6 +254,15 @@ form {
     margin: 0px;
     font-size: 20px
 }
+button.formAdd {
+    background-color: #ead3c1;
+    color: #a21747;
+}
+button.form {
+    background-color: #FFF3EB;
+    color: #a21747;
+}
+
 
 
 /* animations */
