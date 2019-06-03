@@ -85,6 +85,13 @@ body {
   padding: 5px;
   opacity: 0.9;
 }
+.SLTitle::placeholder {
+  color: #a21747;
+}
+.SLHeader input[type=text]:focus {
+  background-color: transparent;
+  color: #a21747;
+}
 .SLHeader input[type=text] {
   color: #a21747;
   background-color: transparent;
