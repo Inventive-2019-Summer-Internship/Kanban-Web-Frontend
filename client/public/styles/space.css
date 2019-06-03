@@ -1,6 +1,5 @@
 /* header and body */
 @import url('https://fonts.googleapis.com/css?family=Orbitron&display=swap');
-
 .App {
   font-size: calc(7px + 2vmin);
   font-family: 'Orbitron', sans-serif;
@@ -45,11 +44,14 @@ body {
 }
 
 
+
 /*list of boards page/homepage */
 .boardRow {
   color: #000000;
   font-size: 18px;
   font-family: 'Orbitron', sans-serif;
+  width: 80%;
+  text-decoration: none;
 }
 .boardListing {
   background-color: #ead3c1;
@@ -67,6 +69,34 @@ body {
 
 
 /* swim lanes */
+.swimLane {
+  text-align: left;
+  font-size: 25px;
+  font-weight: bold;
+  font-family: 'Orbitron', sans-serif;
+  background-color: #ead3c1;
+  border: 1px solid #a21747;
+  color:#a21747;
+  flex: 0 0 auto;
+  margin: 0vmin 3vmin 0vmin 3vmin;
+  width: 20vmax;
+  height: 95%;
+  border-radius: 10px;
+  padding: 5px;
+  opacity: 0.9;
+}
+.SLHeader input[type=text] {
+  color: #a21747;
+  background-color: transparent;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid #a21747;
+  margin-bottom: 5px;
+}
+
+
+
+/* add lane */
 .newLane {
   background-color: #ead3c1;
   border: 1px solid #a21747;
@@ -85,27 +115,13 @@ body {
   background-color: #FFF3EB;
   border: 1px solid #a21747;
   cursor: pointer;
+  opacity: 0.9
 }
 .newLane p {
   font-size: 25px;
 } 
 
-.swimLane {
-  text-align: left;
-  font-size: 25px;
-  font-weight: bold;
-  font-family: 'Orbitron', sans-serif;
-  background-color: #ead3c1;
-  border: 1px solid #a21747;
-  color:#a21747;
-  flex: 0 0 auto;
-  margin: 0vmin 3vmin 0vmin 3vmin;
-  width: 20vmax;
-  height: 90%;
-  border-radius: 10px;
-  padding: 5px;
-  opacity: 0.9;
-}
+
 
 /* create new board page */
 form {
@@ -133,10 +149,18 @@ form {
 
 /* view one board w options */
 .title{
-    color: white;
-    background-color: black;
-    font-family: 'Orbitron', sans-serif;
+  color: white;
+  background-color: black;
+  font-family: 'Orbitron', sans-serif;
+  padding-bottom: 8px;
+  margin-top: 0px;
   }  
+#sideBarActivator {
+  float: right;
+  width: 50px;
+  margin-right: 10px;
+  margin-top:-30px;
+}
 #sideBarActivator:hover {
   color: black;
   background-color: white;
@@ -144,33 +168,59 @@ form {
   border-radius: 5px;
   cursor: pointer;
 }
+#menu {
+  position:fixed;
+  top: 0;
+  right: 0;
+  display:none;
+  width: 100%;
+  height:100%;
+}
+#menuActual {
+  top: 0;
+  right: 0;
+  width: 25%;
+  height: 100%;
+  background-color: #282c34;
+  float: right;
+  z-index: 999;
+}
 #menuActual p {
   font-size: 20px;
   color: white;
+  text-align: left;
+  padding: 1em 2em;
 }
 #menuActual p:hover{
   color: #a21747;
   background-color: #FFF3EB;
   cursor: pointer;
 }
+#menuSetup {
+  transition:.25s;
+  width: 75%;
+  height: 100%;
+  float: left;
+  opacity: 0;
+  z-index: 999;
+}
 #menuSetup:hover {
+  opacity: 0.5;
   cursor: pointer;
 }
 .exitPopoutText {
   font-size: 10vmin;
+  vertical-align: middle;
+  display: table-cell;
 }
-
-
-
-
-
-
-/*list of boards page/homepage */
-.boardRow {
-  width: 80%;
-  text-decoration: none;
+.deletePopout {
+  background-color: #FF2424;
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
+  transition: .25s;
 }
-
 
 
 
@@ -195,87 +245,41 @@ form {
 
 
 
-/* view one board w options */
-.title{
-  padding-bottom: 8px;
-  margin-top: 0px;
-}
-#sideBarActivator {
-  float: right;
-  width: 50px;
-  margin-right: 10px;
-  margin-top:-30px;
-}
-#sideBarActivator:hover {
-  height: 25px;
-  border-radius: 5px;
-}
-#menu {
-  position:fixed;
-  top: 0;
-  right: 0;
-  display:none;
-  width: 100%;
-  height:100%;
-}
-#menuActual {
-  top: 0;
-  right: 0;
-  width: 25%;
-  height: 100%;
-  background-color: #282c34;
-  float: right;
-  z-index: 999;
-}
-#menuActual p {
-  text-align: left;
-  padding: 1em 2em;
-}
-#menuSetup {
-  transition:.25s;
-  width: 75%;
-  height: 100%;
-  float: left;
-  opacity: 0;
-  z-index: 999;
-}
-#menuSetup:hover {
-  opacity: 0.5;
-}
-.exitPopoutText {
-  vertical-align: middle;
-  display: table-cell;
-}
-.deletePopout {
-  background-color: #FF2424;
-  position: absolute;
-  width: 100%;
-  bottom: 0px;
-  left: 0px;
-  transition: .25s;
-}
 
 /* new card */
-.newCard {
-    border: 1px solid black;
-    border-radius: 5px;
-    margin: 2px;
+.newCard , .addCardBtn {
+  background-color: #ead3c1;
+  border: 1px solid #a21747;
+  border-radius: 10px;
+  width: auto;
+  margin: 0 5px 10px 5px;
+  padding: 0px;
 }
-.newCard:hover {
-    background-color:
+.newCard:hover , .addCardBtn:hover {
+  background-color: #FFF3EB;
+  cursor: pointer;
+}
+.unicodeTrashcan{
+  margin: 0px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.addCardBtn p {
+  padding-top: 0px;
 }
 
-.unicodeTrashcan{
-    margin: 0px;
-    font-size: 20px
+
+/* add card pop-up */
+#addCardName , #addCardDescription  {
+  font-family: 'Orbitron', sans-serif;
 }
-button.formAdd {
-    background-color: #ead3c1;
-    color: #a21747;
+button.formAdd , button.cardForm {
+  background-color: #ead3c1;
+  color: #a21747;
 }
-button.cardForm {
-    background-color: #FFF3EB;
-    color: #a21747;
+button.formAdd:hover , button.cardForm:hover {
+  background-color: #FFF3EB;
+  cursor: pointer;
 }
 
 
