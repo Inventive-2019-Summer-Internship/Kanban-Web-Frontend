@@ -166,21 +166,21 @@ form {
   padding-top: 15px;
 }
 
-.card {
+.newCard {
   background-color: #70788b;
   margin: 0;
   margin-right: 10px;
   border-radius: 10px;
 }
 
-.card h4 {
+.newCard h4 {
   margin: 0;
   margin-top: 20px;
   padding: 0 10px;
   word-wrap: break-word;
 }
 
-.card p {
+.newCard p {
   padding: 0 5px 5px;
   margin: 0;
   font-size: 15px;
