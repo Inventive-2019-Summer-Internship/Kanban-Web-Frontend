@@ -21,6 +21,7 @@ form {
 }
 
 .button {
+  cursor: pointer;
   background-color: #5479a7;
   width: 90%;
   height: 5vmin;
@@ -90,6 +91,7 @@ form {
 }
 
 .newLane {
+  cursor: pointer;
   font-size: 25px;
   background-color: #4b5162ef;
   flex: 0 0 auto;
@@ -149,6 +151,7 @@ form {
 }
 
 .addCardBtn {
+  cursor: pointer;
   height: 75px;
   /*width: calc(100%-10vmin);*/
   margin: 0;
@@ -167,6 +170,7 @@ form {
 }
 
 .card {
+  cursor: pointer;
   background-color: #70788b;
   margin: 0;
   margin-right: 10px;
@@ -188,6 +192,7 @@ form {
 }
 
 #sideBarActivator {
+  cursor: pointer;
   float: right;
   width: 50px;
   margin-right: 10px;
@@ -219,6 +224,7 @@ form {
 }
 
 #menuActual p {
+  cursor: pointer;
   font-size: 20px;
   text-align: left;
   padding: 1em 2em;
@@ -345,6 +351,7 @@ form {
 }
 
 button.cardForm {
+  cursor: pointer;
   width:95%;
   padding: 15px 0px;
   margin-bottom: 2%;
@@ -354,6 +361,7 @@ button.cardForm {
   color: #ffffff;
 }
 button.formAdd {
+  cursor: pointer;
   background-color: #5479a7;
   margin: 0 0 25px 0;
 }
