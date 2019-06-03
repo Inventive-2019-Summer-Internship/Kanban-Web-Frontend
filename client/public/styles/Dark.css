@@ -150,7 +150,7 @@ form {
 
 .addCardBtn {
   height: 75px;
-  width: calc(100%-10vmin);
+  /*width: calc(100%-10vmin);*/
   margin: 0;
   margin-right: 10px;
   margin-bottom: 20px;
