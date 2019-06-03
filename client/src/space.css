@@ -90,6 +90,28 @@ body {
   font-size: 25px;
 } 
 
+.swimLane {
+  background-color: #ead3c1;
+  border: 1px solid #a21747;
+  color: #a21747;
+  font-weight: bold;
+  font-family: 'Orbitron', sans-serif;
+  flex: 0 0 auto;
+  margin: 0vmin 3vmin 0vmin 3vmin;
+  width: 20vmax;
+  border-radius: 10px; 
+  padding: 5px;
+  height: 90%;
+  opacity: 0.9;
+}
+.swimLane:hover {
+  background-color: #FFF3EB;
+  border: 1px solid #a21747;
+  cursor: pointer;
+}
+.swimLane p {
+  font-size: 25px;
+} 
 
 
 /* create new board page */
@@ -258,7 +280,7 @@ button.formAdd {
     background-color: #ead3c1;
     color: #a21747;
 }
-button.form {
+button.cardForm {
     background-color: #FFF3EB;
     color: #a21747;
 }
