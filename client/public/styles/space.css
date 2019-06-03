@@ -82,16 +82,36 @@ body {
   opacity: 0.9;
 }
 .newLane:hover {
-  background-color: #ead3c1;
+  background-color: #FFF3EB;
   border: 1px solid #a21747;
+  cursor: pointer;
 }
 .newLane p {
   font-size: 25px;
 } 
-#addNewLane:hover {
+
+.swimLane {
+  background-color: #ead3c1;
+  border: 1px solid #a21747;
+  color: #a21747;
+  font-weight: bold;
+  font-family: 'Orbitron', sans-serif;
+  flex: 0 0 auto;
+  margin: 0vmin 3vmin 0vmin 3vmin;
+  width: 20vmax;
+  border-radius: 10px; 
+  padding: 5px;
+  height: 90%;
+  opacity: 0.9;
+}
+.swimLane:hover {
   background-color: #FFF3EB;
   border: 1px solid #a21747;
+  cursor: pointer;
 }
+.swimLane p {
+  font-size: 25px;
+} 
 
 
 /* create new board page */
@@ -242,73 +262,29 @@ form {
   transition: .25s;
 }
 
-
-
 /* new card */
 .newCard {
-    background-color: #FFF3EB;
-    border: 1px solid #FFF3EB;
+    border: 1px solid black;
     border-radius: 5px;
-    margin: 4px;
-}
-.newCard p {
-    font-size: 15px;
-    text-align: left;
-    padding: 1px;
-}
-.newCard h4 {
-    font-size: 25px;
+    margin: 2px;
 }
 .newCard:hover {
-  background-color: #FFF3EB;
-  border: 1px solid #FFF3EB;
+    background-color:
 }
+
 .unicodeTrashcan{
     margin: 0px;
     font-size: 20px
 }
-
-
-
-/* add a card */
 button.formAdd {
     background-color: #ead3c1;
     color: #a21747;
 }
-button.form {
-    background-color: #ead3c1;
-    color: #a21747;
-}
-button.form:hover {
+button.cardForm {
     background-color: #FFF3EB;
     color: #a21747;
 }
-.addCardBtn {
-  background-color: #ead3c1;
-  color: #a21747;
-  border: 1px solid #ead3c1;
-  border-radius: 5px;
-  margin: 4px;
-}
-.newCardButton:hover {
-  background-color: #FFF3EB;
-  border: 1px solid #FFF3EB;
-  border-radius: 5px;
-  margin: 4px;
-}
-.SLTitle {
-    width: 80%;
-    height: 30px;
-    color: #a21747;
-    font-size: 20px;
-    margin-left: 10px;
-}
-.SLHeader input[type=text] {
-    background-color: transparent;
-    box-sizing: border-box;
-    border: none;
-    border-bottom: 3px solid #a21747;
-}
+
 
 
 /* animations */
