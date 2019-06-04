@@ -149,7 +149,7 @@ class AppUtils extends React.Component {
      var audio = new Audio(mtitle);
      audio.play();
      console.log(this.state.musicList[q])
-     document.getElementById("pagestyle").setAttribute('href','space.css')
+     document.getElementById("pagestyle").setAttribute('href','styles/space.css')
      document.getElementById("SpaceyWacey").remove();
   }
   addComment = (comment, cardId, swimlaneId, boardId) => {
