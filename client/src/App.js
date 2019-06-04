@@ -29,7 +29,15 @@ class App extends AppUtils {
   }
   state = {
     darkMode: true,
+   // superStyle: require("./Dark.css"),
+
     showImage: false,
+        musicList: ["Always_Be_My_Unicorn.mp3","Arms_Dealer.mp3","Half_Bit.mp3",
+    "Meteor.mp3","OK_POP_KO.mp3","Orbital_Romance.mp3",
+  "Scouting.mp3","Space_Adventure.mp3","Splashing_Around.mp3",
+    "do_dodo_do_dodododooo_DODODO.mp3","UltimateShowdownOfUltimateDestiny.mp3","tacos.mp3",
+  "musicMetroid.mp3","megacastle.mp3","greenHills.mp3",
+    "greeeeen.mp3","halo.mp3","blops2.mp3"],
     currentBoard: this.BLANK_BOARD,
     boards: [
       {
@@ -74,7 +82,7 @@ class App extends AppUtils {
   }
 
   
- 
+
   /**
    * The Render Method
    */
@@ -89,6 +97,8 @@ class App extends AppUtils {
       <Router>
         <div style={{backgroundRepeat:'repeat', height:"100%", backgroundImage: (this.state.currentBoard.img && this.state.showImage) ? `url(${this.state.currentBoard.img})`: "none"}} className="App">
           <Header toggleSpace={this.toggleSpace} hideImage={this.hideImage} />
+           <link id="pagestyle" rel="stylesheet" type="text/css" href="styles/Dark.css" /> 
+
 
           <Route exact path="/" render={() => {
               if(this.state.showImage) this.hideImage();

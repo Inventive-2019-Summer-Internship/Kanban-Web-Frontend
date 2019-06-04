@@ -4,7 +4,7 @@ export class AddSwimLane extends Component {
     AddSwimLane = () => {
         var name = prompt("Name your lane", "Default Lane Name");
         if(name === "" || name === null) {
-            alert("Try again");
+            alert("New swim lane was not created");
         }
         else {
             this.props.addSwimLane(name);
@@ -12,7 +12,7 @@ export class AddSwimLane extends Component {
     }
     render() {
     return (
-        <div onClick={this.AddSwimLane} className="newLane" style={{height:"18%"}}>
+        <div onClick={this.AddSwimLane} className="newLane">
             <p>+</p>        
 
         </div>
