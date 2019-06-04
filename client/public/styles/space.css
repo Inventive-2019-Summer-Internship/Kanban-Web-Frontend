@@ -13,6 +13,7 @@
   font-size: calc(7px + 2vmin);
   height: calc(4vmin);
   vertical-align: center;
+  /* small change */
 }
 .App-logo {
     animation: App-logo-spin infinite 20s linear;
