@@ -14,7 +14,7 @@ export class SwimLane extends React.Component {
   }
   render() {
     return (
-      <div onClick={this.setCurrentSwimlane} className="newLane" data-simplebar>
+      <div onClick={this.setCurrentSwimlane} className="swimLane" data-simplebar>
         <SwimLaneHeader swimlane={this.props.swimlane} changeTitle={this.props.changeTitle} deleteSwimlane={this.props.deleteSwimlane}/>
         <CardView cards={this.props.swimlane.cards} />
       </div>
