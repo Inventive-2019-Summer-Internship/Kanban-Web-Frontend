@@ -27,7 +27,7 @@ export class SwimLaneHeader extends Component {
         return (
             <div className="SLHeader" >
                 <input id={this.props.swimlane.id} className="SLTitle" type="text" name="SLTitle" placeholder={this.props.swimlane.title}  onChange={this.onChange} onFocus={this.putTitleIn} onBlur={this.changeTitle} />
-                <p className="unicodeTrashcan" style={{display:'inline', float:'right', margin:'2px 15px 0px 0px'}} onClick={this.deleteSwimlane}>&#128465;</p>
+                <p className="unicodeTrashcan" style={{display:'inline', float:'right', margin:'2px 15px 0px 0px', cursor:'pointer'}} onClick={this.deleteSwimlane}>&#128465;</p>
             </div>
         )
     }

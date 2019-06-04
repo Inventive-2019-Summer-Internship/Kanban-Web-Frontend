@@ -6,6 +6,7 @@ import PopoutMenu from '../PopoutMenu'
 import SwimLaneView from '../SwimLaneView'
 import BoardHeader from '../BoardHeader'
 import AddCardForm from '../card/AddCardForm';
+import DisplayEditCardForm  from '../card/DisplayEditCardForm';
 //////////////////////////////////////////////////////////////////
 
 /**
@@ -16,15 +17,36 @@ import AddCardForm from '../card/AddCardForm';
 export class OpenBoardView extends React.Component {
 
   state = {
+    activeCard: {
+      title: "",
+      description: "",
+      comments: [
+        {
+          comment: "",
+          id: -1
+        }
+      ]
+    },
     currentSwimlane: this.props.currentBoard.swimLanes[0]
   }
-
+  updateCard = (card) => {
+    this.props.updateCard(card, this.state.currentSwimlane.id, this.props.currentBoard.id);
+  }
+  deleteCard = (cardId) => {
+    this.props.deleteCard(cardId, this.state.currentSwimlane.id, this.props.currentBoard.id);
+  }
   changeSwimlaneTitle = (title, id) => {
     this.props.changeSwimlaneTitle(this.props.currentBoard.id, title, id)
   }
 
   addSwimLane = (name) => {
     this.props.addSwimLane(name, this.props.currentBoard.id);
+  }
+  addComment = (comment, cardId) => {
+    this.props.addComment(comment, cardId, this.state.currentSwimlane.id, this.props.currentBoard.id)
+  }
+  deleteComment = (commentId, cardId) => {
+    this.props.deleteComment(commentId, cardId, this.state.currentSwimlane.id, this.props.currentBoard.id)
   }
 
   changeBoardName = () => {
@@ -35,6 +57,10 @@ export class OpenBoardView extends React.Component {
     else {
         this.props.changeBoardName(name, this.props.currentBoard.id);
     }
+  }
+
+  setCard = (card) => {
+    this.setState({activeCard: card})
   }
 
   changeBoardBG = () => {
@@ -64,12 +90,13 @@ export class OpenBoardView extends React.Component {
 
   render(props) {
     return (
-      <div style={{height:"90%", width: "100%"}}>
+      <div style={{height:"90%", overflow:"hidden", width: "100%"}}>
         
         <BoardHeader currentBoard={this.props.currentBoard} />
-        <SwimLaneView setCurrentSwimlane={this.setCurrentSwimlane} currentBoard={this.props.currentBoard} addSwimLane={this.addSwimLane} changeTitle={this.changeSwimlaneTitle} deleteSwimlane={this.props.deleteSwimlane} />
+        <SwimLaneView setCard={this.setCard} setCurrentSwimlane={this.setCurrentSwimlane} currentBoard={this.props.currentBoard} addSwimLane={this.addSwimLane} changeTitle={this.changeSwimlaneTitle} deleteSwimlane={this.props.deleteSwimlane} />
         <PopoutMenu changeBoardName={this.changeBoardName} changeBoardBG={this.changeBoardBG} deleteBoard={this.deleteBoard} />
         <AddCardForm addCard={this.props.addCard} currentSwimlane={this.state.currentSwimlane} />
+        <DisplayEditCardForm addComment={this.addComment} deleteComment={this.deleteComment} deleteCard={this.deleteCard} updateCard={this.updateCard} card={this.state.activeCard} />
 
       </div>
     )

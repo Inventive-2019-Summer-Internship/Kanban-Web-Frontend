@@ -2,6 +2,12 @@
   text-align: center;
   font-size: 30px;
   color: white;
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE 10+ */
+}
+.App::-webkit-scrollbar { /* WebKit */
+  display: none;
 }
 body {
   background-color: #404552;
@@ -21,6 +27,7 @@ form {
 }
 
 .button {
+  cursor: pointer;
   background-color: #5479a7;
   width: 90%;
   height: 5vmin;
@@ -83,6 +90,7 @@ form {
 }
 
 .title {
+  cursor: default;
   margin:0;
   width: 100%;
   padding-bottom: 8px;
@@ -90,6 +98,7 @@ form {
 }
 
 .newLane {
+  cursor: pointer;
   font-size: 25px;
   background-color: #4b5162ef;
   flex: 0 0 auto;
@@ -107,7 +116,9 @@ form {
   text-align: left;
   font-size: 25px;
   background-color: #4b5162ef;
-  flex: 0 0 auto;
+  
+  margin-left: 10px;
+  padding-left: 10px;
   margin-left: 10px;
   padding-left: 10px;
   margin-left: 10px;
@@ -149,6 +160,7 @@ form {
 }
 
 .addCardBtn {
+  cursor: pointer;
   height: 75px;
   /*width: calc(100%-10vmin);*/
   margin: 0;
@@ -159,6 +171,8 @@ form {
 
 .addCardBtn:hover {
   background-color: #70788bef;
+
+
   border-radius: 10px;
 }
 
@@ -166,21 +180,26 @@ form {
   padding-top: 15px;
 }
 
-.newCard {
+
+.card {
+  cursor: pointer;
   background-color: #70788b;
   margin: 0;
   margin-right: 10px;
   border-radius: 10px;
 }
 
-.newCard h4 {
+
+.card h4 {
+
   margin: 0;
   margin-top: 20px;
   padding: 0 10px;
   word-wrap: break-word;
 }
 
-.newCard p {
+
+.card p {
   padding: 0 5px 5px;
   margin: 0;
   font-size: 15px;
@@ -188,6 +207,7 @@ form {
 }
 
 #sideBarActivator {
+  cursor: pointer;
   float: right;
   width: 50px;
   margin-right: 10px;
@@ -219,6 +239,7 @@ form {
 }
 
 #menuActual p {
+  cursor: pointer;
   font-size: 20px;
   text-align: left;
   padding: 1em 2em;
@@ -345,6 +366,7 @@ form {
 }
 
 button.cardForm {
+  cursor: pointer;
   width:95%;
   padding: 15px 0px;
   margin-bottom: 2%;
@@ -354,6 +376,7 @@ button.cardForm {
   color: #ffffff;
 }
 button.formAdd {
+  cursor: pointer;
   background-color: #5479a7;
   margin: 0 0 25px 0;
 }
@@ -361,3 +384,181 @@ button.formAdd {
 button.formAdd:hover {
   background-color: #7da2cf;
 }
+
+.closeCardInfoButton {
+  color:#585858;
+  display: inline;
+  float: right;
+  margin: 0px;
+  width: 5%;
+}
+.displayCardInfoButtonArea {
+  margin-top: 2%;
+  margin-left: 2%;
+  width:90%;
+  height: 10%
+}
+button.displayCardInfoButton:disabled {
+  color: white;
+  background-color: rgb(103, 103, 160);
+  transition: .5s;
+}
+button.displayCardInfoButton {
+  height: 100%;
+  width: 125px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: blue;
+  transition: .5s;
+}
+#displayCardDeleteButton {
+  background-color: red;
+}
+.displayCardInfoContainer {
+  position: absolute;
+  z-index: 3;
+  display: none;
+  top: 0px;
+  left: 0px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+.displayCardInfo {
+  width: 75%;
+  height: 75%;
+  border-radius: 5px;
+  border: 1px black solid;
+  background-color: #ffffff;
+}
+.cardDescription {
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  resize: none;
+}
+.cardHeader {
+  height: 10%;
+
+}
+.cardTitle {
+  display: inline;
+  width: 90%;
+  float: left;
+  font-size: 24px;
+  width:auto;
+  margin-left: 15px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+.contentArea {
+  width: 100%;
+  margin-left: 15px;
+  height: 75%;
+}
+.descriptionArea {
+  
+  height:100%;
+  width: 40%;
+  float: left;
+  background-color: blue;
+}
+.additionalInformationSidebar {
+  margin-right: 2.5%;
+  height:100%;
+  width: 55%;
+  float: right;
+  background-color: red;
+}
+.cardCommentContainer {
+  width:100%;
+  height: 100%;
+  background-color: gray;
+
+}
+.cardComments {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex-direction: column;
+  background-color: lightgray;
+}
+.cardComment {
+  width: 100%;
+  height: 50px;
+  padding-top: 10px;
+  text-align: left;
+  font-size: 14px;
+  
+}
+div.cardComment {
+  background-color: #cccccc;
+}
+div.cardComment:nth-child(even) {
+  background-color: #f2f2f2;
+  color: #cccccc;
+}
+p.cardComment {
+  width: 90%;
+  height: 100%;
+  padding-top:0px;
+  margin: 0px;
+  display: inline;
+  padding-left: 5px;
+  float:left;
+}
+.cardAddComment {
+  width: 100%;
+  height: 10%;
+  background-color: white;
+}
+.addCommentInput {
+  height: 100%;
+  width:90%;
+  float: left;
+  border: none;
+}
+.addCommentSubmitButton {
+  height: 100%;
+  width:10%;
+  float: right;
+  border: none;
+  color: grey;
+  background-color: #eeeeee;
+  font-size: 20px;
+}
+.slide-up-display {
+  animation: slide-up-display 0.25s forwards;
+  -webkit-animation: slide-up-display 0.25s forwards;
+}
+
+.slide-down-display {
+  animation: slide-down-display 0.25s forwards;
+  -webkit-animation: slide-down-display 0.25s forwards;
+}
+@keyframes slide-down-display {
+  0% { transform: translateY(-150%); }
+  100% { transform: translateY(0%); }
+}
+
+@-webkit-keyframes slide-down-display {
+  0% { transform: translateY(-150%); }
+  100% { transform: translateY(0%); }
+}
+  
+@keyframes slide-up-display {
+  0% { transform: translateY(0%); }
+  100% { transform: translateY(-150%); }
+}
+
+@-webkit-keyframes slide-up-display {
+  0% { -webkit-transform: translateY(0%); }
+  100% { -webkit-transform: translateY(-150%); }
+}
+
+
