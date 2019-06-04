@@ -43,7 +43,13 @@ class App extends AppUtils {
               {
                 title: "sample card",
                 description: "This is a sample description",
-                id: uuid()
+                id: uuid(),
+                comments: [
+                  {
+                    comment: "This is a sample comment",
+                    id: uuid()
+                  }
+                ]
               }
             ]
           }
@@ -104,7 +110,8 @@ class App extends AppUtils {
               changeBoardBG={this.changeBoardBG} addSwimLane={this.addSwimLane} 
               currentBoard={this.state.currentBoard} changeSwimlaneTitle={this.changeSwimlaneTitle}
               deleteSwimlane={this.deleteSwimlane} addCard={this.addCard}
-              updateCard={this.updateCard} deleteCard={this.deleteCard}/>
+              updateCard={this.updateCard} deleteCard={this.deleteCard}
+              addComment={this.addComment} deleteComment={this.deleteComment}/>
               )}
           />
         </div>  

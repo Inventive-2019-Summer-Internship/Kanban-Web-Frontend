@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import CardInfoContent from './CardInfoContent'
 
 export class DisplayEditCardForm extends Component {
     state = {
@@ -26,17 +27,26 @@ export class DisplayEditCardForm extends Component {
             this.props.deleteCard(this.props.card.id);
         }
     }
+    addComment = (comment) => {
+        this.props.addComment(comment, this.props.card.id)
+    }
+    deleteComment = (commentId) => {
+        this.props.deleteComment(commentId, this.props.card.id)
+    }
     resetState = () => {
         if(this.props.card.description === "" && this.props.card.title === "") this.setState({title: this.props.card.title,description: this.props.card.description});
     }
 
     loadText = (evt) => {
-        if(evt.target.value === "") evt.target.value = this.props.card[evt.target.name];
-        else {
-            evt.target.value = this.state[evt.target.name]
+        if(evt.target.value === "") {
+            evt.target.value = this.props.card[evt.target.name];
+            this.setState({[evt.target.name]:this.props.card[evt.target.name]});
         }
     }
-
+    updateDescription = (description) => {
+        this.setState({description})
+        this.setState({needsUpdating: true})
+    }
     updateState = (evt) => {
         this.setState({[evt.target.name]: evt.target.value})
         this.setState({needsUpdating: true})
@@ -56,9 +66,10 @@ export class DisplayEditCardForm extends Component {
                         <input name="title" type="text" onChange={this.updateState} onClick={this.loadText} placeholder={this.props.card.title} class="cardTitle"/>
                         <p class="closeCardInfoButton" onClick={this.closeForm}>x</p>
                 </div>
-
-                <textarea name="description" rows="25" cols="80" onChange={this.updateState} onClick={this.loadText} placeholder={this.props.card.description} class="cardDescription"> 
-                </textarea>
+                <CardInfoContent addComment={this.addComment} deleteComment={this.deleteComment} updateDescription={this.updateDescription} onClick={this.loadText} card={this.props.card}/>
+                
+                    
+                
                 <div class="displayCardInfoButtonArea">
                     <button id="displayCardUpdateButton" class="displayCardInfoButton" onClick={this.doThis}>Update</button>
                     <button id="displayCardDeleteButton" class="displayCardInfoButton" onClick={this.doThis}>Delete Card</button>

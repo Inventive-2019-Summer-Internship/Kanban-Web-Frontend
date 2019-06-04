@@ -19,7 +19,13 @@ export class OpenBoardView extends React.Component {
   state = {
     activeCard: {
       title: "",
-      description: ""
+      description: "",
+      comments: [
+        {
+          comment: "",
+          id: -1
+        }
+      ]
     },
     currentSwimlane: this.props.currentBoard.swimLanes[0]
   }
@@ -35,6 +41,12 @@ export class OpenBoardView extends React.Component {
 
   addSwimLane = (name) => {
     this.props.addSwimLane(name, this.props.currentBoard.id);
+  }
+  addComment = (comment, cardId) => {
+    this.props.addComment(comment, cardId, this.state.currentSwimlane.id, this.props.currentBoard.id)
+  }
+  deleteComment = (commentId, cardId) => {
+    this.props.deleteComment(commentId, cardId, this.state.currentSwimlane.id, this.props.currentBoard.id)
   }
 
   changeBoardName = () => {
@@ -84,7 +96,7 @@ export class OpenBoardView extends React.Component {
         <SwimLaneView setCard={this.setCard} setCurrentSwimlane={this.setCurrentSwimlane} currentBoard={this.props.currentBoard} addSwimLane={this.addSwimLane} changeTitle={this.changeSwimlaneTitle} deleteSwimlane={this.props.deleteSwimlane} />
         <PopoutMenu changeBoardName={this.changeBoardName} changeBoardBG={this.changeBoardBG} deleteBoard={this.deleteBoard} />
         <AddCardForm addCard={this.props.addCard} currentSwimlane={this.state.currentSwimlane} />
-        <DisplayEditCardForm deleteCard={this.deleteCard} updateCard={this.updateCard} card={this.state.activeCard} />
+        <DisplayEditCardForm addComment={this.addComment} deleteComment={this.deleteComment} deleteCard={this.deleteCard} updateCard={this.updateCard} card={this.state.activeCard} />
 
       </div>
     )
