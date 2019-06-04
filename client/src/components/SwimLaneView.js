@@ -7,7 +7,7 @@ export class SwimLaneView extends Component {
     render() {
         return (
             <div style={{display:'flex', overflowX:"auto", flexWrap: "nowrap",height:"90%"}} >
-                <SwimLanes setCurrentSwimlane={this.props.setCurrentSwimlane} currentBoard={this.props.currentBoard} changeTitle={this.props.changeTitle} deleteSwimlane={this.props.deleteSwimlane}/>
+                <SwimLanes setCard={this.props.setCard} setCurrentSwimlane={this.props.setCurrentSwimlane} currentBoard={this.props.currentBoard} changeTitle={this.props.changeTitle} deleteSwimlane={this.props.deleteSwimlane}/>
                 <AddSwimLane addSwimLane={this.props.addSwimLane} />
             </div>
         )
