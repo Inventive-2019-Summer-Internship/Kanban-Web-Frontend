@@ -2,6 +2,12 @@
   text-align: center;
   font-size: 30px;
   color: white;
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE 10+ */
+}
+.App::-webkit-scrollbar { /* WebKit */
+  display: none;
 }
 body {
   background-color: #404552;
@@ -294,4 +300,101 @@ button.form {
 }
 button.formAdd {
   background-color: #5479a7;
+}
+.closeCardInfoButton {
+  color:#585858;
+  display: inline;
+  float: right;
+  margin: 0px;
+  width: 5%;
+}
+.displayCardInfoButtonArea {
+  margin-top: 2%;
+  margin-left: 2%;
+  width:90%;
+  height: 10%
+}
+button.displayCardInfoButton:disabled {
+  color: white;
+  background-color: rgb(103, 103, 160);
+  transition: .5s;
+}
+button.displayCardInfoButton {
+  height: 100%;
+  width: 125px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: blue;
+  transition: .5s;
+}
+#displayCardDeleteButton {
+  background-color: red;
+}
+.displayCardInfoContainer {
+  position: absolute;
+  z-index: 3;
+  display: none;
+  top: 0px;
+  left: 0px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+.displayCardInfo {
+  width: 75%;
+  height: 75%;
+  border-radius: 5px;
+  border: 1px black solid;
+  background-color: #ffffff;
+}
+.cardDescription {
+  width: 97%;
+  text-align: left;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.cardHeader {
+  height: 10%;
+
+}
+.cardTitle {
+  display: inline;
+  width: 90%;
+  float: left;
+  font-size: 24px;
+  width:auto;
+  margin-left: 15px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+.slide-up-display {
+  animation: slide-up-display 0.25s forwards;
+  -webkit-animation: slide-up-display 0.25s forwards;
+}
+
+.slide-down-display {
+  animation: slide-down-display 0.25s forwards;
+  -webkit-animation: slide-down-display 0.25s forwards;
+}
+@keyframes slide-down-display {
+  0% { transform: translateY(-150%); }
+  100% { transform: translateY(0%); }
+}
+
+@-webkit-keyframes slide-down-display {
+  0% { transform: translateY(-150%); }
+  100% { transform: translateY(0%); }
+}
+  
+@keyframes slide-up-display {
+  0% { transform: translateY(0%); }
+  100% { transform: translateY(-150%); }
+}
+
+@-webkit-keyframes slide-up-display {
+  0% { -webkit-transform: translateY(0%); }
+  100% { -webkit-transform: translateY(-150%); }
 }
