@@ -10,14 +10,6 @@ class AppUtils extends React.Component {
    * showBoard
    * @param id the id of the board that you want to show (Comes from BoardListing>BoardView>this)
    */
-  componentWillMount() {
-    /*if(this.state.darkMode) {
-      require("./App.css");
-    } else {
-      require("./cssupdate.css");
-    }*/
-    require("./Dark.css");
-  }
   changeSwimlaneTitle = (boardId, title, swimlaneId) => {
     let currentBoard = this.state.currentBoard
     let swimLanes = currentBoard.swimLanes
