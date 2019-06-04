@@ -138,7 +138,8 @@ class AppUtils extends React.Component {
     let newCard = {
       title,
       description,
-      id: uuid()
+      id: uuid(),
+      comments: []
     }
     let currentBoard = this.state.currentBoard
     for(var i = 0; i < currentBoard.swimLanes.length; i++) {
@@ -153,6 +154,52 @@ class AppUtils extends React.Component {
   toggleSpace = () => {
     let antiCurrentSetting = !(this.state.darkMode)
     this.setState({darkMode: antiCurrentSetting});
+  }
+  addComment = (comment, cardId, swimlaneId, boardId) => {
+      let commentToAdd = {
+          comment,
+          id: uuid()
+      }
+      let currentBoard = this.state.currentBoard
+      let currentSwimlane = currentBoard.swimLanes.filter(swimlane => swimlane.id === swimlaneId)[0]
+      
+
+      for( var i = 0; i < currentSwimlane.cards.length; i++) {
+          if(currentSwimlane.cards[i].id === cardId) {
+            currentSwimlane.cards[i].comments.push(commentToAdd)
+            break;
+          }
+      }
+      for(var i = 0; i < currentBoard.swimLanes.length; i++) {
+          if(currentBoard.swimLanes[i].id === swimlaneId) {
+              currentBoard.swimLanes[i] = currentSwimlane
+          }
+      }
+      let boards = [...this.state.boards.filter(board => board.id !== boardId), currentBoard]
+      boards.push(boards.shift());
+      this.setState({currentBoard,boards})
+      
+  }
+  deleteComment = (commentId, cardId, swimlaneId, boardId) => {
+        let currentBoard = this.state.currentBoard
+        let currentSwimlane = currentBoard.swimLanes.filter(swimlane => swimlane.id === swimlaneId)[0]
+        let currentCard = currentSwimlane.cards.filter(card => card.id === cardId)[0]
+        currentCard.comments = currentCard.comments.filter(comment => comment.id !== commentId)
+        for(var i = 0; i < currentSwimlane.cards.length; i++) {
+            if(currentSwimlane.cards[i].id === cardId) {
+                currentSwimlane.cards[i] = currentCard
+                break;
+            }
+        }
+        for(var i = 0; i < currentBoard.swimLanes.length; i++) {
+            if(currentBoard.swimLanes[i].id === cardId) {
+                currentBoard.swimLanes[i] = currentSwimlane
+                break;
+            }
+        }
+        let boards = [...this.state.boards.filter(board => board.id !== boardId), currentBoard]
+        boards.push(boards.shift());
+        this.setState({currentBoard,boards})
   }
 }
 
