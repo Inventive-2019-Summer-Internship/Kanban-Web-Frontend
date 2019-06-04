@@ -12,7 +12,7 @@ export class AddSwimLane extends Component {
     }
     render() {
     return (
-        <div onClick={this.AddSwimLane} className="newLane" style={{height:"18%"}}>
+        <div onClick={this.AddSwimLane} className="newLane" id="addNewLane">
             <p>+</p>        
 
         </div>
