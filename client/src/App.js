@@ -9,7 +9,7 @@ import NewBoardView from './components/pages/NewBoardView';
 import OpenBoardView from './components/pages/OpenBoardView';
 import AppUtils from './AppUtils'
 /////////////    CSS Imports      ////////////////////////////////
-
+require('Dark.css');
 //////////////////////////////////////////////////////////////////
 
 /**
