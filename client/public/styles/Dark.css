@@ -170,13 +170,16 @@ form {
   padding-top: 15px;
 }
 
+
 .card {
   cursor: pointer;
+
   background-color: #70788b;
   margin: 0;
   margin-right: 10px;
   border-radius: 10px;
 }
+
 
 .card h4 {
   margin: 0;
@@ -184,6 +187,7 @@ form {
   padding: 0 10px;
   word-wrap: break-word;
 }
+
 
 .card p {
   padding: 0 5px 5px;
