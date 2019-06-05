@@ -7,10 +7,13 @@ export class Card extends Component {
         //DisplayEditCardForm.updateState()
         document.getElementById("cardInfoDisplay").className = `displayCardInfo slide-down-display`;
         document.getElementById("displayCardInfoContainer").style.display = "flex";
-        document.getElementById("addCardForm").className = "slide-down";
-        window.setTimeout(() => {
-            document.getElementById("addCardForm").style.display = "none";
-          },450);
+        if(document.getElementById("addCardForm")) {
+            document.getElementById("addCardForm").className = "slide-down";
+            window.setTimeout(() => {
+                document.getElementById("addCardForm").style.display = "none";
+            },450);
+        }
+        
         document.getElementById('addCardName').value = "";
         document.getElementById('addCardDescription').value = "";
     }
