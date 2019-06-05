@@ -12,11 +12,21 @@ export class SwimLane extends React.Component {
   setCurrentSwimlane = () => {
     this.props.setCurrentSwimlane(this.props.swimlane)
   }
+  _onDragEnter = (evt) => {
+    console.log(evt);
+  }
+  componentDidMount() {
+    //window.addEventListener('mouseup', this._onDragLeave);
+    window.addEventListener('dragenter', this._onDragEnter);
+    //window.addEventListener('dragover', this._onDragOver);
+    //window.addEventListener('drop', this._onDrop);
+    //document.getElementById('dragbox').addEventListener('dragleave', this._onDragLeave);
+}
   render() {
     return (
-      <div onClick={this.setCurrentSwimlane} className="swimLane" data-simplebar>
+      <div onClick={this.setCurrentSwimlane} onDragEnter={this.onDragEnter} className="swimLane" data-simplebar>
         <SwimLaneHeader swimlane={this.props.swimlane} changeTitle={this.props.changeTitle} deleteSwimlane={this.props.deleteSwimlane}/>
-        <CardView setCard={this.props.setCard} cards={this.props.swimlane.cards} />
+        <CardView setCard={this.props.setCard} setDragged={this.props.setDragged} cards={this.props.swimlane.cards} />
       </div>
     )
   }
