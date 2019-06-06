@@ -20,8 +20,8 @@ export class AddCardForm extends Component {
                 this.closeAddCardForm();
                 break;
             default:
-                    this.closeAddCardForm();
-                    break;
+                this.closeAddCardForm();
+                break;
         }
     }
 

@@ -386,6 +386,7 @@ button.formAdd:hover {
 }
 
 .closeCardInfoButton {
+  cursor: pointer;
   color:#585858;
   display: inline;
   float: right;
