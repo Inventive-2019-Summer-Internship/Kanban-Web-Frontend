@@ -12,8 +12,7 @@ export class DisplayEditCardForm extends Component {
             console.log("updating...")
             this.props.updateCard({
                 title: (this.state.title === "") ? this.props.card.title : this.state.title,
-                description: (this.state.description !== "" && this.state.needsUpdating) ? document.getElementsByName("description")[0].value : this.props.description,
-                comments: this.props.card.comments,
+                description: this.state.description,
                 id: this.props.card.id
             })
             this.setState({needsUpdating: false})

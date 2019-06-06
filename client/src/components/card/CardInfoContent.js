@@ -13,11 +13,10 @@ export class CardInfoContent extends Component {
         this.props.updateDescription(evt.target.value);
     }
     loadText = (evt) => {
-        if(evt.target.value === "" && !this.state.needsUpdating) {
+        if(evt.target.value === "") {
             evt.target.value = this.props.card[evt.target.name];
             this.setState({[evt.target.name]:this.props.card[evt.target.name]});
-            //this.props.updateDescription(this.state.description);
-            this.props.updateDescription(this.props.card.description)
+            this.props.updateDescription(this.state.description);
         }
     }
     render() {
