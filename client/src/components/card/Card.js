@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import DisplayEditCardForm from './DisplayEditCardForm';
+//import DisplayEditCardForm from './DisplayEditCardForm';
 
 export class Card extends Component {
     showCardInfo = () => {
