@@ -10,14 +10,6 @@ class AppUtils extends React.Component {
    * showBoard
    * @param id the id of the board that you want to show (Comes from BoardListing>BoardView>this)
    */
-  componentWillMount() {
-    /*if(this.state.darkMode) {
-      require("./App.css");
-    } else {
-      require("./cssupdate.css");
-    }*/
-    require("./Dark.css");
-  }
   changeSwimlaneTitle = (boardId, title, swimlaneId) => {
     let currentBoard = this.state.currentBoard
     let swimLanes = currentBoard.swimLanes
@@ -152,8 +144,13 @@ class AppUtils extends React.Component {
     this.setState({boards})
   }
   toggleSpace = () => {
-    let antiCurrentSetting = !(this.state.darkMode)
-    this.setState({darkMode: antiCurrentSetting});
+     var q = (Math.floor(Math.random()*this.state.musicList.length));
+     var mtitle="music/"+this.state.musicList[q];
+     var audio = new Audio(mtitle);
+     audio.play();
+     console.log(this.state.musicList[q])
+     document.getElementById("pagestyle").setAttribute('href','styles/space.css')
+     document.getElementById("SpaceyWacey").remove();
   }
   addComment = (comment, cardId, swimlaneId, boardId) => {
       let commentToAdd = {
