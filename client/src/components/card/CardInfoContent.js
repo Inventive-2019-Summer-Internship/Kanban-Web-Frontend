@@ -10,7 +10,7 @@ export class CardInfoContent extends Component {
     updateState = (evt) => {
         this.setState({[evt.target.name]: evt.target.value})
         this.setState({needsUpdating: true})
-        this.props.updateDescription(this.state.description);
+        this.props.updateDescription(evt.target.value);
     }
     loadText = (evt) => {
         if(evt.target.value === "" && !this.state.needsUpdating) {
@@ -22,9 +22,9 @@ export class CardInfoContent extends Component {
     }
     render() {
         return (
-            <div class="contentArea">
-                    <div class="descriptionArea">
-                        <textarea name="description" rows="25" cols="80" onChange={this.updateState} onClick={this.loadText} placeholder={this.props.card.description} class="cardDescription"> 
+            <div className="contentArea">
+                    <div className="descriptionArea">
+                        <textarea name="description" rows="25" cols="80" onChange={this.updateState} onClick={this.loadText} placeholder={this.props.card.description} className="cardDescription"> 
                         </textarea>
                     </div>
                     <CardInfoContentSidebar deleteComment={this.props.deleteComment} addComment={this.props.addComment} card={this.props.card} />

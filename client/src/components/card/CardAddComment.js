@@ -12,9 +12,9 @@ export class CardAddComment extends Component {
     }
     render() {
         return (
-            <div class="cardAddComment">
-                <input class="addCommentInput" onChange={this.onChange} name="commentContent" placeholder="Add a new Comment"/>
-                <button class="addCommentSubmitButton" onClick={this.submitNewComment}>&#10548;</button>
+            <div className="cardAddComment">
+                <input className="addCommentInput" onChange={this.onChange} name="commentContent" placeholder="Add a new Comment"/>
+                <button className="addCommentSubmitButton" onClick={this.submitNewComment}>&#10548;</button>
             </div>
         )
     }

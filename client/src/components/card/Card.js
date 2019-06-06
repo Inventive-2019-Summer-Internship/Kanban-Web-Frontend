@@ -2,12 +2,14 @@ import React, { Component } from 'react'
 
 export class Card extends Component {
     dragCard = (evt) => {
-        console.log(evt)
-        this.currentTarget.style.opacity = .5
+        evt.currentTarget.style.opacity = .5
         this.props.setDragged(this.props.card, "card")
     }
+    componentDidMount() {
+        window.addEventListener('drop', this.props.onDrop);
+    }
     dropCard = (evt) => {
-        this.currentTarget.style.opacity = 1
+        evt.currentTarget.style.opacity = 1
     }
     showCardInfo = () => {
         this.props.setCard(this.props.card)
@@ -26,7 +28,7 @@ export class Card extends Component {
     }
     render() {
         return (
-            <div className="card" draggable={true} onDragStart={this.dragCard} onDragEnd={this.dropCard } onClick={this.showCardInfo} style={{border: "1px solid black"}}>
+            <div draggable={true} className="card" onDragStart={this.dragCard} onDragEnd={this.dropCard} onClick={this.showCardInfo} style={{border: "1px solid black"}}>
                 <h4>{this.props.card.title}</h4>
                 <p>{this.props.card.description}</p>
             </div>

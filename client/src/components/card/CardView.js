@@ -7,7 +7,7 @@ export class CardView extends Component {
     render() {
         return (
             <div>
-                <Cards setCard={this.props.setCard} setDragged={this.props.setDragged} cards={this.props.cards} />
+                <Cards setCard={this.props.setCard} setDragged={this.props.setDragged} onDrop={this.props.onDrop} cards={this.props.cards} />
                 <AddCard />
             </div>
         )
