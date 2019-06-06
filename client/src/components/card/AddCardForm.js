@@ -19,6 +19,9 @@ export class AddCardForm extends Component {
             case 'cancel':
                 this.closeAddCardForm();
                 break;
+            default:
+                    this.closeAddCardForm();
+                    break;
         }
     }
 

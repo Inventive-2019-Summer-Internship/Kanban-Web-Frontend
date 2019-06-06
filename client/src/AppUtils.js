@@ -54,14 +54,14 @@ class AppUtils extends React.Component {
         break;
       }
     }
-    for(var i = 0; i < this.state.currentBoard.swimLanes.length; i++) {
+    for(i = 0; i < this.state.currentBoard.swimLanes.length; i++) {
       if(this.state.currentBoard.swimLanes[i].id === swimlaneId) {
         currentBoard.swimLanes[i] = swimlaneToEdit;
         break;
       }
     }
     let boards = this.state.boards
-    for(var i = 0; i < boards.length; i++) {
+    for(i = 0; i < boards.length; i++) {
       if(boards[i].id === boardId) {
         boards[i] = currentBoard
       }
@@ -170,7 +170,7 @@ class AppUtils extends React.Component {
             break;
           }
       }
-      for(var i = 0; i < currentBoard.swimLanes.length; i++) {
+      for(i = 0; i < currentBoard.swimLanes.length; i++) {
           if(currentBoard.swimLanes[i].id === swimlaneId) {
               currentBoard.swimLanes[i] = currentSwimlane
           }
@@ -191,7 +191,7 @@ class AppUtils extends React.Component {
                 break;
             }
         }
-        for(var i = 0; i < currentBoard.swimLanes.length; i++) {
+        for(i = 0; i < currentBoard.swimLanes.length; i++) {
             if(currentBoard.swimLanes[i].id === cardId) {
                 currentBoard.swimLanes[i] = currentSwimlane
                 break;

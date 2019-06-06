@@ -47,6 +47,7 @@ export class NewBoardView extends React.Component {
     return (
         <div>
         <form onSubmit={this.onSubmit}>
+        {/*eslint-disable-next-line*/}
         <h1>✨Add a new Board✨</h1><br/>
         <p style={{textAlign: "center"}}>Name your new board:</p>
 
