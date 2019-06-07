@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import 'simplebar'; // or "import SimpleBar from 'simplebar';" if you want to use it manually.
 import 'simplebar/dist/simplebar.css';
 ////////////// Components Imports ////////////////////////////////
-import SwimLaneHeader from './SwimLaneHeader'
+import SwimLaneHeader from './SwimLaneHeader' 
 import CardView from './card/CardView';
 //////////////////////////////////////////////////////////////////
 
