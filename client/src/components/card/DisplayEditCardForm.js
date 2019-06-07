@@ -10,11 +10,10 @@ export class DisplayEditCardForm extends Component {
     doThis = (evt) => {
         if(evt.target.id === "displayCardUpdateButton" && this.state.needsUpdating) {
             console.log("updating...")
-            this.props.updateCard({
-                title: (this.state.title === "") ? this.props.card.title : this.state.title,
-                description: this.state.description,
-                id: this.props.card.id
-            })
+             var newCard = this.props.card;
+             newCard.title = (this.state.title === "") ? this.props.card.title : this.state.title
+             newCard.description = this.state.description;
+            this.props.updateCard(newCard)
             this.setState({needsUpdating: false})
             
         }
