@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Cards from './Cards'
 import AddCard from './AddCard'
+import MoveCardPointer from './MoveCardPointer';
 
 
 export class CardView extends Component {

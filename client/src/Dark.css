@@ -625,3 +625,29 @@ p.cardComment {
   100% { -webkit-transform: translateY(-150%); }
 }
 
+.pulse {
+  
+  -webkit-animation: wiggle .15s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite alternate; /* Safari 4.0 - 8.0 */
+  animation: wiggle .15s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite alternate;
+}
+.moveCardText {
+  margin: 5px;
+}
+@keyframes wiggle {
+  0% {height: 50px;}
+  100% {height: 55px;}
+}
+@-webkit-keyframes wiggle {
+  0% {height: 50px;}
+  100% {height: 55px;}
+}
+
+.moveCard {
+  height: 50px;
+  margin: 0;
+  margin-right: 10px;
+  border-radius: 5px;
+  text-align: center;
+  opacity: .25;
+  background-color: #70788b;  
+}
