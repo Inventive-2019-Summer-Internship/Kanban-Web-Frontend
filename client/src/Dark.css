@@ -525,6 +525,7 @@ p.cardComment {
   border: none;
 }
 .addCommentSubmitButton {
+  cursor: pointer;
   height: 100%;
   width:10%;
   float: right;
