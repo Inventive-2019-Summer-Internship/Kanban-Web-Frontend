@@ -10,6 +10,20 @@ class AppUtils extends React.Component {
    * showBoard
    * @param id the id of the board that you want to show (Comes from BoardListing>BoardView>this)
    */
+
+  moveCard = (cardId, currentSwimlaneId, targetSwimlaneId) => {
+    let card = this.state.currentBoard.swimLanes.filter(
+           swimlane => swimlane.id === currentSwimlaneId)[0].cards.filter(
+               card => card.id === cardId)[0]
+    console.log(card)
+    if(card !== undefined) {
+      this.deleteCard(cardId, currentSwimlaneId, this.state.currentBoard.id)
+      this.addExistingCard(card,targetSwimlaneId)
+    }
+    
+
+  }
+
   changeSwimlaneTitle = (boardId, title, swimlaneId) => {
     let currentBoard = this.state.currentBoard
     let swimLanes = currentBoard.swimLanes
@@ -46,6 +60,7 @@ class AppUtils extends React.Component {
         break;
       }
     }
+    // eslint-disable-next-line
     for(var i = 0; i < this.state.currentBoard.swimLanes.length; i++) {
       if(this.state.currentBoard.swimLanes[i].id === swimlaneId) {
         currentBoard.swimLanes[i] = swimlaneToEdit;
@@ -53,9 +68,11 @@ class AppUtils extends React.Component {
       }
     }
     let boards = this.state.boards
+    // eslint-disable-next-line
     for(var i = 0; i < boards.length; i++) {
       if(boards[i].id === boardId) {
         boards[i] = currentBoard
+        break;
       }
     }
     this.setState({currentBoard})
@@ -126,6 +143,17 @@ class AppUtils extends React.Component {
     newBoards.push(newBoards.shift());
     this.setState({boards: newBoards})
   }
+  addExistingCard = (card, swimlaneId) => {
+    let currentBoard = this.state.currentBoard
+    for(var i = 0; i < currentBoard.swimLanes.length; i++) {
+      if(currentBoard.swimLanes[i].id === swimlaneId) {
+        currentBoard.swimLanes[i].cards.push(card)
+      }
+    }
+    let boards = [currentBoard,...this.state.boards.filter(board => board.id !== currentBoard.id)]
+    this.setState({currentBoard})
+    this.setState({boards})
+  }
   addCard = (title, description, swimlaneId) => {
     let newCard = {
       title,
@@ -167,6 +195,7 @@ class AppUtils extends React.Component {
             break;
           }
       }
+      // eslint-disable-next-line
       for(var i = 0; i < currentBoard.swimLanes.length; i++) {
           if(currentBoard.swimLanes[i].id === swimlaneId) {
               currentBoard.swimLanes[i] = currentSwimlane
@@ -188,6 +217,7 @@ class AppUtils extends React.Component {
                 break;
             }
         }
+        // eslint-disable-next-line
         for(var i = 0; i < currentBoard.swimLanes.length; i++) {
             if(currentBoard.swimLanes[i].id === cardId) {
                 currentBoard.swimLanes[i] = currentSwimlane

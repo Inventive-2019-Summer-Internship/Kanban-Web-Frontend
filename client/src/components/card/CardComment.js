@@ -6,9 +6,9 @@ export class CardComment extends Component {
     }
     render() {
         return (
-            <div class="cardComment">
-                <p class="cardComment">{this.props.comment.comment}</p>
-                <p class="closeCardInfoButton" onClick={this.deleteComment}>x</p>
+            <div className="cardComment">
+                <p className="cardComment">{this.props.comment.comment}</p>
+                <p className="closeCardInfoButton" onClick={this.deleteComment} style={{fontSize:"14px", fontWeight:"bold"}}>X</p>
             </div>
         )
     }

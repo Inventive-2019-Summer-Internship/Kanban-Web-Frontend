@@ -93,10 +93,19 @@ export class OpenBoardView extends React.Component {
       <div style={{height:"90%", overflow:"hidden", width: "100%"}}>
         
         <BoardHeader currentBoard={this.props.currentBoard} />
-        <SwimLaneView setCard={this.setCard} setCurrentSwimlane={this.setCurrentSwimlane} currentBoard={this.props.currentBoard} addSwimLane={this.addSwimLane} changeTitle={this.changeSwimlaneTitle} deleteSwimlane={this.props.deleteSwimlane} />
-        <PopoutMenu changeBoardName={this.changeBoardName} changeBoardBG={this.changeBoardBG} deleteBoard={this.deleteBoard} />
+
+        <SwimLaneView setCard={this.setCard} setCurrentSwimlane={this.setCurrentSwimlane} 
+                      currentBoard={this.props.currentBoard} addSwimLane={this.addSwimLane} 
+                      changeTitle={this.changeSwimlaneTitle} deleteSwimlane={this.props.deleteSwimlane}
+                      moveCard={this.props.moveCard}/>
+
+        <PopoutMenu changeBoardName={this.changeBoardName} changeBoardBG={this.changeBoardBG} 
+                    deleteBoard={this.deleteBoard} />
+
         <AddCardForm addCard={this.props.addCard} currentSwimlane={this.state.currentSwimlane} />
-        <DisplayEditCardForm addComment={this.addComment} deleteComment={this.deleteComment} deleteCard={this.deleteCard} updateCard={this.updateCard} card={this.state.activeCard} />
+
+        <DisplayEditCardForm addComment={this.addComment} deleteComment={this.deleteComment} 
+                             deleteCard={this.deleteCard} updateCard={this.updateCard} card={this.state.activeCard} />
 
       </div>
     )

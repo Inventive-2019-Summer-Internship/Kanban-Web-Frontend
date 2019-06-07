@@ -60,19 +60,19 @@ export class DisplayEditCardForm extends Component {
     render() {
         //this.resetState();
         return (
-            <div id="displayCardInfoContainer" class="displayCardInfoContainer">
-            <div id="cardInfoDisplay" class="displayCardInfo">
-                <div class="cardHeader">
-                        <input name="title" type="text" onChange={this.updateState} onClick={this.loadText} placeholder={this.props.card.title} class="cardTitle"/>
-                        <p class="closeCardInfoButton" onClick={this.closeForm}>x</p>
+            <div id="displayCardInfoContainer" className="displayCardInfoContainer">
+            <div id="cardInfoDisplay" className="displayCardInfo">
+                <div className="cardHeader">
+                        <input name="title" type="text" onChange={this.updateState} onClick={this.loadText} placeholder={this.props.card.title} className="cardTitle"/>
+                        <p className="closeCardInfoButton" onClick={this.closeForm}>x</p>
                 </div>
                 <CardInfoContent addComment={this.addComment} deleteComment={this.deleteComment} updateDescription={this.updateDescription} onClick={this.loadText} card={this.props.card}/>
                 
                     
                 
-                <div class="displayCardInfoButtonArea">
-                    <button id="displayCardUpdateButton" class="displayCardInfoButton" onClick={this.doThis}>Update</button>
-                    <button id="displayCardDeleteButton" class="displayCardInfoButton" onClick={this.doThis}>Delete Card</button>
+                <div className="displayCardInfoButtonArea">
+                    <button id="displayCardUpdateButton" className="displayCardInfoButton" onClick={this.doThis}>Update</button>
+                    <button id="displayCardDeleteButton" className="displayCardInfoButton" onClick={this.doThis}>Delete Card</button>
                 </div>
             </div>
         </div>

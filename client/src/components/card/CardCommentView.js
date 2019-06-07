@@ -6,7 +6,7 @@ import CardComments from './CardComments';
 export class CardCommentView extends Component {
     render() {
         return (
-            <div class="cardComments">
+            <div className="cardComments">
                 <CardComments deleteComment={this.props.deleteComment} comments={this.props.comments} />
             </div>
             
