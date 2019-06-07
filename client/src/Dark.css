@@ -177,6 +177,8 @@ form {
 
 .addCardBtn:hover {
   background-color: #70788bef;
+
+
   border-radius: 10px;
 }
 
@@ -184,6 +186,7 @@ form {
   padding-top: 16px;
   margin: 0;
 }
+
 
 .card {
   cursor: pointer;
@@ -193,12 +196,15 @@ form {
   border-radius: 10px;
 }
 
+
 .card h4 {
+
   margin: 0;
   margin-top: 20px;
   padding: 0 10px;
   word-wrap: break-word;
 }
+
 
 .card p {
   padding: 0 5px 5px;
@@ -651,3 +657,4 @@ p.cardComment {
   opacity: .25;
   background-color: #70788b;  
 }
+

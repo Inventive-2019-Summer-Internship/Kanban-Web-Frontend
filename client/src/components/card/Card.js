@@ -35,8 +35,9 @@ export class Card extends Component {
     render() {
         return (
             <div className="card" onDragStart={this.dragCard} 
-                    onDragEnd={this.dropCard} onClick={this.showCardInfo}
-                    style={{border: "1px solid black"}} draggable>
+                 onDragEnd={this.dropCard} onClick={this.showCardInfo}
+                 style={{border: "1px solid black"}} draggable>
+
                 <h4>{this.props.card.title}</h4>
                 <p>{this.props.card.description}</p>
             </div>
