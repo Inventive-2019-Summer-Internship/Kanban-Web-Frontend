@@ -14,8 +14,8 @@ export class BoardListing extends React.Component {
 
   render() {
     return (
-      <Link className="boardRow" to="/showBoard">
-      <div className="boardListing" onClick={this.props.showBoard.bind(this, this.props.board.id)}>
+      <Link className="boardRow" to="/showBoard" onClick={this.props.showBoard.bind(this, this.props.board.id)}>
+      <div className="boardListing" >
         <p>{this.props.board.name}</p>
       </div>
       </Link>
