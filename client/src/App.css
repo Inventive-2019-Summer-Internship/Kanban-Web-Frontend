@@ -34,6 +34,9 @@
   width: 80%;
   text-decoration: none;
 }
+.boardListing {
+  margin: 1% 10%;
+}
 
 
 /* swim lanes */
@@ -43,7 +46,7 @@
   width: 20vmax;
   border-radius: 10px; 
   padding: 5px;
-  height: 90%;
+  height: 3.6em;
   opacity: 0.9;
 }
 
@@ -162,3 +165,4 @@ form {
     transform: rotate(360deg);
   }
 }
+

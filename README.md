@@ -1,17 +1,17 @@
 # Kanban-Web-Frontend
 
-Progress as of May 28th 2019
+Progress as of May 31st 2019
 
--Able to create, edit, delete boards and create swimlanes
+-Able to create, edit, delete boards
+-Able to create, edit, delete swimlanes & their respective cards
+-Able to create cards for each swimlane
 -Able to have background images for boards via url link (optional)
--Stores locally meaning that data will be lost once refreshed (no backend atm so w.e)
--Added functioning dropdown menu (not pushed to master yet)
--"Toggle Space" enables music
+-Added functioning dropdown menu
 
-Changes to come as of May 28th 2019
+*Stores locally meaning that data is lost once refreshed (no back-end atm so it's fine)
 
--Able to delete/edit & swimlanes
--Able to add, edit, delete cards (with or w/o images)
+Changes to come as of May 31st 2019
+
+-Able to delete and edit cards (with or w/o images)
 -Able to switch between 2/3 website styles
--Have all styles in the same css file
--Able to upload a file for the background image rather than insert URL
+-Able to upload a file for a background image rather than insert URL (potentially pushed until a back-end is created)

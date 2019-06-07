@@ -7,8 +7,9 @@ import Header from './components/Header';
 import BoardView from './components/BoardView';
 import NewBoardView from './components/pages/NewBoardView';
 import OpenBoardView from './components/pages/OpenBoardView';
+import AppUtils from './AppUtils'
 /////////////    CSS Imports      ////////////////////////////////
-
+require('./Dark.css');
 //////////////////////////////////////////////////////////////////
 
 /**
@@ -16,7 +17,7 @@ import OpenBoardView from './components/pages/OpenBoardView';
  * rendered, if you need to edit routes or information on a global scale
  * of the website, it should happen in here
  */
-class App extends React.Component {
+class App extends AppUtils {
   /**
    * State and Extra Definitions
    */
@@ -28,7 +29,7 @@ class App extends React.Component {
   }
   state = {
     darkMode: true,
-    superStyle: require("./Dark.css"),
+   // superStyle: require("./Dark.css"),
 
     showImage: false,
         musicList: ["Always_Be_My_Unicorn.mp3","Arms_Dealer.mp3","Half_Bit.mp3",
@@ -50,7 +51,13 @@ class App extends React.Component {
               {
                 title: "sample card",
                 description: "This is a sample description",
-                id: uuid()
+                id: uuid(),
+                comments: [
+                  {
+                    comment: "This is a sample comment",
+                    id: uuid()
+                  }
+                ]
               }
             ]
           }
@@ -75,105 +82,7 @@ class App extends React.Component {
   }
 
   
-  ///////////////// Method Bloc
-  /**
-   * showBoard
-   * @param id the id of the board that you want to show (Comes from BoardListing>BoardView>this)
-   */
-  componentWillMount() {
-    /*if(this.state.darkMode) {
-      require("./App.css");
-    } else {
-      require("./cssupdate.css");
-    }*/
-  //  if (this.state.darkMode){
-  //        this.state.superStyle= require("./Dark.css");
 
-  //   }
-  //   else {
-  //     this.state.superStyle=require("./Space.css")
-  //   }
-    require("./App.css")
-    
-
-      
-    }
-
-  showBoard = (id) => {
-    this.setState({currentBoard: this.state.boards.filter(board => board.id === id)[0]});
-    this.setState({showImage: true});
-  }
-
-  hideImage = () => {
-    this.setState({showImage: false});
-  }
-
-  /**
-   * addBoard
-   * @param name the name of the new board (Comes from NewBoardView)
-   */
-  addBoard = (name, url) => {
-    const newBoard = {
-      name,
-      id: uuid(),
-      swimLanes: [],
-      img: url
-    }
-    this.setState({boards:[...this.state.boards, newBoard]});
-    alert("New Board Created");
-    window.history.back();
-  }
-  deleteBoard = (id) => {
-    var newBoards = this.state.boards.filter(board => board.id !== id);
-    window.history.back();
-    this.setState({boards: newBoards})
-  }
-  changeBoardName = (name, id) => {
-    var board = this.state.boards.filter(board => board.id === id)[0];
-    board.name = name;
-    var newBoards = [...this.state.boards.filter(board => board.id !== id), board];
-    newBoards.push(newBoards.shift());
-    this.setState({boards: newBoards})
-  }
-  changeBoardBG = (url, id) => {
-    var board = this.state.boards.filter(board => board.id === id)[0];
-    board.img = url;
-    var newBoards = [...this.state.boards.filter(board => board.id !== id), board];
-    newBoards.push(newBoards.shift());
-    this.setState({boards: newBoards})
-  }
-  addSwimLane = (name, id) => {
-    var board = this.state.boards.filter(board => board.id === id)[0];
-    var newSwimlane = {title: name};
-    board.swimLanes = [...board.swimLanes, newSwimlane]
-    var newBoards = [...this.state.boards.filter(board => board.id !== id), board]
-    newBoards.push(newBoards.shift());
-    this.setState({boards: newBoards})
-  }
-  toggleSpace = () => {
-                var q = (Math.floor(Math.random()*this.state.musicList.length));
-        var mtitle="music/"+this.state.musicList[q];
-        var audio = new Audio(mtitle);
-        this.state.darkMode ?  audio.play() : audio.pause();
-    let antiCurrentSetting = !(this.state.darkMode)
-    this.setState({darkMode: antiCurrentSetting});
-    console.log(this.state.musicList[q])
-
-
-
-          this.setState({superstyle:null})
-
-      this.setState((prev) => {
-        if (prev.darkMode){
-              return {superStyle:require("./Dark.css")}
-        }
-        return {superStyle:require("./space.css")}
-       } )
-      document.getElementById("SpaceyWacey").remove();
-
-   
- 
-  }
   /**
    * The Render Method
    */
@@ -186,15 +95,36 @@ class App extends React.Component {
      */
     return (
       <Router>
-        <div style={{backgroundRepeat:'repeat',height:"100%", backgroundImage: (this.state.currentBoard.img && this.state.showImage) ? `url(${this.state.currentBoard.img})`: "none"}} className="App">
+        <div style={{backgroundRepeat:'repeat', height:"100%", backgroundImage: (this.state.currentBoard.img && this.state.showImage) ? `url(${this.state.currentBoard.img})`: "none"}} className="App">
           <Header toggleSpace={this.toggleSpace} hideImage={this.hideImage} />
+           <link id="pagestyle" rel="stylesheet" type="text/css" href="styles/Dark.css" /> 
+
+
           <Route exact path="/" render={() => {
-            if(this.state.showImage) this.hideImage();
-            return(<BoardView boards={this.state.boards} showBoard={this.showBoard}/>)}}/>
+              if(this.state.showImage) this.hideImage();
+              return(<BoardView boards={this.state.boards} showBoard={this.showBoard}/>)
+              }
+            }
+          />
+
           <Route path="/addBoard" render={() =>{
-            if(this.state.showImage) this.hideImage();
-            return(<NewBoardView addBoard={this.addBoard}/>)}}/>
-          <Route path="/showBoard" render={props =>(<OpenBoardView deleteBoard={this.deleteBoard} changeBoardName={this.changeBoardName} changeBoardBG={this.changeBoardBG} addSwimLane={this.addSwimLane} currentBoard={this.state.currentBoard}/>)}/>
+              if(this.state.showImage) this.hideImage();
+              return(<NewBoardView addBoard={this.addBoard}/>)
+              }
+            }
+          />
+
+          <Route path="/showBoard" render={props => (
+            <OpenBoardView 
+              deleteBoard={this.deleteBoard} changeBoardName={this.changeBoardName} 
+              changeBoardBG={this.changeBoardBG} addSwimLane={this.addSwimLane} 
+              currentBoard={this.state.currentBoard} changeSwimlaneTitle={this.changeSwimlaneTitle}
+              deleteSwimlane={this.deleteSwimlane} addCard={this.addCard}
+              updateCard={this.updateCard} deleteCard={this.deleteCard}
+              addComment={this.addComment} deleteComment={this.deleteComment}
+              moveCard={this.moveCard}/>
+              )}
+          />
         </div>  
       </Router>
     );
