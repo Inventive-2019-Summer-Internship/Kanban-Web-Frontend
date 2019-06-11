@@ -122,7 +122,7 @@ class App extends AppUtils {
               deleteSwimlane={this.deleteSwimlane} addCard={this.addCard}
               updateCard={this.updateCard} deleteCard={this.deleteCard}
               addComment={this.addComment} deleteComment={this.deleteComment}
-              moveCard={this.moveCard}/>
+              moveCard={this.moveCard} moveCardAbove={this.moveCardAbove}/>
               )}
           />
         </div>  

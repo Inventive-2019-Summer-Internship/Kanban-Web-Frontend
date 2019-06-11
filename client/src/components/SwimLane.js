@@ -21,11 +21,11 @@ export class SwimLane extends React.Component {
     }
   }
   _onDragLeave =(evt) => {
-    if(evt.target.className === "swimLane") evt.target.style.border = "none"
+    if(evt.target.className === "swimLane" || evt.target.className === "moveCard") evt.target.style.border = "none"
   }
   _onDragOver = (evt) => {
     evt.preventDefault()
-    if(evt.target.className === "swimLane") evt.target.style.border ="1px blue dashed"
+    if(evt.target.className === "swimLane" || evt.target.className === "moveCard") evt.target.style.border ="1px blue dashed"
   }
   onDrop = (evt) => {
     evt.preventDefault();
@@ -35,6 +35,9 @@ export class SwimLane extends React.Component {
       evt.target.style.border = "none"
       this.props.addHoveredCardToLane(this.props.swimlane.id);
     }
+  }
+  addHoveredCardToLaneBelow = (id) => {
+    this.props.addHoveredCardToLaneBelow(id, this.props.swimlane.id)
   }
   setDragged = (object, type) => {
     let newObject = object;
@@ -51,9 +54,16 @@ export class SwimLane extends React.Component {
 }
   render() {
     return (
-      <div onClick={this.setCurrentSwimlane} onDragEnter={this.onDragEnter} id={this.props.swimlane.id} className="swimLane">
-        <SwimLaneHeader swimlane={this.props.swimlane} changeTitle={this.props.changeTitle} deleteSwimlane={this.props.deleteSwimlane}/>
-        <CardView setCard={this.props.setCard} setDragged={this.setDragged} onDrop={this.onDrop} cards={this.props.swimlane.cards} />
+      <div onClick={this.setCurrentSwimlane} onDragEnter={this.onDragEnter} 
+           id={this.props.swimlane.id} className="swimLane">
+
+        <SwimLaneHeader swimlane={this.props.swimlane} changeTitle={this.props.changeTitle}
+                        deleteSwimlane={this.props.deleteSwimlane}/>
+
+        <CardView setCard={this.props.setCard} setDragged={this.setDragged}
+                  onDrop={this.onDrop} cards={this.props.swimlane.cards} 
+                  setAbove={this.props.setAbove} dropAbove={this.props.dropAbove}
+                  currentSwimlane={this.props.swimlane.id}/>
       </div>
     )
   }

@@ -10,6 +10,15 @@ export class Card extends Component {
         console.log("Set Drag", this.props.setDragged, this.props.card)
         this.props.setDragged(this.props.card, "card")
     }
+    onDragOver = (evt) => {
+        evt.preventDefault();
+    }
+    overCard = (evt) => {
+        this.props.overCard(this.props.card.id);
+    }
+    notOverCard = (evt) => {
+        this.props.overCard("");
+    }
     componentDidMount() {
         window.addEventListener('drop', this.props.onDrop);
     }
@@ -35,8 +44,10 @@ export class Card extends Component {
     render() {
         return (
             <div className="card" onDragStart={this.dragCard} 
-                 onDragEnd={this.dropCard} onClick={this.showCardInfo}
-                 style={{border: "1px solid black"}} draggable>
+                 onDragEnd={this.dropCard} onDragOver={this.onDragOver}
+                 onDragEnter={this.overCard} onDragExit={this.notOverCard} 
+                 onClick={this.showCardInfo} style={{border: "1px solid black"}} 
+                 draggable>
 
                 <h4>{this.props.card.title}</h4>
                 <p>{this.props.card.description}</p>

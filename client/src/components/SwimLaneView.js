@@ -7,9 +7,12 @@ import uuid from 'uuid/v4';
 export class SwimLaneView extends Component {
     state = {
         dragged: { },
-        overSwimlane: ""
+        overSwimlane: "",
+        above: {}
     }
-    
+    setAbove = (card) => {
+        this.setState({above: card})
+    }
     setDragged = (object, type) => {
         let draggedObj = object
         draggedObj.type = type
@@ -21,6 +24,11 @@ export class SwimLaneView extends Component {
     addHoveredCardToLane = (swimlaneId) => {
         this.props.moveCard(this.state.dragged.id, this.state.dragged.originSwimlane, this.state.overSwimlane)
     }
+    dropAbove = () => {
+        console.log(this.state.above.swimlaneId)
+        console.log(this.state.overSwimlane)
+        this.props.moveCardAbove(this.state.dragged.id, this.state.dragged.originSwimlane, this.state.above.swimlaneId, this.state.above.id)
+    }
     render() {
         return (
             <div style={{display:'flex', overflowX:"auto", flexWrap: "nowrap",height:"90%"}} >
@@ -28,7 +36,8 @@ export class SwimLaneView extends Component {
                            setCurrentSwimlane={this.props.setCurrentSwimlane} currentBoard={this.props.currentBoard}
                            changeTitle={this.props.changeTitle} deleteSwimlane={this.props.deleteSwimlane}
                            addHoveredCardToLane={this.addHoveredCardToLane}
-                           setHoverSwimlane={this.setHoverSwimlane}/>
+                           setHoverSwimlane={this.setHoverSwimlane} setAbove={this.setAbove}
+                           dropAbove={this.dropAbove}/>
                 <AddSwimLane addSwimLane={this.props.addSwimLane} />
             </div>
         )

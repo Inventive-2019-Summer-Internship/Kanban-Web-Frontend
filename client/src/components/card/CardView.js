@@ -8,8 +8,10 @@ export class CardView extends Component {
     render() {
         return (
             <div>
-                <MoveCardPointer />
-                <Cards setCard={this.props.setCard} setDragged={this.props.setDragged} onDrop={this.props.onDrop} cards={this.props.cards} />
+                <Cards setCard={this.props.setCard} setDragged={this.props.setDragged} 
+                       onDrop={this.props.onDrop} cards={this.props.cards} 
+                       setAbove={this.props.setAbove} dropAbove={this.props.dropAbove}
+                       currentSwimlane={this.props.currentSwimlane}/>
                 <AddCard />
             </div>
         )

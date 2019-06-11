@@ -97,7 +97,7 @@ export class OpenBoardView extends React.Component {
         <SwimLaneView setCard={this.setCard} setCurrentSwimlane={this.setCurrentSwimlane} 
                       currentBoard={this.props.currentBoard} addSwimLane={this.addSwimLane} 
                       changeTitle={this.changeSwimlaneTitle} deleteSwimlane={this.props.deleteSwimlane}
-                      moveCard={this.props.moveCard}/>
+                      moveCard={this.props.moveCard} moveCardAbove={this.props.moveCardAbove}/>
 
         <PopoutMenu changeBoardName={this.changeBoardName} changeBoardBG={this.changeBoardBG} 
                     deleteBoard={this.deleteBoard} />
