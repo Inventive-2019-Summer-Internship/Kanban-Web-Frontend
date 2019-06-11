@@ -632,7 +632,7 @@ p.cardComment {
 }
 
 .pulse {
-  
+  display: none;
   -webkit-animation: wiggle .2s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite alternate; /* Safari 4.0 - 8.0 */
   animation: wiggle .2s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite alternate;
 }
