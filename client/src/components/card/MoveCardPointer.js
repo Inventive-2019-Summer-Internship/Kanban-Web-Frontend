@@ -23,7 +23,7 @@ export class MoveCardPointer extends Component {
         return (
             <div onDrop={this.onDrop} onDragEnter={this.onDragEnter} 
                  onDragLeave={this.onDragLeave} onDragOver={this.onDragOver}
-                 id={`${this.props.id}-MoveCard`} className="moveCard pulse"
+                 id={`${this.props.id}-MoveCard`} className="moveCard pulseY"
                  style={{display: (this.props.makeVisible === this.props.card.id) ? "block" : "none"}}>
             </div>
         )

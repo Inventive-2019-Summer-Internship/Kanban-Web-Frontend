@@ -5,7 +5,7 @@ import 'simplebar'; // or "import SimpleBar from 'simplebar';" if you want to us
 import 'simplebar/dist/simplebar.css';
 ////////////// Components Imports ////////////////////////////////
 import SwimLaneHeader from './SwimLaneHeader' 
-import CardView from './card/CardView';
+import CardView from '../card/CardView';
 //////////////////////////////////////////////////////////////////
 
 export class SwimLane extends React.Component {

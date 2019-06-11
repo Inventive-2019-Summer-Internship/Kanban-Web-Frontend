@@ -51,15 +51,17 @@ export class DisplayEditCardForm extends Component {
         this.setState({needsUpdating: true})
         console.log(evt.target.name);
     }
-    closeForm = () => {
+    closeForm = (evt) => {
+        if(evt.currentTarget.className === "closeCardInfoButton") {
+            document.getElementById("cardInfoDisplay").className = `displayCardInfo slide-up-display`;
+            window.setTimeout( () => {document.getElementById("displayCardInfoContainer").style.display = "none"}, 250)
+        }
         
-        document.getElementById("cardInfoDisplay").className = `displayCardInfo slide-up-display`;
-        window.setTimeout( () => {document.getElementById("displayCardInfoContainer").style.display = "none"}, 250)
     }
     render() {
         //this.resetState();
         return (
-            <div id="displayCardInfoContainer" className="displayCardInfoContainer">
+            <div id="displayCardInfoContainer" className="displayCardInfoContainer" onClick={this.closeForm}>
             <div id="cardInfoDisplay" className="displayCardInfo">
                 <div className="cardHeader">
                         <input name="title" type="text" onChange={this.updateState} onClick={this.loadText} placeholder={this.props.card.title} className="cardTitle"/>

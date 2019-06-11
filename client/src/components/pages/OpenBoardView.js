@@ -3,8 +3,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 ////////////// Components Imports ////////////////////////////////
 import PopoutMenu from '../PopoutMenu'
-import SwimLaneView from '../SwimLaneView'
-import BoardHeader from '../BoardHeader'
+import SwimLaneView from '../swimlane/SwimLaneView'
+import BoardHeader from '../board/BoardHeader'
 import AddCardForm from '../card/AddCardForm';
 import DisplayEditCardForm  from '../card/DisplayEditCardForm';
 //////////////////////////////////////////////////////////////////
