@@ -12,7 +12,7 @@ export class CardView extends Component {
                        onDrop={this.props.onDrop} cards={this.props.cards} 
                        setAbove={this.props.setAbove} dropAbove={this.props.dropAbove}
                        currentSwimlane={this.props.currentSwimlane}/>
-                <AddCard />
+                <AddCard setDelete={this.props.setDelete} drop={this.props.dropOnDelete} />
             </div>
         )
     }

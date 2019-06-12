@@ -6,6 +6,7 @@ import uuid from 'uuid/v4';
 
 export class SwimLaneView extends Component {
     state = {
+        delete: false,
         dragged: { },
         overSwimlane: "",
         above: {}
@@ -17,6 +18,12 @@ export class SwimLaneView extends Component {
         let draggedObj = object
         draggedObj.type = type
         this.setState({dragged: draggedObj})
+    }
+    setDelete = (deleteVal) => {
+        this.setState({delete: deleteVal})
+    }
+    dropOnDelete = () => {
+        this.props.deleteCard(this.state.dragged.id, this.state.dragged.originSwimlane)
     }
     setHoverSwimlane = (swimlaneId) => {
         this.setState({overSwimlane: swimlaneId})
@@ -37,7 +44,8 @@ export class SwimLaneView extends Component {
                            changeTitle={this.props.changeTitle} deleteSwimlane={this.props.deleteSwimlane}
                            addHoveredCardToLane={this.addHoveredCardToLane}
                            setHoverSwimlane={this.setHoverSwimlane} setAbove={this.setAbove}
-                           dropAbove={this.dropAbove}/>
+                           dropAbove={this.dropAbove} setDelete={this.setDelete}
+                           dropOnDelete={this.dropOnDelete}/>
                 <AddSwimLane addSwimLane={this.props.addSwimLane} />
             </div>
         )

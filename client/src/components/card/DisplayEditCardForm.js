@@ -26,6 +26,13 @@ export class DisplayEditCardForm extends Component {
             this.props.deleteCard(this.props.card.id);
         }
     }
+    saveDescription = () => {
+        var newCard = this.props.card;
+        newCard.title = (this.state.title === "") ? this.props.card.title : this.state.title
+        newCard.description = this.state.description;
+        this.props.updateCard(newCard)
+        this.setState({needsUpdating: false})
+    }
     addComment = (comment) => {
         this.props.addComment(comment, this.props.card.id)
     }
@@ -67,7 +74,9 @@ export class DisplayEditCardForm extends Component {
                         <input name="title" type="text" onChange={this.updateState} onClick={this.loadText} placeholder={this.props.card.title} className="cardTitle"/>
                         <p className="closeCardInfoButton" onClick={this.closeForm}>x</p>
                 </div>
-                <CardInfoContent addComment={this.addComment} deleteComment={this.deleteComment} updateDescription={this.updateDescription} onClick={this.loadText} card={this.props.card}/>
+                <CardInfoContent addComment={this.addComment} deleteComment={this.deleteComment} 
+                                 updateDescription={this.updateDescription} onClick={this.loadText} 
+                                 saveDescription={this.saveDescription} card={this.props.card}/>
                 
                     
                 

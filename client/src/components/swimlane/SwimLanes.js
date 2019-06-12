@@ -12,7 +12,8 @@ export class SwimLanes extends Component {
                       changeTitle={this.props.changeTitle} deleteSwimlane={this.props.deleteSwimlane}
                       addHoveredCardToLane={this.props.addHoveredCardToLane} 
                       setHoverSwimlane={this.props.setHoverSwimlane} 
-                      setAbove={this.props.setAbove} dropAbove={this.props.dropAbove}/>))
+                      setAbove={this.props.setAbove} dropAbove={this.props.dropAbove}
+                      setDelete={this.props.setDelete} dropOnDelete={this.props.dropOnDelete}/>))
       )
     }
     return(<React.Fragment></React.Fragment>)
