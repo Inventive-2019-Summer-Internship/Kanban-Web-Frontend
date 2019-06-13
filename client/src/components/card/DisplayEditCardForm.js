@@ -33,6 +33,10 @@ export class DisplayEditCardForm extends Component {
     deleteComment = (commentId) => {
         this.props.deleteComment(commentId, this.props.card.id)
     }
+    updateComment = (comment, commentId) => {
+        this.props.updateComment(comment, commentId, this.props.card.id)
+        console.log("updated comment")
+    }
     resetState = () => {
         if(this.props.card.description === "" && this.props.card.title === "") this.setState({title: this.props.card.title,description: this.props.card.description});
     }
@@ -66,7 +70,7 @@ export class DisplayEditCardForm extends Component {
                         <input name="title" type="text" onChange={this.updateState} onClick={this.loadText} placeholder={this.props.card.title} class="cardTitle"/>
                         <p class="closeCardInfoButton" onClick={this.closeForm}>x</p>
                 </div>
-                <CardInfoContent addComment={this.addComment} deleteComment={this.deleteComment} updateDescription={this.updateDescription} onClick={this.loadText} card={this.props.card}/>
+                <CardInfoContent addComment={this.addComment} deleteComment={this.deleteComment} updateComment={this.updateComment} updateDescription={this.updateDescription} onClick={this.loadText} card={this.props.card}/>
                 
                     
                 

@@ -7,7 +7,7 @@ export class CardCommentView extends Component {
     render() {
         return (
             <div class="cardComments">
-                <CardComments deleteComment={this.props.deleteComment} comments={this.props.comments} />
+                <CardComments deleteComment={this.props.deleteComment} updateComment={this.props.updateComment} comments={this.props.comments} />
             </div>
             
         )

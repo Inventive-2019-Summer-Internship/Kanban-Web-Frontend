@@ -121,7 +121,7 @@ class App extends AppUtils {
               currentBoard={this.state.currentBoard} changeSwimlaneTitle={this.changeSwimlaneTitle}
               deleteSwimlane={this.deleteSwimlane} addCard={this.addCard}
               updateCard={this.updateCard} deleteCard={this.deleteCard}
-              addComment={this.addComment} deleteComment={this.deleteComment}/>
+              addComment={this.addComment} deleteComment={this.deleteComment} updateComment={this.updateComment}/>
               )}
           />
         </div>  
