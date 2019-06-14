@@ -3,8 +3,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 ////////////// Components Imports ////////////////////////////////
 import PopoutMenu from '../PopoutMenu'
-import SwimLaneView from '../SwimLaneView'
-import BoardHeader from '../BoardHeader'
+import SwimLaneView from '../swimlane/SwimLaneView'
+import BoardHeader from '../board/BoardHeader'
 import AddCardForm from '../card/AddCardForm';
 import DisplayEditCardForm  from '../card/DisplayEditCardForm';
 //////////////////////////////////////////////////////////////////
@@ -75,7 +75,7 @@ export class OpenBoardView extends React.Component {
 
   setCurrentSwimlane = (swimlane) => {
     this.setState({currentSwimlane: swimlane})
-    console.log(swimlane);
+    //console.log(swimlane);
   }
 
   deleteBoard = () => {
@@ -97,7 +97,9 @@ export class OpenBoardView extends React.Component {
         <SwimLaneView setCard={this.setCard} setCurrentSwimlane={this.setCurrentSwimlane} 
                       currentBoard={this.props.currentBoard} addSwimLane={this.addSwimLane} 
                       changeTitle={this.changeSwimlaneTitle} deleteSwimlane={this.props.deleteSwimlane}
-                      moveCard={this.props.moveCard}/>
+                      moveCard={this.props.moveCard} moveCardAbove={this.props.moveCardAbove} 
+                      deleteCard={this.deleteCard} moveSwimlaneToEnd={this.props.moveSwimlaneToEnd}
+                      moveSwimlaneInFrontOfTargetSwimlane={this.props.moveSwimlaneInFrontOfTargetSwimlane}/>
 
         <PopoutMenu changeBoardName={this.changeBoardName} changeBoardBG={this.changeBoardBG} 
                     deleteBoard={this.deleteBoard} />

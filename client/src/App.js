@@ -4,7 +4,7 @@ import uuid from 'uuid/v4';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 ////////////// Components Imports ////////////////////////////////
 import Header from './components/Header';
-import BoardView from './components/BoardView';
+import BoardView from './components/pages/BoardView';
 import NewBoardView from './components/pages/NewBoardView';
 import OpenBoardView from './components/pages/OpenBoardView';
 import AppUtils from './AppUtils'
@@ -122,7 +122,9 @@ class App extends AppUtils {
               deleteSwimlane={this.deleteSwimlane} addCard={this.addCard}
               updateCard={this.updateCard} deleteCard={this.deleteCard}
               addComment={this.addComment} deleteComment={this.deleteComment}
-              moveCard={this.moveCard}/>
+              moveCard={this.moveCard} moveCardAbove={this.moveCardAbove}
+              moveSwimlaneToEnd={this.moveSwimlaneToEnd}
+              moveSwimlaneInFrontOfTargetSwimlane={this.moveSwimlaneInFrontOfTargetSwimlane}/>
               )}
           />
         </div>  

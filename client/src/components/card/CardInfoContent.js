@@ -23,8 +23,10 @@ export class CardInfoContent extends Component {
         return (
             <div className="contentArea">
                     <div className="descriptionArea">
-                        <textarea name="description" rows="25" cols="80" onChange={this.updateState} onClick={this.loadText} placeholder={this.props.card.description} className="cardDescription"> 
-                        </textarea>
+                        <textarea name="description" rows="25" cols="80" 
+                                  onChange={this.updateState} onClick={this.loadText}
+                                  onBlur={this.props.saveDescription} placeholder={this.props.card.description} 
+                                  className="cardDescription"/> 
                     </div>
                     <CardInfoContentSidebar deleteComment={this.props.deleteComment} addComment={this.props.addComment} card={this.props.card} />
                     

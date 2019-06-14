@@ -1,19 +1,31 @@
 import React, { Component } from 'react'
+import MoveCardPointer from './MoveCardPointer';
 
 export class Card extends Component {
     dragCard = (evt) => {
-        console.log("Drag Started!", evt);
+        //console.log("Drag Started!", evt);
 
         evt.currentTarget.style.opacity = .5;
 
-        console.log("Set Drag", this.props.setDragged, this.props.card)
+        //console.log("Set Drag", this.props.setDragged, this.props.card)
         this.props.setDragged(this.props.card, "card")
+        this.props.draggingCard(true)
+    }
+    onDragOver = (evt) => {
+        evt.preventDefault();
+    }
+    overCard = (evt) => {
+        this.props.overCard(this.props.card.id);
+    }
+    notOverCard = (evt) => {
+        this.props.overCard("");
     }
     componentDidMount() {
         window.addEventListener('drop', this.props.onDrop);
     }
     dropCard = (evt) => {
         evt.currentTarget.style.opacity = 1
+        this.props.draggingCard(false)
     }
     showCardInfo = () => {
         this.props.setCard(this.props.card)
@@ -21,9 +33,10 @@ export class Card extends Component {
         document.getElementById("cardInfoDisplay").className = `displayCardInfo slide-down-display`;
         document.getElementById("displayCardInfoContainer").style.display = "flex";
         if(document.getElementById("addCardForm")) {
-            document.getElementById("addCardForm").className = "slide-down";
+            var windows = document.getElementById("addCardForm")
+            windows.className = "slide-down";
             window.setTimeout(() => {
-                document.getElementById("addCardForm").style.display = "none";
+                windows.style.display = "none";
             },450);
         }
         
@@ -33,12 +46,17 @@ export class Card extends Component {
     render() {
         return (
             <div className="card" onDragStart={this.dragCard} 
-                 onDragEnd={this.dropCard} onClick={this.showCardInfo}
+                 onDragEnd={this.dropCard} onDragOver={this.onDragOver}
+                 onDragEnter={this.overCard} onDragExit={this.notOverCard} 
+                 onClick={this.showCardInfo} style={{border: "1px solid black"}} 
+
                  draggable>
 
                 <h4>{this.props.card.title}</h4>
                 <p>{this.props.card.description}</p>
             </div>
+        
+        
         )
     }
 }
