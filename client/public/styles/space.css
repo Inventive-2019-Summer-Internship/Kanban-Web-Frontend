@@ -11,8 +11,9 @@
 .App-header {
   background-color: #000000;
   font-size: calc(7px + 2vmin);
-  height: calc(4vmin);
+  height: 28px;
   vertical-align: center;
+  margin: 0px;
 }
 .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -89,11 +90,6 @@ body {
   color: #a21747;
   font-family: 'Orbitron', sans-serif;
 }
-.SLHeader input[type=text]:focus {
-  background-color: transparent;
-  color: #a21747;
-  font-family: 'Orbitron', sans-serif;
-}
 .SLHeader input[type=text] {
   color: #a21747;
   background-color: transparent;
@@ -103,7 +99,11 @@ body {
   margin-bottom: 5px;
   font-family: 'Orbitron', sans-serif;
 }
-
+.SLHeader input[type=text]:focus {
+  background-color: transparent;
+  color: #a21747;
+  font-family: 'Orbitron', sans-serif;
+}
 
 
 /* add lane */
@@ -256,7 +256,7 @@ form {
 
 
 /* new card */
-.newCard , .addCardBtn {
+.card , .addCardBtn {
   background-color: #ead3c1;
   border: 1px solid #a21747;
   border-radius: 10px;
@@ -264,7 +264,7 @@ form {
   margin: 0 5px 10px 5px;
   padding: 0px;
 }
-.newCard:hover , .addCardBtn:hover {
+.card:hover , .addCardBtn:hover {
   background-color: #FFF3EB;
   cursor: pointer;
 }
@@ -288,7 +288,129 @@ button.formAdd , button.cardForm {
 }
 button.formAdd:hover , button.cardForm:hover {
   background-color: #FFF3EB;
+  color: #a21747;
   cursor: pointer;
+}
+
+
+
+/* edit a card */
+#cardInfoDisplay {
+  background-color: #282c34;
+  color: white;
+}
+.cardHeader {
+  border: none;
+}
+.cardTitle {
+  float: none;
+  display: inline-block;
+  margin: 5px;
+}
+.cardTitle input[type=text] {
+  color: white;
+  background-color: transparent;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid white;
+  margin-bottom: 5px;
+  font-family: 'Orbitron', sans-serif;
+}
+.cardTitle input[type=text]:focus {
+  background-color: transparent;
+  color: #a21747;
+  font-family: 'Orbitron', sans-serif;
+}
+.closeCardInfoButton {
+  color: #a21747;
+  display: inline;
+  float: right;
+  margin: 0px;
+  width: 5%;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  text-align: center;
+}
+.closeCardInfoButton:hover {
+  background-color: #FFF3EB;
+  color: #a21747;
+  cursor: pointer;
+  text-align: center;
+}
+
+.contentArea {
+  width: 100%;
+  margin: 10px;
+  height: 75%;
+  padding: 0px;
+}
+.descriptionArea {
+  float: left;
+  width: 45%;
+}
+.additionalInformationSidebar {
+  margin-right: 2%;
+  height: 100%;
+  width: 50%;
+  float: right;
+}
+.cardCommentContainer {
+  font-family: 'Orbitron', 
+}
+
+.displayCardInfoButtonArea {
+  margin: 10px;
+  width: 90%;
+  height: 8%;
+}
+
+button.displayCardInfoButton , #displayCardDeleteButton {
+  background-color: #ead3c1;
+  color: #a21747;
+  margin: 5px;
+}
+button.displayCardInfoButton:hover , #displayCardDeleteButton:hover {
+  background-color: #FFF3EB;
+  color: #a21747;
+  cursor: pointer;
+  margin: 5px
+}
+
+.cardTitle::placeholder , .cardDescription::placeholder , .addCommentInput::placeholder {
+  color: #a21747;
+  font-family: 'Orbitron', sans-serif;
+}
+.cardTitle input[type=text]:focus {
+  background-color: transparent;
+  color: #a21747;
+  font-family: 'Orbitron', sans-serif;
+  border-bottom: 2px solid #a21747;
+}
+.cardDescription input[type=text]:focus , .addCommentInput input[type=text]:focus {
+  background-color: #ead3c1;
+  color: #a21747;
+  font-family: 'Orbitron', sans-serif;
+  background-color: transparent;
+}
+.cardComments {
+  background-color: #FFF3EB;
+}
+div.cardComment:nth-child(even) , div.cardComment:nth-child(odd) {
+  color: #a21747;
+  background-color: #ead3c1;
+  padding: 0px;
+  border-bottom: 0.5px solid #a21747;
+}
+.addCommentSubmitButton {
+  background-color: #ead3c1;
+  color: #a21747;
+  height: 105%;
+}
+.addCommentSubmitButton:hover {
+  background-color: #FFF3EB;
+  color: #a21747;
+  cursor: pointer;
+  height: 105%;
 }
 
 
