@@ -49,6 +49,7 @@ export class Card extends Component {
                  onDragEnd={this.dropCard} onDragOver={this.onDragOver}
                  onDragEnter={this.overCard} onDragExit={this.notOverCard} 
                  onClick={this.showCardInfo} style={{border: "1px solid black"}} 
+
                  draggable>
 
                 <h4>{this.props.card.title}</h4>
