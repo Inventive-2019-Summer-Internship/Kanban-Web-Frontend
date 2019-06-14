@@ -90,7 +90,6 @@ export class SwimLane extends React.Component {
                   setAbove={this.props.setAbove} dropAbove={this.props.dropAbove}
                   currentSwimlane={this.props.swimlane.id} setDelete={this.props.setDelete}
                   dropOnDelete={this.props.dropOnDelete} draggingCard={this.draggingCard}/>
-        {this.props.swimlane.id}
       </div>
     )
   }
