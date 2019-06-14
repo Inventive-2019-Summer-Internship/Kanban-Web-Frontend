@@ -647,6 +647,7 @@ p.cardComment {
 .pulseX {
   -webkit-animation: wiggleX .1s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite alternate; /* Safari 4.0 - 8.0 */
   animation: wiggleX .1s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite alternate;
+
 }
 .moveCardText {
   margin: 5px;
