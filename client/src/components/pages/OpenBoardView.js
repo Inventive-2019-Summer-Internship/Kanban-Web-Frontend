@@ -75,7 +75,7 @@ export class OpenBoardView extends React.Component {
 
   setCurrentSwimlane = (swimlane) => {
     this.setState({currentSwimlane: swimlane})
-    console.log(swimlane);
+    //console.log(swimlane);
   }
 
   deleteBoard = () => {
@@ -98,7 +98,8 @@ export class OpenBoardView extends React.Component {
                       currentBoard={this.props.currentBoard} addSwimLane={this.addSwimLane} 
                       changeTitle={this.changeSwimlaneTitle} deleteSwimlane={this.props.deleteSwimlane}
                       moveCard={this.props.moveCard} moveCardAbove={this.props.moveCardAbove} 
-                      deleteCard={this.deleteCard}/>
+                      deleteCard={this.deleteCard} moveSwimlaneToEnd={this.props.moveSwimlaneToEnd}
+                      moveSwimlaneInFrontOfTargetSwimlane={this.props.moveSwimlaneInFrontOfTargetSwimlane}/>
 
         <PopoutMenu changeBoardName={this.changeBoardName} changeBoardBG={this.changeBoardBG} 
                     deleteBoard={this.deleteBoard} />

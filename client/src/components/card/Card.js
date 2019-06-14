@@ -3,12 +3,13 @@ import MoveCardPointer from './MoveCardPointer';
 
 export class Card extends Component {
     dragCard = (evt) => {
-        console.log("Drag Started!", evt);
+        //console.log("Drag Started!", evt);
 
         evt.currentTarget.style.opacity = .5;
 
-        console.log("Set Drag", this.props.setDragged, this.props.card)
+        //console.log("Set Drag", this.props.setDragged, this.props.card)
         this.props.setDragged(this.props.card, "card")
+        this.props.draggingCard(true)
     }
     onDragOver = (evt) => {
         evt.preventDefault();
@@ -24,6 +25,7 @@ export class Card extends Component {
     }
     dropCard = (evt) => {
         evt.currentTarget.style.opacity = 1
+        this.props.draggingCard(false)
     }
     showCardInfo = () => {
         this.props.setCard(this.props.card)

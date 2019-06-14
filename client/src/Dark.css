@@ -632,7 +632,7 @@ p.cardComment {
 }
 
 .pulseY {
-  display: none;
+
   -webkit-animation: wiggleY .2s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite alternate; /* Safari 4.0 - 8.0 */
   animation: wiggleY .2s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite alternate;
 }
@@ -645,7 +645,6 @@ p.cardComment {
   100% {width: 147.5px;}
 }
 .pulseX {
-  display: none;
   -webkit-animation: wiggleX .1s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite alternate; /* Safari 4.0 - 8.0 */
   animation: wiggleX .1s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite alternate;
 }
@@ -670,3 +669,8 @@ p.cardComment {
   opacity: .25;
 }
 
+.moveSwimlane {
+  height: 95%;
+  width: 155px;
+  background-color: white;
+}

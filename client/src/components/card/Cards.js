@@ -9,7 +9,7 @@ export class Cards extends Component {
     }
     onDrop = (evt) => {
         this.setState({overCard: false})
-        console.log("ran")
+        //console.log("ran")
         this.props.onDrop(evt);
     }
     overCard = (value) => {
@@ -22,7 +22,8 @@ export class Cards extends Component {
                     <MoveCardPointer makeVisible={this.state.overCard} onDrop={this.props.dropAbove} 
                                     card={card} setAbove={this.props.setAbove} currentSwimlane={this.props.currentSwimlane}/>
                     <Card setCard={this.props.setCard} setDragged={this.props.setDragged} 
-                          onDrop={this.onDrop} card={card} overCard={this.overCard} />
+                          onDrop={this.onDrop} card={card} overCard={this.overCard}
+                          draggingCard={this.props.draggingCard}/>
                     
                 </React.Fragment>
             ))

@@ -9,14 +9,34 @@ import CardView from '../card/CardView';
 //////////////////////////////////////////////////////////////////
 
 export class SwimLane extends React.Component {
+  state = {
+    currentlyDraggingCard: false
+  }
+  draggingCard = (currentlyDraggingCard) => {
+    this.setState({currentlyDraggingCard})
+  }
   setCurrentSwimlane = () => {
     this.props.setCurrentSwimlane(this.props.swimlane)
   }
+  onDragEnter = (evt) => {
+    if(!this.state.currentlyDraggingCard) this.props.overSwimlane(this.props.swimlane.id)
+  }
+  onDragExit = (evt) => {
+    if(!this.state.currentlyDraggingCard) this.props.overSwimlane("")
+  }
+  onDragStart = (evt) => {
+    
+    window.setTimeout(() => {
+      //console.log(this.state.currentlyDraggingCard)
+      if(!this.state.currentlyDraggingCard) this.setDragged(this.props.swimlane, "swimlane")
+    }, 1)
+    
+  }
   _onDragEnter = (evt) => {
     //console.log(evt);
-    console.log(evt.target.className === "swimLane")
+    //console.log(evt.target.className === "swimLane")
     if(evt.target.id === this.props.swimlane.id) {
-      console.log(this.props.swimlane.id)
+      //console.log(this.props.swimlane.id)
       this.props.setHoverSwimlane(this.props.swimlane.id)
     }
   }
@@ -30,10 +50,14 @@ export class SwimLane extends React.Component {
   onDrop = (evt) => {
     evt.preventDefault();
     //console.log(this.props.swimlane.id)
-    if(evt.target.className === "swimLane") {
-      console.log("dropped")
+    if(evt.target.className === "swimLane" && this.state.currentlyDraggingCard) {
+      //console.log("dropped")
       evt.target.style.border = "none"
+      this.setState({currentlyDraggingCard: false})
       this.props.addHoveredCardToLane(this.props.swimlane.id);
+    }
+    else {
+      this.props.overSwimlane("")
     }
   }
   addHoveredCardToLaneBelow = (id) => {
@@ -54,8 +78,9 @@ export class SwimLane extends React.Component {
 }
   render() {
     return (
-      <div onClick={this.setCurrentSwimlane} onDragEnter={this.onDragEnter} 
-           id={this.props.swimlane.id} className="swimLane">
+      <div onClick={this.setCurrentSwimlane} onDragEnter={this.onDragEnter}
+           onDragStart={this.onDragStart} onDragExit={this.onDragExit}
+           id={this.props.swimlane.id} className="swimLane" draggable>
 
         <SwimLaneHeader swimlane={this.props.swimlane} changeTitle={this.props.changeTitle}
                         deleteSwimlane={this.props.deleteSwimlane}/>
@@ -64,7 +89,8 @@ export class SwimLane extends React.Component {
                   onDrop={this.onDrop} cards={this.props.swimlane.cards} 
                   setAbove={this.props.setAbove} dropAbove={this.props.dropAbove}
                   currentSwimlane={this.props.swimlane.id} setDelete={this.props.setDelete}
-                  dropOnDelete={this.props.dropOnDelete}/>
+                  dropOnDelete={this.props.dropOnDelete} draggingCard={this.draggingCard}/>
+        {this.props.swimlane.id}
       </div>
     )
   }
