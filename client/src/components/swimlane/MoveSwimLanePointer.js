@@ -22,7 +22,7 @@ export class MoveSwimLanePointer extends Component {
         //console.log(`Show Area: ${this.props.overSwimlane === this.props.swimlane.id}`)
         return (
             <div className="moveSwimlane pulseX" 
-                 style={{display: (this.props.overSwimlane === this.props.swimlane.id) ? "block" : "none"}}
+                 style={{display: (this.props.dragged.type === 'swimlane' && this.props.overSwimlane === this.props.swimlane.id) ? "block" : "none"}}
                  onDragOver={this.onDragOver} onDrop={this.onDrop}
                  onDragEnter={this.inDivider} onDragLeave={this.outDivider}>
                 

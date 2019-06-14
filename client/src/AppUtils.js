@@ -12,7 +12,7 @@ class AppUtils extends React.Component {
    * @param id the id of the board that you want to show (Comes from BoardListing>BoardView>this)
    */
   moveSwimlaneInFrontOfTargetSwimlane = (draggedSwimlaneId, targetSwimlaneId) => {
-    if(typeof targetSwimlaneId === "object") return;
+    if(typeof targetSwimlaneId === "object" || draggedSwimlaneId === targetSwimlaneId) return;
     let currentBoard = this.state.currentBoard
     let movingSwimlane = currentBoard.swimLanes.filter(swimlane => swimlane.id === draggedSwimlaneId)[0]
     console.log(`${draggedSwimlaneId} => ${targetSwimlaneId} : ${typeof targetSwimlaneId}`)
@@ -25,7 +25,7 @@ class AppUtils extends React.Component {
       sl.push(currentBoard.swimLanes[i])
 
     }
-
+    console.log(sl)
     currentBoard.swimLanes = sl
     let boards = [...this.state.boards.filter(board => board.id !== currentBoard.id), currentBoard]
     boards.push(boards.shift());
