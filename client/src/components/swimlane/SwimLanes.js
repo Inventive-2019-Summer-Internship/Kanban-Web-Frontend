@@ -11,6 +11,7 @@ export class SwimLanes extends Component {
     this.setState({overSwimlane: value})
   }
   render() {
+    console.log(this.props.currentBoard.swimLanes)
     if(this.props.currentBoard.swimLanes !== undefined) {
       return (
           this.props.currentBoard.swimLanes.map((swimlane) =>(

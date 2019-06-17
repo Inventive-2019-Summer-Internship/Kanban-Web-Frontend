@@ -46,7 +46,9 @@ export class AddCardForm extends Component {
                 <div style={{display:"inline"}}>
                     <div style={{width:'25%', float:"left"}}>
                         <p className="cardForm" style={{margin:"15px 0 0 0"}}>Title of Card</p>
-                        <input id="addCardName" type="text" placeholder={"Give it a Good Title"} onChange={this.updateState} name="title" />
+                        <input id="addCardName" type="text" 
+                               placeholder={"Give it a Good Title"} onChange={this.updateState} 
+                               name="title" required/>
                     </div>
                     <div style={{width:'50%', display: 'inline-block'}}>
                         <p className="cardForm" style={{margin:"0 0 10px 0"}}>Description:</p>
