@@ -77,6 +77,7 @@ export class SwimLane extends React.Component {
     //document.getElementById('dragbox').addEventListener('dragleave', this._onDragLeave);
 }
   render() {
+    console.log(this.props)
     return (
       <div onClick={this.setCurrentSwimlane} onDragEnter={this.onDragEnter}
            onDragStart={this.onDragStart} onDragExit={this.onDragExit}

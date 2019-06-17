@@ -286,11 +286,14 @@ class AppUtils extends React.Component {
   moveSwimlaneToEnd = (swimlaneId) => {
     let currentBoard = this.state.currentBoard
     let swimlaneToEnd = currentBoard.swimLanes.filter(swimlane => swimlane.id === swimlaneId)[0]
+    console.log(swimlaneToEnd)
+    if(swimlaneToEnd === undefined) return;
     currentBoard.swimLanes = [...currentBoard.swimLanes.filter(swimlane => swimlane.id !== swimlaneId), swimlaneToEnd]
     console.log(currentBoard.swimLanes)
     let boards = [...this.state.boards.filter(board => board.id !== currentBoard.id), currentBoard]
     boards.push(boards.shift());
     this.setState({currentBoard,boards})
+    console.log("moved to end")
   }
   
 }
