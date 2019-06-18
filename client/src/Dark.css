@@ -433,9 +433,11 @@ button.displayCardInfoButton {
   height: 75%;
   border-radius: 5px;
   border: 1px black solid;
-  background-color: #ffffff;
+  background-color: #2d313d;
 }
 .cardDescription {
+  color: white;
+  background-color: #6a738680;
   width: 100%;
   height: 100%;
   text-align: left;
@@ -446,14 +448,25 @@ button.displayCardInfoButton {
 
 }
 .cardTitle {
+  color: white;
   display: inline;
   width: 90%;
   float: left;
   font-size: 24px;
+  font-weight: bold;
   width:auto;
   margin-left: 15px;
-  margin-top: 10px;
+  margin-top: 13px;
   margin-right: 10px;
+
+  background-color: transparent;
+  box-sizing: border-box;
+  border: none;
+}
+
+.cardTitle:focus {
+  background-color: #6a738680;
+  color: white;
 }
 .contentArea {
   width: 100%;
@@ -465,14 +478,14 @@ button.displayCardInfoButton {
   height:100%;
   width: 40%;
   float: left;
-  background-color: blue;
+  background-color: transparent;
 }
 .additionalInformationSidebar {
   margin-right: 2.5%;
   height:100%;
   width: 55%;
   float: right;
-  background-color: red;
+  background-color: transparent;
 }
 .cardCommentContainer {
   width:100%;
@@ -487,11 +500,11 @@ button.displayCardInfoButton {
   overflow-y: auto;
   overflow-x: hidden;
   flex-direction: column;
-  background-color: lightgray;
+  background-color: #6a738680;
 }
 .cardComment {
-  width: 100%;
-  height: 50px;
+  width: 90%;
+  height: 25px;
   padding-top: 10px;
   text-align: left;
   font-size: 14px;
@@ -504,7 +517,7 @@ div.cardComment:nth-child(even) {
   background-color: #f2f2f2;
   color: #cccccc;
 }
-p.cardComment {
+textarea.cardComment {
   width: 90%;
   height: 100%;
   padding-top:0px;
@@ -512,6 +525,7 @@ p.cardComment {
   display: inline;
   padding-left: 5px;
   float:left;
+  background-color: darkgray;
 }
 .cardAddComment {
   width: 100%;
@@ -523,6 +537,7 @@ p.cardComment {
   width:90%;
   float: left;
   border: none;
+  background-color: white;
 }
 .addCommentSubmitButton {
   cursor: pointer;
@@ -531,7 +546,7 @@ p.cardComment {
   float: right;
   border: none;
   color: grey;
-  background-color: #eeeeee;
+  background-color: #282c34;
   font-size: 20px;
 }
 .slide-up-display {

@@ -17,7 +17,8 @@ export class CardComment extends Component {
     render() {
         return (
             <div class="cardComment">
-                <textarea name="comment" onClick={this.loadText} placeholder={this.props.comment.comment} onChange={this.updateComment} class="cardComment">{this.props.comment.comment}</textarea>
+                <textarea name="comment" onClick={this.loadText} placeholder={this.props.comment.comment} onChange={this.updateComment} class="cardComment">
+                </textarea>
                 <p class="closeCardInfoButton" onClick={this.deleteComment}>x</p>
             </div>
         )
