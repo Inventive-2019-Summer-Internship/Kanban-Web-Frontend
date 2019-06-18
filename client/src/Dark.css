@@ -543,6 +543,8 @@ p.cardComment {
   ///Same applies to other elements but at the
   end of their respective areas */
 
+
+/* Card From - Card Label Overlay Elements*/
 .cardLabelContainer {
   padding: 0 0 5px 20px;
   font-size: 16px;
@@ -555,32 +557,27 @@ p.cardComment {
   margin: 0;
   border-radius: 20px;
 }
-
-.addLabelBtn {
-  background-color: #3b587c;
-}
-
-.cardLabels {
-  text-align: left;
+.cardLabel p, .addLabelBtn p {
+  margin: 0;
 }
 
 .cardLabel {
   margin-right: 10px;
   margin-bottom: 10px;
 }
-
-.cardLabel p, .addLabelBtn p {
-  margin: 0;
+.addLabelBtn {
+  background-color: #3b587c;
 }
-
 .addLabelBtn:hover {
   cursor: pointer;
   text-decoration: underline;
 }
-.addLabelBtn p {
-  margin: 0;
+
+.cardLabels {
+  text-align: left;
 }
 
+/* Label Form Elements */
 #addLabelForm {
   display: none;
   width: 100%;
@@ -628,7 +625,7 @@ p.cardComment {
   margin: 0;
 }
 
-.colorButtons {
+.colorButtons { /* Color Buttons */
   list-style: none;
   margin: 0 0 15px 0;
   padding: 0;
@@ -648,7 +645,7 @@ p.cardComment {
   opacity: 0.8;
 }
 
-.labelFormBtn {
+.labelFormBtn { /* 'Create' Button */
   color: white;
   padding: 5px 20px;
   font-size: 20px;
