@@ -1,0 +1,52 @@
+.App {
+    color: white;
+}
+
+body {
+    background-color: #404552;
+}
+
+.button {
+    background-color: #5479a7;
+}
+.button:hover {
+    background-color: #7da2cf;
+}
+
+.App-header {
+    background-color: #2d313d;
+    color: white;
+}
+
+.standardLink {
+    color: white;
+}
+.standardLink:hover {
+    background-color: #70788b;
+}
+
+.boardRow {
+    color: white;
+}
+
+.boardListing {
+    background-color: #4b5162;
+}
+.boardListing:hover {
+    background-color: #70788b;
+}
+
+.title {
+    background-color: #282c3479;
+}
+
+.newLane {
+    background-color: #4b5162ef;
+}
+.newLane:hover {
+    background-color: #70788bef;
+}
+
+#sideBarActivator:hover {
+    background-color: #70788b;
+}
