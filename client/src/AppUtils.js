@@ -2,8 +2,6 @@
 import React from 'react';
 import uuid from 'uuid/v4';
 
-
-
 class AppUtils extends React.Component {
      ///////////////// Method Bloc
   /**
@@ -180,6 +178,20 @@ class AppUtils extends React.Component {
     boards.push(boards.shift());
     this.setState({currentBoard,boards})
       
+  }
+  updateComment = (comment, commentId, cardId, swimlaneId, boardId) => {
+    let currentBoard = this.state.currentBoard
+    let currentSwimlane = currentBoard.swimLanes.filter(swimlane => swimlane.id === swimlaneId)[0]
+    let currentCard = currentSwimlane.cards.filter(card => card.id === cardId)[0]
+    
+    for(var i = 0; i < currentCard.comments.length; i++) {
+      if (currentCard.comments[i].id===commentId)
+      currentCard.comments[i].comment = comment
+    }
+    let boards = [...this.state.boards.filter(board => board.id !== boardId), currentBoard]
+      boards.push(boards.shift());
+      this.setState({currentBoard,boards})
+      //console.log(this.state.currentBoard.swimLanes.filter(swimlane => swimlane.id === swimlaneId)[0].cards.filter(card => card.id === cardId)[0].comments)
   }
   deleteComment = (commentId, cardId, swimlaneId, boardId) => {
     let currentBoard = this.state.currentBoard

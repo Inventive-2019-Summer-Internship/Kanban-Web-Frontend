@@ -8,7 +8,7 @@ export class CardInfoContentSidebar extends Component {
         return (
             <div class="additionalInformationSidebar">
                 <div className="cardCommentContainer">
-                    <CardCommentView deleteComment={this.props.deleteComment} comments={this.props.card.comments} />
+                    <CardCommentView deleteComment={this.props.deleteComment} updateComment={this.props.updateComment} comments={this.props.card.comments} />
                     <CardAddComment addComment={this.props.addComment}/>
                 </div>
             </div>

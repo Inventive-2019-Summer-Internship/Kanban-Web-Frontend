@@ -499,17 +499,10 @@ button.displayCardInfoButton:disabled {
 }
 div.cardComment {
   background-color: #6a7386;
-  padding: 8px 0 10px 0;
+  padding: 12px 0;
 }
 div.cardComment:nth-child(even) {
   background-color: #3a4253;
-}
-p.cardComment {
-  cursor: default;
-  width: 90%;
-  margin: 0;
-  padding: 0 0 0 10px;
-  float: left;
 }
 
 .cardAddComment { /* Bar to Type & Submit Comment */
