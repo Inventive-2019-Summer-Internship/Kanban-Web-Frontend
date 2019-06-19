@@ -582,6 +582,7 @@ div.cardComment:nth-child(even) {
 }
 
 .cardLabel {
+  cursor: default;
   margin-right: 10px;
   margin-bottom: 10px;
 }
