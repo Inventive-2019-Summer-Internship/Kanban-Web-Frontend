@@ -21,7 +21,6 @@ export class Card extends Component {
         return (
             <div className="card" onClick={this.showCardInfo}>
                 <h4>{this.props.card.title}</h4>
-                <p>{this.props.card.description}</p>
             </div>
         )
     }
