@@ -11,9 +11,10 @@ import BoardListing from '../board/BoardListing'
  */
 export class BoardView extends React.Component {
   render() {
+    console.log(this.props.routerProps)
     return (
       this.props.boards.map((board) => (
-          <BoardListing board={board} showBoard={this.props.showBoard} />
+          <BoardListing routerProps={this.props.routerProps} board={board} showBoard={this.props.showBoard} />
       ))
     );
   }

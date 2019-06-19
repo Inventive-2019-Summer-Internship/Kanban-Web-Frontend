@@ -13,8 +13,9 @@ import {Link} from 'react-router-dom'
 export class BoardListing extends React.Component {
 
   render() {
+    var id = this.props.board.id.replace(/-/g,"");
     return (
-      <Link className="boardRow" to="/showBoard" onClick={this.props.showBoard.bind(this, this.props.board.id)}>
+      <Link className="boardRow" to={`/🐝/${this.props.board.name.replace(/\s/g, "")}/`} onClick={this.props.showBoard.bind(this, this.props.board.id)}>
       <div className="boardListing" >
         <p>{this.props.board.name}</p>
       </div>

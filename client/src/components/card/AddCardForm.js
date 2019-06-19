@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { ToastContainer } from 'react-toastr'
 
 export class AddCardForm extends Component {
     state = {
@@ -14,6 +15,9 @@ export class AddCardForm extends Component {
         console.log(evt.target.name)
         switch(evt.target.name) {
             case 'addCard':
+                if(this.state.title === "") {
+                    this.props.toastContainer.error("hello world")
+                }
                 this.addCard()
                 break;
             case 'cancel':
