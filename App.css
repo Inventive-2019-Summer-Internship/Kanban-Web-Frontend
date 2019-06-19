@@ -1,10 +1,6 @@
 .App {
   text-align: center;
   font-size: 30px;
-  color: white;
-}
-body {
-  background-color: #404552;
 }
 
 form {
@@ -21,40 +17,30 @@ form {
 }
 
 .button {
-  background-color: #5479a7;
   width: 90%;
   height: 5vmin;
   font-size: 2vmin;
   border: none;
   border-radius: 5px;
 }
-.button:hover {
-  background-color: #7da2cf;
-}
 
 .App-header {
-  background-color: #2d313d;
   height: 45px;
   font-size: 25px;
-  color: white;
 }
 
 .standardLink {
   float: right;
   padding:8px 10px 0 10px;
-  color:#ffffff;
   text-decoration:none;
   font-size: 20px;
 }
-
 .standardLink:hover {
   height: 35px;
-  background-color: #70788b;
   border-radius: 20px;
 }
 
 .boardRow {
-  color: white;
   text-decoration:none;
   font-size: 25px;
 }
@@ -70,11 +56,9 @@ form {
   margin: 20px 1.5%;
   padding-top: 7px;
   border-radius: 20px;
-  background-color: #4b5162;
 }
 
 .boardListing:hover {
-  background-color: #70788b;
   width: 97%;
   height: 4em;
   margin: 20px 1.5%;
@@ -86,32 +70,10 @@ form {
   margin:0;
   width: 100%;
   padding-bottom: 8px;
-  background-color: #282c3479;
-}
-
-.options{
-  height: 25px;
-  width: 100%;
-  color:"#ffffff";
-  margin-top: .2em;
-  margin-bottom: 1em;
-}
-.options h3{
-  background-color: #282c34;
-  color: white;
-  margin: 10px;
-  padding: 5px;
-  height: 20px;
-  font-size: 15px;
-  border-radius: 5px;
-}
-.options h3:hover {
-  background-color: #4b5162;
 }
 
 .newLane {
   font-size: 25px;
-  background-color: #4b5162ef;
   flex: 0 0 auto;
   margin-left: 10px;
   width: 20vmax;
@@ -119,8 +81,17 @@ form {
   border-radius: 10px;
 }
 
-.newLane:hover {
-  background-color: #70788bef;
+.deletePopout {
+  background-color: #FF2424;
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
+  transition: .25s;
+}
+
+.deletePopout:hover {
+  background-color: #FF4444;
 }
 
 #sideBarActivator {
@@ -130,7 +101,6 @@ form {
   margin-top:-50px;
 }
 #sideBarActivator:hover {
-  background-color: #70788b;
   height: 45px;
   border-radius: 5px;
 }

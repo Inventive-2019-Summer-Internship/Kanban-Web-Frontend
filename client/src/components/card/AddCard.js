@@ -8,7 +8,7 @@ export class AddCard extends Component {
     render() {
         return (
             <div className="addCardBtn" onClick={this.showAddCardForm}>
-                <p>+</p>
+                <p>+Add Card</p>
             </div>
         )
     }

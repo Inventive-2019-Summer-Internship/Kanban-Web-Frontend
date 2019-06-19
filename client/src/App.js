@@ -9,7 +9,7 @@ import NewBoardView from './components/pages/NewBoardView';
 import OpenBoardView from './components/pages/OpenBoardView';
 import AppUtils from './AppUtils'
 /////////////    CSS Imports      ////////////////////////////////
-require('./Dark.css');
+
 //////////////////////////////////////////////////////////////////
 
 /**
@@ -55,6 +55,18 @@ class App extends AppUtils {
                 comments: [
                   {
                     comment: "This is a sample comment",
+                    id: uuid()
+                  }
+                ],
+                labels: [
+                  {
+                    title: "SampleLabel",
+                    color: "#1a1a1a",
+                    id: uuid()
+                  },
+                  {
+                    title: "SecondLab",
+                    color: "#d83656",
                     id: uuid()
                   }
                 ]
@@ -121,7 +133,8 @@ class App extends AppUtils {
               currentBoard={this.state.currentBoard} changeSwimlaneTitle={this.changeSwimlaneTitle}
               deleteSwimlane={this.deleteSwimlane} addCard={this.addCard}
               updateCard={this.updateCard} deleteCard={this.deleteCard}
-              addComment={this.addComment} deleteComment={this.deleteComment} updateComment={this.updateComment}/>
+              addComment={this.addComment} deleteComment={this.deleteComment} updateComment={this.updateComment}
+              addLabel={this.addLabel} deleteLabel={this.deleteLabel}/>
               )}
           />
         </div>  

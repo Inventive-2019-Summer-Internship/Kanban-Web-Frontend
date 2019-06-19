@@ -1,0 +1,74 @@
+body {
+  background-image: url("./spacecropped.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+form {
+  color: white;
+  font-family: 'Palatino';
+}
+
+.button {
+  background-color: #282c34;
+  color: white;
+}
+.button:hover {
+  background-color: #ead3c1;
+  color: #000000;
+}
+
+.App-header {
+  background-color: #000000;
+  color: white;
+}
+
+.standardLink {
+  color:#ffffff;
+}
+.standardLink:hover{
+  color: black;
+  background-color: white;
+}
+
+.boardRow {
+  color: #000000;
+}
+
+.boardListing {
+  background-color: #ead3c1;
+  border: 1px solid #a21747;
+}
+.boardListing:hover {
+  background-color: #FFF3EB;
+  border: 1px solid #a21747;
+}
+
+.title {
+  background-color: #282c3479;
+  color: white;
+}
+
+.newLane {
+  color:#a21747;
+  background-color: #ead3c2ef;
+}
+.newLane:hover {
+  background-color: #fff3ebef;
+}
+
+#sideBarActivator {
+  color: white;
+}
+#sideBarActivator:hover {
+  color: black;
+  background-color: #fff3eb;
+}
+
+#menuActual {
+  color: white;
+}
+
+#menuSetup{
+  color: white;
+}
