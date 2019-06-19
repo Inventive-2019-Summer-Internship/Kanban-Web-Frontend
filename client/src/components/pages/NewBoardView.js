@@ -48,11 +48,11 @@ export class NewBoardView extends React.Component {
         <div>
         <form onSubmit={this.onSubmit}>
         {/*eslint-disable-next-line*/}
-        <h1>✨Add a new Board✨</h1><br/>
-        <p style={{textAlign: "center"}}>Name your new board:</p>
+        <h1 style={{cursor: "default"}}>✨Add a new Board✨</h1><br/>
+        <p style={{textAlign: "center", cursor: "default"}}>Name your new board:</p>
 
         <input type="text" className="textBox" required={true} name='name' onChange={this.onChange} placeholder=' Give it a good name'/><br></br>
-        <p style={{textAlign: "center"}}>Give your board a background url (if you want):</p>
+        <p style={{textAlign: "center", cursor: "default"}}>Give your board a background url (if you want):</p>
         <input type="text" className="textBox" required={false} name='url' onChange={this.onChange} placeholder=' Give it a good name'/>
             <input type="submit" className="button" value="Add New Board" />
         </form>
