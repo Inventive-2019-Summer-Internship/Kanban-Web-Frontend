@@ -25,6 +25,7 @@ export class SwimLane extends React.Component {
     if(!this.state.currentlyDraggingCard) this.props.overSwimlane("")
   }
   onDragStart = (evt) => {
+    evt.dataTransfer.setData('text/plain',null);
     
     window.setTimeout(() => {
       //console.log(this.state.currentlyDraggingCard)

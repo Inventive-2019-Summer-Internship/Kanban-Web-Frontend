@@ -28,7 +28,7 @@ export class NewBoardView extends React.Component {
     onSubmit = (evt) => {
         evt.preventDefault();
         this.props.addBoard(this.state.name, this.state.url);
-        
+        this.props.routerProps.history.goBack()
 
     }
 

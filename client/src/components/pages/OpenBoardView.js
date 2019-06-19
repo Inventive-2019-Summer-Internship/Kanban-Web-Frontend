@@ -1,6 +1,7 @@
 ///////////////  Package Imports  ////////////////////////////////
 import React from 'react'
 import PropTypes from 'prop-types'
+import { ToastContainer } from 'react-toastr'
 ////////////// Components Imports ////////////////////////////////
 import PopoutMenu from '../PopoutMenu'
 import SwimLaneView from '../swimlane/SwimLaneView'
@@ -89,9 +90,10 @@ export class OpenBoardView extends React.Component {
   }
 
   render(props) {
+    let container;
     return (
       <div style={{height:"90%", overflow:"hidden", width: "100%"}}>
-        
+        <ToastContainer ref={ref => container = ref}/>
         <BoardHeader currentBoard={this.props.currentBoard} />
 
         <SwimLaneView setCard={this.setCard} setCurrentSwimlane={this.setCurrentSwimlane} 
@@ -104,10 +106,12 @@ export class OpenBoardView extends React.Component {
         <PopoutMenu changeBoardName={this.changeBoardName} changeBoardBG={this.changeBoardBG} 
                     deleteBoard={this.deleteBoard} />
 
-        <AddCardForm addCard={this.props.addCard} currentSwimlane={this.state.currentSwimlane} />
+        <AddCardForm addCard={this.props.addCard} currentSwimlane={this.state.currentSwimlane} 
+                     toastContainer={container}/>
 
         <DisplayEditCardForm addComment={this.addComment} deleteComment={this.deleteComment} 
                              deleteCard={this.deleteCard} updateCard={this.updateCard} card={this.state.activeCard} />
+        
 
       </div>
     )
