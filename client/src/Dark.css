@@ -55,6 +55,7 @@ form {
 }
 
 .standardLink:hover {
+  cursor: pointer;
   height: 35px;
   background-color: #70788b;
   border-radius: 20px;
