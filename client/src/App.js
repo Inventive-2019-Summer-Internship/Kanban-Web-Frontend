@@ -93,7 +93,18 @@ class App extends AppUtils {
     
   }
 
-  
+    
+  callAPI() {
+    fetch("https://kanban-web-backend.herokuapp.com/sender")
+        .then(res => res.text())
+        .then(res => console.log(res))
+        .catch(err => err);
+}
+
+componentWillMount() {
+    this.callAPI();
+}
+
 
   /**
    * The Render Method
