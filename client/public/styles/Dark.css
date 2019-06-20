@@ -349,6 +349,7 @@ button.formAdd:hover {
   width: 100%;
   float: left;
   background-color: transparent;
+  margin-top: 15px;
 }
 
 .secondary-contentArea {
@@ -477,8 +478,6 @@ button.displayCardInfoButton:disabled {
 
 /* Card Form - Card Comment Elements*/
 .cardCommentContainer {
-  padding-left: 15px;
-  width: 90.6%;
   height: 100%;
   background-color: transparent;
 }
