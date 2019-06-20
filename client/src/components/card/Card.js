@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
-//import DisplayEditCardForm from './DisplayEditCardForm';
 
 export class Card extends Component {
     showCardInfo = () => {
         this.props.setCard(this.props.card)
-        //DisplayEditCardForm.updateState()
         document.getElementById("cardInfoDisplay").className = `displayCardInfo slide-down-display`;
         document.getElementById("displayCardInfoContainer").style.display = "flex";
         if(document.getElementById("addCardForm")) {

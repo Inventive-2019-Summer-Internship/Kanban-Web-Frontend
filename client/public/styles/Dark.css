@@ -277,6 +277,7 @@ form {
 
 /* Creating a Card Form Elements */
 #addCardForm {
+  cursor: default;
   display: none;
   width: 100%;
   height: 30%;
@@ -446,6 +447,7 @@ button.displayCardInfoButton:disabled {
 }
 
 .cardDescription {
+  resize: none;
   cursor: pointer;
   color: white;
   text-align: left;
@@ -500,9 +502,34 @@ button.displayCardInfoButton:disabled {
 div.cardComment {
   background-color: #6a7386;
   padding: 12px 0;
+  height: fit-content;
 }
 div.cardComment:nth-child(even) {
   background-color: #3a4253;
+}
+.cardComment textarea {
+  cursor: pointer;
+  resize: none;
+  word-wrap: break-word;
+  padding: 0 8px;
+  width: 90%;
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+.cardComment:focus{
+  cursor: auto;
+  color: white;
+}
+.cardComment::placeholder {
+  color: white;
+  opacity: 1;
+}
+.cardComment:-ms-input-placeholder {
+  color: white;
+}
+.cardComment::-ms-input-placeholder {
+  color: white;
 }
 
 .cardAddComment { /* Bar to Type & Submit Comment */
@@ -555,6 +582,7 @@ div.cardComment:nth-child(even) {
 }
 
 .cardLabel {
+  cursor: default;
   margin-right: 10px;
   margin-bottom: 10px;
 }
