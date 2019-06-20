@@ -24,7 +24,6 @@ body {
 }
 
 .standardLink {
-  cursor: pointer;
   float: right;
   padding: 8px 10px 0 10px;
   color: white;
@@ -175,14 +174,6 @@ form {
   flex: 0 0 auto;
   margin: 0 10px;
   width: 20vmax;
-<<<<<<< HEAD
-  height: 70px;
-  border-radius: 10px;
-}
-.newLane:hover {
-  cursor: pointer;
-  opacity: 0.9;
-=======
   height: 45px;
   border-radius: 5px;
 }
@@ -194,17 +185,7 @@ form {
 .newLane p {
   margin: 0;
   padding: 8px 0 0 0;
->>>>>>> master
 }
-/*.newLane p {
-  margin: 0;
-  background-color: #4b5162;
-  cursor: pointer;
-  padding-top: 20px;
-  text-align: center;
-  height: 2.5em;
-  border-radius: 10px;
-}*/
 
 .swimLane {
   text-align: left;
@@ -257,7 +238,6 @@ form {
 
 /* Card Overlay View Elements */
 .addCardBtn {
-  cursor: pointer;
   height: 45px;
   font-size: 20px;
   margin: 15px 15px 20px 5px;
@@ -379,7 +359,7 @@ button.formAdd:hover {
   width: 45%;
 }
 
-.displayCardInfoContainer { /* "Background of Form */
+.displayCardInfoContainer { /* "Background" of Form */
   position: absolute;
   z-index: 3;
   display: none;
@@ -565,10 +545,6 @@ div.cardComment:nth-child(even) {
   float: left;
   border: none;
 }
-button.cardForm:hover {
-  background-color: #97a3bb;
-}
-
 .addCommentSubmitButton {
   cursor: pointer;
   height: 100%;
@@ -580,48 +556,6 @@ button.cardForm:hover {
   background-color: #282c34;
   font-size: 20px;
 }
-button.formAdd:hover {
-  background-color: #7da2cf;
-}
-
-.closeCardInfoButton {
-  cursor: pointer;
-  float: right;
-  color: white;
-  display: inline;
-  text-align: right;
-  margin: 0px;
-  margin-right: 20px;
-  font-size: 35px;
-}
-.displayCardInfoButtonArea {
-  margin-top: 15px;
-  width:100%;
-  height: 10%
-}
-button.displayCardInfoButton:disabled {
-  color: white;
-  background-color: #6767a0;
-  transition: .5s;
-}
-button.displayCardInfoButton {
-  cursor: pointer;
-  margin-right: 10px;
-  height: 100%;
-  width: 200px;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  font-size: 20px;
-  background-color: #5479a7;
-  transition: .5s;
-}
-#displayCardDeleteButton {
-  cursor: pointer;
-  width: 200px;
-  margin-left: 10px;
-  background-color: #FF2424;
-  font-size: 20px;
 
 /* If more "Card Form - Card Elements"
   are added, add a comment here describing them
@@ -648,6 +582,7 @@ button.displayCardInfoButton {
 }
 
 .cardLabel {
+  cursor: default;
   margin-right: 10px;
   margin-bottom: 10px;
 }
@@ -682,94 +617,10 @@ button.displayCardInfoButton {
   margin: 10% 16% 0 0;
   background-color: #6a7386;
   border-radius: 5px;
-}
-
-.cardDescription {
-  color: white;
-  /*width: 96.5%;*/
+  width: 380px;
+  height: 295px;
+  font-size: 17px;
   text-align: left;
-
-  padding: 10px;
-
-  height:100%;
-  width: 100%;
-  float: left;
-
-  background-color: #6a738680;
-  box-sizing: border-box;
-  border: none;
-  border-radius: 5px;
-}
-.cardDescription:focus {
-  background-color: #434857;
-  color: white;
-}
-.cardDescription::placeholder {
-  color: white;
-  opacity: 1;
-}
-.cardDescription:-ms-input-placeholder {
-  color: white;
-}
-.cardDescription::-ms-input-placeholder {
-  color: white;
-}
-
-.cardHeader {
-  height: 10%;
-}
-.cardTitle {
-  color: white;
-  display: inline;
-  width: 90%;
-  float: left;
-  font-size: 24px;
-  font-weight: bold;
-  width:auto;
-  margin-left: 15px;
-  margin-top: 13px;
-  margin-right: 10px;
-
-  background-color: transparent;
-  box-sizing: border-box;
-  border: none;
-}
-.cardTitle:focus {
-  background-color: #6a738680;
-  color: white;
-}
-.cardTitle::placeholder {
-  color: white;
-  opacity: 1;
-}
-.cardTitle:-ms-input-placeholder {
-  color: white;
-}
-.cardTitle::-ms-input-placeholder {
-  color: white;
-}
-
-.contentArea {
-  width: 100%;
-  height: 75%;
-}
-.descriptionArea {
-  margin-left: 15px;
-  height:100%;
-  width: 41%;
-  float: left;
-  background-color: transparent;
-}
-.additionalInformationSidebar {
-  margin-right: 15px;
-  height:100%;
-  width: 55%;
-  float: right;
-  background-color: transparent;
-}
-.cardCommentContainer {
-  height: 100%;
-  background-color: transparent;
   padding-left: 15px;
 }
 
@@ -833,32 +684,6 @@ button.displayCardInfoButton {
   animation: slide-in 0.5s forwards;
   -webkit-animation: slide-in 0.5s forwards;
 }
-.cardComments {
-  width: 100%;
-  height: 90%;
-  display: flex;
-  overflow-y: auto;
-  /*overflow-x: hidden;*/
-  flex-direction: column;
-  background-color: #6a738680;
-}
-.cardComment {
-  word-wrap: break-word;
-  width: 100%;
-  /*min-height: 0;*/
-  /*min-height: 25px;*/
-  padding-top: 10px;
-  text-align: left;
-  font-size: 14px;
-  
-}
-div.cardComment {
-  background-color: #6a7386;
-  padding: 8px 0 10px 0;
-}
-div.cardComment:nth-child(even) {
-  background-color: #3a4253;
-}
 @keyframes slide-in {
   0% { transform: translateX(100%); }
   100% { transform: translateX(0%); }
@@ -885,26 +710,6 @@ div.cardComment:nth-child(even) {
   animation: slide-up 0.8s forwards;
   -webkit-animation: slide-up 0.5s forwards;
 }
-.addCommentInput {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width:90%;
-  float: left;
-  border: none;
-}
-.addCommentSubmitButton {
-  cursor: pointer;
-  height: 100%;
-  width:10%;
-  float: right;
-  border: none;
-  color: white;
-  padding-top: 5px;
-  background-color: #282c34;
-  font-size: 20px;
-}
-
 @keyframes slide-up {
   0% { transform: translateY(100%); }
   100% { transform: translateY(0%); }
@@ -966,6 +771,19 @@ div.cardComment:nth-child(even) {
   to { opacity: 1; }
 }
 
+.fade-out {
+  animation: fade-out 0.5s forwards;
+  -webkit-animation: fade-out 0.5s forwards;
+}
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+@-webkit-keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
 .pulseY {
 
   -webkit-animation: wiggleY .2s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite alternate; /* Safari 4.0 - 8.0 */
@@ -1008,16 +826,4 @@ div.cardComment:nth-child(even) {
 .moveSwimlane {
   height: 95%;
   width: 155px;
-}
-.fade-out {
-  animation: fade-out 0.5s forwards;
-  -webkit-animation: fade-out 0.5s forwards;
-}
-@keyframes fade-out {
-  from { opacity: 1; }
-  to { opacity: 0; }
-}
-@-webkit-keyframes fade-out {
-  from { opacity: 1; }
-  to { opacity: 0; }
 }
