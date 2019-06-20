@@ -51,7 +51,6 @@ export class Card extends Component {
                  onClick={this.showCardInfo} draggable>
 
                 <h4>{this.props.card.title}</h4>
-                <p>{this.props.card.description}</p>
             </div>
         
         

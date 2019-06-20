@@ -12,7 +12,6 @@ export class AddCardForm extends Component {
     }
 
     getClickAction = (evt) => {
-        console.log(evt.target.name)
         switch(evt.target.name) {
             case 'addCard':
                 if(this.state.title === "") {
@@ -21,6 +20,9 @@ export class AddCardForm extends Component {
                 this.addCard()
                 break;
             case 'cancel':
+                this.closeAddCardForm();
+                break;
+            default:
                 this.closeAddCardForm();
                 break;
         }
@@ -56,7 +58,7 @@ export class AddCardForm extends Component {
                     </div>
                     <div style={{width:'50%', display: 'inline-block'}}>
                         <p className="cardForm" style={{margin:"0 0 10px 0"}}>Description:</p>
-                        <textarea id="addCardDescription" name="description" placeholder={"Describe Your Card"} onChange={this.updateState} rows="7" cols="50" />
+                        <textarea id="addCardDescription" style={{resize:"none"}} name="description" placeholder={"Describe Your Card"} onChange={this.updateState} rows="7" cols="50" />
                     </div>
                     <div style={{width:'25%', float:"right"}}>
                         <button className="cardForm formAdd" name="addCard" onClick={this.getClickAction}>Add Card</button>

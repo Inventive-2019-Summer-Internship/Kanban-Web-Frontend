@@ -1,17 +1,22 @@
 # Kanban-Web-Frontend
 
-Progress as of May 31st 2019
+Progress as of June 19th 2019
 
 -Able to create, edit, delete boards
 -Able to create, edit, delete swimlanes & their respective cards
--Able to create cards for each swimlane
--Able to have background images for boards via url link (optional)
--Added functioning dropdown menu
+-Able to create, edit, delete cards for each swimlane
+-Able to comment & edit said comment on a card
+-Able to create, add, and delete a label to a card with 8 colors to choose from
+-Able to drag a card to a different swimlane and or different position on a swimlane
+-Able to drag swimlanes and their respective cards to a different position on the board
+-Able to have background images for boards via URL link (optional)
+-Functioning dropdown menu
+-Able to switch between two different website styles
 
-*Stores locally meaning that data is lost once refreshed (no back-end atm so it's fine)
+*Stores locally meaning that data is lost once refreshed (no backend atm so it's fine)
 
-Changes to come as of May 31st 2019
+Changes to come as of June 19th 2019
 
--Able to delete and edit cards (with or w/o images)
--Able to switch between 2/3 website styles
--Able to upload a file for a background image rather than insert URL (potentially pushed until a back-end is created)
+-Setting up a database in the backend
+-Upload a file for a background image rather than a URL link (for cards & boards)
+-Allow Google users to have and access their own boards

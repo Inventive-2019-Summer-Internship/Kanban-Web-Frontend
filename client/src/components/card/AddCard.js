@@ -26,7 +26,7 @@ export class AddCard extends Component {
             <div onDragEnter={this.onDragEnter} onDragLeave={this.onDragExit} 
                  onDragOver={this.onDragOver} onDrop={this.onDrop}
                  className="addCardBtn" onClick={this.showAddCardForm}>
-                <p>+</p>
+                <p>+Add Card</p>
             </div>
         )
     }

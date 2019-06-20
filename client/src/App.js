@@ -11,7 +11,7 @@ import AppUtils from './AppUtils'
 import LandingHeader from './components/LandingHeader';
 import LandingPage from './components/pages/LandingPage';
 /////////////    CSS Imports      ////////////////////////////////
-require('./Dark.css');
+
 //////////////////////////////////////////////////////////////////
 
 /**
@@ -59,6 +59,18 @@ class App extends AppUtils {
                     comment: "This is a sample comment",
                     id: uuid()
                   }
+                ],
+                labels: [
+                  {
+                    title: "SampleLabel",
+                    color: "#1a1a1a",
+                    id: uuid()
+                  },
+                  {
+                    title: "SecondLab",
+                    color: "#d83656",
+                    id: uuid()
+                  }
                 ]
               }
             ]
@@ -83,7 +95,18 @@ class App extends AppUtils {
     
   }
 
-  
+    
+  callAPI() {
+    fetch("https://kanban-web-backend.herokuapp.com/sender")
+        .then(res => res.text())
+        .then(res => console.log(res))
+        .catch(err => err);
+}
+
+componentWillMount() {
+    this.callAPI();
+}
+
 
   /**
    * The Render Method
@@ -141,6 +164,8 @@ class App extends AppUtils {
               moveCard={this.moveCard} moveCardAbove={this.moveCardAbove}
               moveSwimlaneToEnd={this.moveSwimlaneToEnd}
               moveSwimlaneInFrontOfTargetSwimlane={this.moveSwimlaneInFrontOfTargetSwimlane}/>
+	      addLabel={this.addLabel} deleteLabel={this.deleteLabel}/>
+	      updateComment={this.updateComment}
               )}
           />
         </div>  

@@ -13,7 +13,7 @@ export class AddSwimLane extends Component {
     render() {
     return (
         <div onClick={this.AddSwimLane} className="newLane">
-            <p>+</p>        
+            <p>+Add Swimlane</p>        
 
         </div>
     )
