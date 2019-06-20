@@ -477,7 +477,8 @@ button.displayCardInfoButton:disabled {
 
 /* Card Form - Card Comment Elements*/
 .cardCommentContainer {
-  margin-top: 15px;
+  padding-left: 15px;
+  width: 90.6%;
   height: 100%;
   background-color: transparent;
 }

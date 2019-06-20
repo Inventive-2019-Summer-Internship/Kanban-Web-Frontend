@@ -244,7 +244,7 @@ class AppUtils extends React.Component {
           break;
         }
     }
-    for(var i = 0; i < currentBoard.swimLanes.length; i++) {
+    for(i = 0; i < currentBoard.swimLanes.length; i++) {
         if(currentBoard.swimLanes[i].id === swimlaneId) {
             currentBoard.swimLanes[i] = currentSwimlane
         }
@@ -280,7 +280,7 @@ class AppUtils extends React.Component {
             break;
         }
     }
-    for(var i = 0; i < currentBoard.swimLanes.length; i++) {
+    for(i = 0; i < currentBoard.swimLanes.length; i++) {
         if(currentBoard.swimLanes[i].id === cardId) {
             currentBoard.swimLanes[i] = currentSwimlane
             break;
@@ -308,7 +308,7 @@ class AppUtils extends React.Component {
           break;
         }
     }
-    for(var i = 0; i < currentBoard.swimLanes.length; i++) {
+    for(i = 0; i < currentBoard.swimLanes.length; i++) {
         if(currentBoard.swimLanes[i].id === swimlaneId) {
             currentBoard.swimLanes[i] = currentSwimlane
         }
