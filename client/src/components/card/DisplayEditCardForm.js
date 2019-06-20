@@ -9,12 +9,10 @@ export class DisplayEditCardForm extends Component {
     }
     doThis = (evt) => {
         if(evt.target.id === "displayCardUpdateButton" && this.state.needsUpdating) {
-            this.props.updateCard({
-                title: (this.state.title === "") ? this.props.card.title : this.state.title,
-                description: (this.state.description !== "" && this.state.needsUpdating) ? document.getElementsByName("description")[0].value : this.props.description,
-                comments: this.props.card.comments,
-                id: this.props.card.id
-            })
+             var newCard = this.props.card;
+             newCard.title = (this.state.title === "") ? this.props.card.title : this.state.title
+             newCard.description = this.state.description;
+            this.props.updateCard(newCard)
             this.setState({needsUpdating: false})
             
         }
@@ -25,7 +23,13 @@ export class DisplayEditCardForm extends Component {
             this.props.deleteCard(this.props.card.id);
         }
     }
-
+    saveDescription = () => {
+        var newCard = this.props.card;
+        newCard.title = (this.state.title === "") ? this.props.card.title : this.state.title
+        newCard.description = this.state.description;
+        this.props.updateCard(newCard)
+        this.setState({needsUpdating: false})
+}
     deleteLabel = (labelId) => {
         this.props.deleteLabel(labelId, this.props.card.id)
     }
@@ -56,26 +60,23 @@ export class DisplayEditCardForm extends Component {
         this.setState({[evt.target.name]: evt.target.value})
         this.setState({needsUpdating: true})
     }
-    closeForm = () => {
+    closeForm = (evt) => {
+        if(evt.currentTarget.className === "closeCardInfoButton") {
+            document.getElementById("cardInfoDisplay").className = `displayCardInfo slide-up-display`;
+            window.setTimeout( () => {document.getElementById("displayCardInfoContainer").style.display = "none"}, 250)
+        }
         
-        document.getElementById("cardInfoDisplay").className = `displayCardInfo slide-up-display`;
-        window.setTimeout( () => {document.getElementById("displayCardInfoContainer").style.display = "none"}, 250)
     }
     render() {
         //this.resetState();
         return (
-            <div id="displayCardInfoContainer" class="displayCardInfoContainer">
-            <div id="cardInfoDisplay" class="displayCardInfo">
-                <div class="cardHeader">
-                        <input name="title" type="text" onChange={this.updateState} onClick={this.loadText} placeholder={this.props.card.title} class="cardTitle"/>
-                        <p class="closeCardInfoButton" onClick={this.closeForm}>x</p>
+            <div id="displayCardInfoContainer" className="displayCardInfoContainer" onClick={this.closeForm}>
+            <div id="cardInfoDisplay" className="displayCardInfo">
+                <div className="cardHeader">
+                        <input name="title" type="text" onChange={this.updateState} onClick={this.loadText} placeholder={this.props.card.title} className="cardTitle"/>
+                        <p className="closeCardInfoButton" onClick={this.closeForm}>x</p>
                 </div>
                 <CardInfoContent deleteLabel={this.deleteLabel} addComment={this.addComment} deleteComment={this.deleteComment} updateComment={this.updateComment} updateDescription={this.updateDescription} onClick={this.loadText} card={this.props.card}/>              
-                
-                <div class="displayCardInfoButtonArea">
-                    <button id="displayCardUpdateButton" class="displayCardInfoButton" onClick={this.doThis}>Update</button>
-                    <button id="displayCardDeleteButton" class="displayCardInfoButton" onClick={this.doThis}>Delete Card</button>
-                </div>
             </div>
         </div>
         )

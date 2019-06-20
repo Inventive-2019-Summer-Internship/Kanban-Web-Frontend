@@ -1,13 +1,15 @@
 ///////////////  Package Imports  ////////////////////////////////
 import React from 'react';
 import uuid from 'uuid/v4';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 ////////////// Components Imports ////////////////////////////////
 import Header from './components/Header';
-import BoardView from './components/BoardView';
+import BoardView from './components/pages/BoardView';
 import NewBoardView from './components/pages/NewBoardView';
 import OpenBoardView from './components/pages/OpenBoardView';
 import AppUtils from './AppUtils'
+import LandingHeader from './components/LandingHeader';
+import LandingPage from './components/pages/LandingPage';
 /////////////    CSS Imports      ////////////////////////////////
 
 //////////////////////////////////////////////////////////////////
@@ -119,33 +121,51 @@ componentWillMount() {
     return (
       <Router>
         <div style={{backgroundRepeat:'repeat', height:"100%", backgroundImage: (this.state.currentBoard.img && this.state.showImage) ? `url(${this.state.currentBoard.img})`: "none"}} className="App">
-          <Header toggleSpace={this.toggleSpace} hideImage={this.hideImage} />
-           <link id="pagestyle" rel="stylesheet" type="text/css" href="styles/Dark.css" /> 
-
-
-          <Route exact path="/" render={() => {
+          <Switch>
+            <Route exact path="/" render={() => {
+                return(<LandingHeader/>)
+              }}
+            />
+            <Route path="/" render={() => {
+                return(<Header toggleSpace={this.toggleSpace} hideImage={this.hideImage} />)
+              }}
+            />
+          </Switch>
+          
+          <link id="pagestyle" rel="stylesheet" type="text/css" href="styles/Dark.css" /> 
+          <Route exact path="/" render={(routerProps) => {
               if(this.state.showImage) this.hideImage();
-              return(<BoardView boards={this.state.boards} showBoard={this.showBoard}/>)
+              return(<LandingPage/>)
+              }
+            }
+          />
+          <Route exact path="/:username/boards" render={(routerProps) => {
+              if(this.state.showImage) this.hideImage();
+              return(<BoardView routerProps={routerProps} boards={this.state.boards} showBoard={this.showBoard}/>)
               }
             }
           />
 
-          <Route path="/addBoard" render={() =>{
+          <Route path="/:username/addBoard" render={(routerProps) =>{
               if(this.state.showImage) this.hideImage();
-              return(<NewBoardView addBoard={this.addBoard}/>)
+              return(<NewBoardView routerProps={routerProps} addBoard={this.addBoard}/>)
               }
             }
           />
 
-          <Route path="/showBoard" render={props => (
+          <Route path="/🐝/:boardboard" render={props => (
             <OpenBoardView 
               deleteBoard={this.deleteBoard} changeBoardName={this.changeBoardName} 
               changeBoardBG={this.changeBoardBG} addSwimLane={this.addSwimLane} 
               currentBoard={this.state.currentBoard} changeSwimlaneTitle={this.changeSwimlaneTitle}
               deleteSwimlane={this.deleteSwimlane} addCard={this.addCard}
               updateCard={this.updateCard} deleteCard={this.deleteCard}
-              addComment={this.addComment} deleteComment={this.deleteComment} updateComment={this.updateComment}
-              addLabel={this.addLabel} deleteLabel={this.deleteLabel}/>
+              addComment={this.addComment} deleteComment={this.deleteComment}
+              moveCard={this.moveCard} moveCardAbove={this.moveCardAbove}
+              moveSwimlaneToEnd={this.moveSwimlaneToEnd}
+              moveSwimlaneInFrontOfTargetSwimlane={this.moveSwimlaneInFrontOfTargetSwimlane}/>
+	      addLabel={this.addLabel} deleteLabel={this.deleteLabel}/>
+	      updateComment={this.updateComment}
               )}
           />
         </div>  

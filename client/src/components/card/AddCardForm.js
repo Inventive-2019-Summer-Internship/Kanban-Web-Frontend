@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { ToastContainer } from 'react-toastr'
 
 export class AddCardForm extends Component {
     state = {
@@ -13,6 +14,9 @@ export class AddCardForm extends Component {
     getClickAction = (evt) => {
         switch(evt.target.name) {
             case 'addCard':
+                if(this.state.title === "") {
+                    this.props.toastContainer.error("hello world")
+                }
                 this.addCard()
                 break;
             case 'cancel':
@@ -48,7 +52,9 @@ export class AddCardForm extends Component {
                 <div style={{display:"inline"}}>
                     <div style={{width:'25%', float:"left"}}>
                         <p className="cardForm" style={{margin:"15px 0 0 0"}}>Title of Card</p>
-                        <input id="addCardName" type="text" placeholder={"Give it a Good Title"} onChange={this.updateState} name="title" />
+                        <input id="addCardName" type="text" 
+                               placeholder={"Give it a Good Title"} onChange={this.updateState} 
+                               name="title" required/>
                     </div>
                     <div style={{width:'50%', display: 'inline-block'}}>
                         <p className="cardForm" style={{margin:"0 0 10px 0"}}>Description:</p>

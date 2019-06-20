@@ -3,19 +3,57 @@ import React from 'react';
 import uuid from 'uuid/v4';
 
 class AppUtils extends React.Component {
+  
      ///////////////// Method Bloc
   /**
    * showBoard
    * @param id the id of the board that you want to show (Comes from BoardListing>BoardView>this)
    */
-  componentWillMount() {
-    /*if(this.state.darkMode) {
-      require("./App.css");
-    } else {
-      require("./cssupdate.css");
-    }*/
-    require("./Dark.css");
+  moveSwimlaneInFrontOfTargetSwimlane = (draggedSwimlaneId, targetSwimlaneId) => {
+    if(typeof targetSwimlaneId === "object" || draggedSwimlaneId === targetSwimlaneId) return;
+    let currentBoard = this.state.currentBoard
+    let movingSwimlane = currentBoard.swimLanes.filter(swimlane => swimlane.id === draggedSwimlaneId)[0]
+    console.log(`${draggedSwimlaneId} => ${targetSwimlaneId} : ${typeof targetSwimlaneId}`)
+    currentBoard.swimLanes = currentBoard.swimLanes.filter(swimlane => swimlane.id !== draggedSwimlaneId)
+    let sl = []
+    for(var i = 0; i < currentBoard.swimLanes.length; i++) {
+      if(currentBoard.swimLanes[i].id === targetSwimlaneId) {
+        sl.push(movingSwimlane)
+      }
+      sl.push(currentBoard.swimLanes[i])
+
+    }
+    console.log(sl)
+    currentBoard.swimLanes = sl
+    let boards = [...this.state.boards.filter(board => board.id !== currentBoard.id), currentBoard]
+    boards.push(boards.shift());
+    this.setState({currentBoard,boards})
   }
+  moveCard = (cardId, currentSwimlaneId, targetSwimlaneId) => {
+    let card = this.state.currentBoard.swimLanes.filter(
+           swimlane => swimlane.id === currentSwimlaneId)[0].cards.filter(
+               card => card.id === cardId)[0]
+    console.log(card)
+    if(card !== undefined) {
+      this.deleteCard(cardId, currentSwimlaneId, this.state.currentBoard.id)
+      this.addExistingCard(card,targetSwimlaneId)
+    }
+    
+
+  }
+  moveCardAbove = (cardId, currentSwimlaneId, targetSwimlaneId, cardBelowId) => {
+    let card = this.state.currentBoard.swimLanes.filter(
+           swimlane => swimlane.id === currentSwimlaneId)[0].cards.filter(
+               card => card.id === cardId)[0]
+    console.log(card)
+    if(card !== undefined) {
+      this.deleteCard(cardId, currentSwimlaneId, this.state.currentBoard.id)
+      this.addExistingCardAbove(card,targetSwimlaneId, cardBelowId)
+    }
+    
+
+  }
+
   changeSwimlaneTitle = (boardId, title, swimlaneId) => {
     let currentBoard = this.state.currentBoard
     let swimLanes = currentBoard.swimLanes
@@ -52,6 +90,7 @@ class AppUtils extends React.Component {
         break;
       }
     }
+    // eslint-disable-next-line
     for(var i = 0; i < this.state.currentBoard.swimLanes.length; i++) {
       if(this.state.currentBoard.swimLanes[i].id === swimlaneId) {
         currentBoard.swimLanes[i] = swimlaneToEdit;
@@ -59,9 +98,11 @@ class AppUtils extends React.Component {
       }
     }
     let boards = this.state.boards
+    // eslint-disable-next-line
     for(var i = 0; i < boards.length; i++) {
       if(boards[i].id === boardId) {
         boards[i] = currentBoard
+        break;
       }
     }
     this.setState({currentBoard})
@@ -77,7 +118,7 @@ class AppUtils extends React.Component {
               break;
           }
       }
-      let boards = this.state.boards.filter((board) => board.id !== boardId)
+      let boards = this.state.boards.filter((board) => board.id !== currentBoard.id)
       boards.push(currentBoard)
       this.setState({currentBoard})
       this.setState({boards})
@@ -131,6 +172,40 @@ class AppUtils extends React.Component {
     var newBoards = [...this.state.boards.filter(board => board.id !== id), board]
     newBoards.push(newBoards.shift());
     this.setState({boards: newBoards})
+  }
+  addExistingCard = (card, swimlaneId) => {
+    let currentBoard = this.state.currentBoard
+    for(var i = 0; i < currentBoard.swimLanes.length; i++) {
+      if(currentBoard.swimLanes[i].id === swimlaneId) {
+        currentBoard.swimLanes[i].cards.push(card)
+      }
+    }
+    let boards = [currentBoard,...this.state.boards.filter(board => board.id !== currentBoard.id)]
+    this.setState({currentBoard})
+    this.setState({boards})
+  }
+  addExistingCardAbove = (card, swimlaneId, cardBelowId) => {
+    let currentBoard = this.state.currentBoard
+    let updatedCards = []
+    console.log(card)
+    for(var i = 0; i < currentBoard.swimLanes.length; i++) {
+      if(currentBoard.swimLanes[i].id === swimlaneId) {
+        for(var j = 0; j < currentBoard.swimLanes[i].cards.length; j++) {
+          if(currentBoard.swimLanes[i].cards[j].id === cardBelowId) {
+            updatedCards.push(card)
+            updatedCards.push(currentBoard.swimLanes[i].cards[j])
+          }
+          else {
+            updatedCards.push(currentBoard.swimLanes[i].cards[j])
+          }
+        }
+
+        currentBoard.swimLanes[i].cards = updatedCards;
+      }
+    }
+    let boards = [currentBoard,...this.state.boards.filter(board => board.id !== currentBoard.id)]
+    this.setState({currentBoard})
+    this.setState({boards})
   }
   addCard = (title, description, swimlaneId) => {
     let newCard = {
@@ -241,7 +316,6 @@ class AppUtils extends React.Component {
     let boards = [...this.state.boards.filter(board => board.id !== boardId), currentBoard]
     boards.push(boards.shift());
     this.setState({currentBoard,boards})
-      
   }
 
   deleteLabel = (labelId, cardId, swimlaneId, boardId) => {
@@ -257,17 +331,24 @@ class AppUtils extends React.Component {
           }
       }
 
-      for (var i=0; i < currentBoard.swimLanes.length; i++) {
-          if (currentBoard.swimLanes[i].id === cardId) {
-              currentBoard.swimLanes[i] = currentSwimlane
-              break;
-          }
-      }
-
       let boards = [...this.state.boards.filter(board => board.id !== boardId), currentBoard]
       boards.push(boards.shift());
-      this.setState({currentBoard, boards})
+      this.setState({currentBoard,boards})
+      
   }
+  moveSwimlaneToEnd = (swimlaneId) => {
+    let currentBoard = this.state.currentBoard
+    let swimlaneToEnd = currentBoard.swimLanes.filter(swimlane => swimlane.id === swimlaneId)[0]
+    console.log(swimlaneToEnd)
+    if(swimlaneToEnd === undefined) return;
+    currentBoard.swimLanes = [...currentBoard.swimLanes.filter(swimlane => swimlane.id !== swimlaneId), swimlaneToEnd]
+    console.log(currentBoard.swimLanes)
+    let boards = [...this.state.boards.filter(board => board.id !== currentBoard.id), currentBoard]
+    boards.push(boards.shift());
+    this.setState({currentBoard,boards})
+    console.log("moved to end")
+  }
+  
 }
 
 export default AppUtils

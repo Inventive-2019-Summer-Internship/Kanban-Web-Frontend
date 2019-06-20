@@ -6,7 +6,11 @@
   color: white;
   overflow-y: scroll;
   scrollbar-width: none; /* Firefox */
+<<<<<<< HEAD
+  -ms-overflow-style: none;  /* IE 10+ */
+=======
   -ms-overflow-style: none; /* IE 10+ */
+>>>>>>> master
 }
 .App::-webkit-scrollbar { /* WebKit */
   display: none;
@@ -24,6 +28,7 @@ body {
 }
 
 .standardLink {
+  cursor: pointer;
   float: right;
   padding: 8px 10px 0 10px;
   color: white;
@@ -238,6 +243,7 @@ form {
 
 /* Card Overlay View Elements */
 .addCardBtn {
+  cursor: pointer;
   height: 45px;
   font-size: 20px;
   margin: 15px 15px 20px 5px;
@@ -733,6 +739,254 @@ div.cardComment:nth-child(even) {
 .fade-in {
   animation: fade-in 0.5s forwards;
   -webkit-animation: fade-in 0.5s forwards;
+}
+button.cardForm:hover {
+  background-color: #97a3bb;
+}
+
+button.formAdd {
+  cursor: pointer;
+  background-color: #5479a7;
+  margin: 0 0 25px 0;
+}
+button.formAdd:hover {
+  background-color: #7da2cf;
+}
+
+.closeCardInfoButton {
+  cursor: pointer;
+  float: right;
+  color: white;
+  display: inline;
+  text-align: right;
+  margin: 0px;
+  margin-right: 20px;
+  font-size: 35px;
+}
+.displayCardInfoButtonArea {
+  margin-top: 15px;
+  width:100%;
+  height: 10%
+}
+button.displayCardInfoButton:disabled {
+  color: white;
+  background-color: #6767a0;
+  transition: .5s;
+}
+button.displayCardInfoButton {
+  cursor: pointer;
+  margin-right: 10px;
+  height: 100%;
+  width: 200px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 20px;
+  background-color: #5479a7;
+  transition: .5s;
+}
+#displayCardDeleteButton {
+  cursor: pointer;
+  width: 200px;
+  margin-left: 10px;
+  background-color: #FF2424;
+  font-size: 20px;
+}
+.displayCardInfoContainer {
+  position: absolute;
+  z-index: 3;
+  display: none;
+  top: 0px;
+  left: 0px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+.displayCardInfo {
+  width: 75%;
+  height: 75%;
+  border-radius: 5px;
+  background-color: #2d313d;
+}
+
+.cardDescription {
+  color: white;
+  /*width: 96.5%;*/
+  text-align: left;
+
+  padding: 10px;
+
+  height:100%;
+  width: 100%;
+  float: left;
+
+  background-color: #6a738680;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 5px;
+}
+.cardDescription:focus {
+  background-color: #434857;
+  color: white;
+}
+.cardDescription::placeholder {
+  color: white;
+  opacity: 1;
+}
+.cardDescription:-ms-input-placeholder {
+  color: white;
+}
+.cardDescription::-ms-input-placeholder {
+  color: white;
+}
+
+.cardHeader {
+  height: 10%;
+}
+.cardTitle {
+  color: white;
+  display: inline;
+  width: 90%;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  width:auto;
+  margin-left: 15px;
+  margin-top: 13px;
+  margin-right: 10px;
+
+  background-color: transparent;
+  box-sizing: border-box;
+  border: none;
+}
+.cardTitle:focus {
+  background-color: #6a738680;
+  color: white;
+}
+.cardTitle::placeholder {
+  color: white;
+  opacity: 1;
+}
+.cardTitle:-ms-input-placeholder {
+  color: white;
+}
+.cardTitle::-ms-input-placeholder {
+  color: white;
+}
+
+.contentArea {
+  width: 100%;
+  height: 75%;
+}
+.descriptionArea {
+  margin-left: 15px;
+  height:100%;
+  width: 41%;
+  float: left;
+  background-color: transparent;
+}
+.additionalInformationSidebar {
+  margin-right: 15px;
+  height:100%;
+  width: 55%;
+  float: right;
+  background-color: transparent;
+}
+.cardCommentContainer {
+  width:100%;
+  height: 100%;
+  background-color: transparent;
+  border-radius: 5px;
+
+}
+.cardComments {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  overflow-y: auto;
+  /*overflow-x: hidden;*/
+  flex-direction: column;
+  background-color: #6a738680;
+}
+.cardComment {
+  word-wrap: break-word;
+  width: 100%;
+  /*min-height: 0;*/
+  /*min-height: 25px;*/
+  padding-top: 10px;
+  text-align: left;
+  font-size: 14px;
+  
+}
+div.cardComment {
+  background-color: #6a7386;
+  padding: 8px 0 10px 0;
+}
+div.cardComment:nth-child(even) {
+  background-color: #3a4253;
+}
+p.cardComment {
+  cursor: default;
+  width: 90%;
+  margin: 0;
+  padding: 0;
+  padding-left: 10px;
+  float:left;
+}
+.cardAddComment {
+  width: 100%;
+  height: 10%;
+  background-color: white;
+}
+.addCommentInput {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width:90%;
+  float: left;
+  border: none;
+}
+.addCommentSubmitButton {
+  cursor: pointer;
+  height: 100%;
+  width:10%;
+  float: right;
+  border: none;
+  color: white;
+  padding-top: 5px;
+  background-color: #282c34;
+  font-size: 20px;
+}
+
+.slide-up-display {
+  animation: slide-up-display 0.25s forwards;
+  -webkit-animation: slide-up-display 0.25s forwards;
+}
+
+.slide-down-display {
+  animation: slide-down-display 0.25s forwards;
+  -webkit-animation: slide-down-display 0.25s forwards;
+}
+@keyframes slide-down-display {
+  0% { transform: translateY(-150%); }
+  100% { transform: translateY(0%); }
+}
+
+@-webkit-keyframes slide-down-display {
+  0% { transform: translateY(-150%); }
+  100% { transform: translateY(0%); }
+}
+  
+@keyframes slide-up-display {
+  0% { transform: translateY(0%); }
+  100% { transform: translateY(-150%); }
+}
+
+@-webkit-keyframes slide-up-display {
+  0% { -webkit-transform: translateY(0%); }
+  100% { -webkit-transform: translateY(-150%); }
 }
 @keyframes fade-in {
   from { opacity: 0; }

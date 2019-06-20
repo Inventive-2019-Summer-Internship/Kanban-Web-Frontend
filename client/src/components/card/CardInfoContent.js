@@ -11,7 +11,7 @@ export class CardInfoContent extends Component {
     updateState = (evt) => {
         this.setState({[evt.target.name]: evt.target.value})
         this.setState({needsUpdating: true})
-        this.props.updateDescription(this.state.description);
+        this.props.updateDescription(evt.target.value);
     }
     loadText = (evt) => {
         if(evt.target.value === "" && !this.state.needsUpdating) {
