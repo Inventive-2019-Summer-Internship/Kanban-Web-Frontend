@@ -163,9 +163,9 @@ componentWillMount() {
               addComment={this.addComment} deleteComment={this.deleteComment}
               moveCard={this.moveCard} moveCardAbove={this.moveCardAbove}
               moveSwimlaneToEnd={this.moveSwimlaneToEnd}
-              moveSwimlaneInFrontOfTargetSwimlane={this.moveSwimlaneInFrontOfTargetSwimlane}/>
-	      addLabel={this.addLabel} deleteLabel={this.deleteLabel}/>
-	      updateComment={this.updateComment}
+              moveSwimlaneInFrontOfTargetSwimlane={this.moveSwimlaneInFrontOfTargetSwimlane}
+	      addLabel={this.addLabel} deleteLabel={this.deleteLabel}
+	      updateComment={this.updateComment}/>
               )}
           />
         </div>  
