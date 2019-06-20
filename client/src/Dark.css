@@ -332,21 +332,19 @@ button.formAdd:hover {
 }
 
 .primary-contentArea {
-  margin: 0;
+  margin: 0 0 0 15px;
   height: 100%;
-  width: 55%;
+  width: 50%;
   position: relative;
 }
 
 .descriptionArea {
   height: 50%;
-  margin-left: 15px;
   float: left;
   background-color: transparent;
 }
 
 .additionalInformationSidebar {
-  margin: 15px 0 0 0;
   height: 45%;
   width: 100%;
   float: left;
@@ -479,7 +477,6 @@ button.displayCardInfoButton:disabled {
 
 /* Card Form - Card Comment Elements*/
 .cardCommentContainer {
-  padding-left: 15px;
   height: 100%;
   background-color: transparent;
 }
