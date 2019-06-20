@@ -131,7 +131,8 @@ class AppUtils extends React.Component {
       title,
       description,
       id: uuid(),
-      comments: []
+      comments: [],
+      dueDate: new Date(0)
     }
     let currentBoard = this.state.currentBoard
     for(var i = 0; i < currentBoard.swimLanes.length; i++) {
@@ -177,6 +178,28 @@ class AppUtils extends React.Component {
       this.setState({currentBoard,boards})
       
   }
+  setDueDate = (dueDate, cardId, swimlaneId) => {
+   
+    let currentBoard = this.state.currentBoard
+    let currentSwimlane = currentBoard.swimLanes.filter(swimlane => swimlane.id === swimlaneId)[0]
+    
+
+    for( var i = 0; i < currentSwimlane.cards.length; i++) {
+        if(currentSwimlane.cards[i].id === cardId) {
+          currentSwimlane.cards[i].dueDate = dueDate
+          break;
+        }
+      }
+    
+    
+    let boards = [...this.state.boards.filter(board => board.id !== currentBoard.id), currentBoard]
+    boards.push(boards.shift());
+    this.setState({currentBoard,boards})
+    
+  }
+
+  
+
   updateComment = (comment, commentId, cardId, swimlaneId, boardId) => {
     let currentBoard = this.state.currentBoard
     let currentSwimlane = currentBoard.swimLanes.filter(swimlane => swimlane.id === swimlaneId)[0]

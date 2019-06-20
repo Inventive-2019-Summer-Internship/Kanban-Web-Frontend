@@ -57,7 +57,9 @@ class App extends AppUtils {
                     comment: "This is a sample comment",
                     id: uuid()
                   }
-                ]
+                  
+                ],
+                dueDate: Date.now()
               }
             ]
           }
@@ -121,7 +123,7 @@ class App extends AppUtils {
               currentBoard={this.state.currentBoard} changeSwimlaneTitle={this.changeSwimlaneTitle}
               deleteSwimlane={this.deleteSwimlane} addCard={this.addCard}
               updateCard={this.updateCard} deleteCard={this.deleteCard}
-              addComment={this.addComment} deleteComment={this.deleteComment} updateComment={this.updateComment}/>
+              addComment={this.addComment} deleteComment={this.deleteComment} updateComment={this.updateComment} setDueDate={this.setDueDate}/>
               )}
           />
         </div>  

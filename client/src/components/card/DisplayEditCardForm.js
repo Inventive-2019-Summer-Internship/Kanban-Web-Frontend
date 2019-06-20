@@ -47,6 +47,9 @@ export class DisplayEditCardForm extends Component {
             this.setState({[evt.target.name]:this.props.card[evt.target.name]});
         }
     }
+    setDueDate = (dueDate) => {
+        this.props.setDueDate(dueDate, this.props.card.id)
+    }
     updateDescription = (description) => {
         this.setState({description})
         this.setState({needsUpdating: true})
@@ -70,7 +73,8 @@ export class DisplayEditCardForm extends Component {
                         <input name="title" type="text" onChange={this.updateState} onClick={this.loadText} placeholder={this.props.card.title} class="cardTitle"/>
                         <p class="closeCardInfoButton" onClick={this.closeForm}>x</p>
                 </div>
-                <CardInfoContent addComment={this.addComment} deleteComment={this.deleteComment} updateComment={this.updateComment} updateDescription={this.updateDescription} onClick={this.loadText} card={this.props.card}/>
+                <CardInfoContent addComment={this.addComment} deleteComment={this.deleteComment} updateComment={this.updateComment} updateDescription={this.updateDescription} onClick={this.loadText} card={this.props.card}
+                setDueDate={this.setDueDate}/>
                 
                     
                 
