@@ -9,29 +9,23 @@ export class DisplayEditCardForm extends Component {
     }
     doThis = (evt) => {
         if(evt.target.id === "displayCardUpdateButton" && this.state.needsUpdating) {
-             var newCard = this.props.card;
-             newCard.title = (this.state.title === "") ? this.props.card.title : this.state.title
-             newCard.description = this.state.description;
-            this.props.updateCard(newCard)
+            console.log("updating...")
+            this.props.updateCard({
+                title: (this.state.title === "") ? this.props.card.title : this.state.title,
+                description: this.state.description,
+                id: this.props.card.id
+            })
             this.setState({needsUpdating: false})
             
         }
         else if(evt.target.id === "displayCardUpdateButton" && !this.state.needsUpdating) {
+            console.log("this doesn't need updating")
         } 
         else if(evt.target.id === "displayCardDeleteButton") {
+            console.log("deleting");
             this.closeForm()
             this.props.deleteCard(this.props.card.id);
         }
-    }
-    saveDescription = () => {
-        var newCard = this.props.card;
-        newCard.title = (this.state.title === "") ? this.props.card.title : this.state.title
-        newCard.description = this.state.description;
-        this.props.updateCard(newCard)
-        this.setState({needsUpdating: false})
-}
-    deleteLabel = (labelId) => {
-        this.props.deleteLabel(labelId, this.props.card.id)
     }
     addComment = (comment) => {
         this.props.addComment(comment, this.props.card.id)
@@ -41,6 +35,7 @@ export class DisplayEditCardForm extends Component {
     }
     updateComment = (comment, commentId) => {
         this.props.updateComment(comment, commentId, this.props.card.id)
+        console.log("updated comment")
     }
     resetState = () => {
         if(this.props.card.description === "" && this.props.card.title === "") this.setState({title: this.props.card.title,description: this.props.card.description});
@@ -52,6 +47,9 @@ export class DisplayEditCardForm extends Component {
             this.setState({[evt.target.name]:this.props.card[evt.target.name]});
         }
     }
+    setDueDate = (dueDate) => {
+        this.props.setDueDate(dueDate, this.props.card.id)
+    }
     updateDescription = (description) => {
         this.setState({description})
         this.setState({needsUpdating: true})
@@ -59,24 +57,31 @@ export class DisplayEditCardForm extends Component {
     updateState = (evt) => {
         this.setState({[evt.target.name]: evt.target.value})
         this.setState({needsUpdating: true})
+        console.log(evt.target.name);
     }
-    closeForm = (evt) => {
-        if(evt.currentTarget.className === "closeCardInfoButton") {
-            document.getElementById("cardInfoDisplay").className = `displayCardInfo slide-up-display`;
-            window.setTimeout( () => {document.getElementById("displayCardInfoContainer").style.display = "none"}, 250)
-        }
+    closeForm = () => {
         
+        document.getElementById("cardInfoDisplay").className = `displayCardInfo slide-up-display`;
+        window.setTimeout( () => {document.getElementById("displayCardInfoContainer").style.display = "none"}, 250)
     }
     render() {
         //this.resetState();
         return (
-            <div id="displayCardInfoContainer" className="displayCardInfoContainer" onClick={this.closeForm}>
-            <div id="cardInfoDisplay" className="displayCardInfo">
-                <div className="cardHeader">
-                        <input name="title" type="text" onChange={this.updateState} onClick={this.loadText} placeholder={this.props.card.title} className="cardTitle"/>
-                        <p className="closeCardInfoButton" onClick={this.closeForm}>x</p>
+            <div id="displayCardInfoContainer" class="displayCardInfoContainer">
+            <div id="cardInfoDisplay" class="displayCardInfo">
+                <div class="cardHeader">
+                        <input name="title" type="text" onChange={this.updateState} onClick={this.loadText} placeholder={this.props.card.title} class="cardTitle"/>
+                        <p class="closeCardInfoButton" onClick={this.closeForm}>x</p>
                 </div>
-                <CardInfoContent deleteLabel={this.deleteLabel} addComment={this.addComment} deleteComment={this.deleteComment} updateComment={this.updateComment} updateDescription={this.updateDescription} onClick={this.loadText} card={this.props.card}/>              
+                <CardInfoContent addComment={this.addComment} deleteComment={this.deleteComment} updateComment={this.updateComment} updateDescription={this.updateDescription} onClick={this.loadText} card={this.props.card}
+                setDueDate={this.setDueDate}/>
+                
+                    
+                
+                <div class="displayCardInfoButtonArea">
+                    <button id="displayCardUpdateButton" class="displayCardInfoButton" onClick={this.doThis}>Update</button>
+                    <button id="displayCardDeleteButton" class="displayCardInfoButton" onClick={this.doThis}>Delete Card</button>
+                </div>
             </div>
         </div>
         )

@@ -1,17 +1,15 @@
 ///////////////  Package Imports  ////////////////////////////////
 import React from 'react';
 import uuid from 'uuid/v4';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 ////////////// Components Imports ////////////////////////////////
 import Header from './components/Header';
-import BoardView from './components/pages/BoardView';
+import BoardView from './components/BoardView';
 import NewBoardView from './components/pages/NewBoardView';
 import OpenBoardView from './components/pages/OpenBoardView';
 import AppUtils from './AppUtils'
-import LandingHeader from './components/LandingHeader';
-import LandingPage from './components/pages/LandingPage';
 /////////////    CSS Imports      ////////////////////////////////
-
+require('./Dark.css');
 //////////////////////////////////////////////////////////////////
 
 /**
@@ -59,19 +57,9 @@ class App extends AppUtils {
                     comment: "This is a sample comment",
                     id: uuid()
                   }
+                  
                 ],
-                labels: [
-                  {
-                    title: "SampleLabel",
-                    color: "#1a1a1a",
-                    id: uuid()
-                  },
-                  {
-                    title: "SecondLab",
-                    color: "#d83656",
-                    id: uuid()
-                  }
-                ]
+                dueDate: Date.now()
               }
             ]
           }
@@ -95,18 +83,7 @@ class App extends AppUtils {
     
   }
 
-    
-  callAPI() {
-    fetch("https://kanban-web-backend.herokuapp.com/sender")
-        .then(res => res.text())
-        .then(res => console.log(res))
-        .catch(err => err);
-}
-
-componentWillMount() {
-    this.callAPI();
-}
-
+  
 
   /**
    * The Render Method
@@ -121,51 +98,32 @@ componentWillMount() {
     return (
       <Router>
         <div style={{backgroundRepeat:'repeat', height:"100%", backgroundImage: (this.state.currentBoard.img && this.state.showImage) ? `url(${this.state.currentBoard.img})`: "none"}} className="App">
-          <Switch>
-            <Route exact path="/" render={() => {
-                return(<LandingHeader/>)
-              }}
-            />
-            <Route path="/" render={() => {
-                return(<Header toggleSpace={this.toggleSpace} hideImage={this.hideImage} />)
-              }}
-            />
-          </Switch>
-          
-          <link id="pagestyle" rel="stylesheet" type="text/css" href="styles/Dark.css" /> 
-          <Route exact path="/" render={(routerProps) => {
+          <Header toggleSpace={this.toggleSpace} hideImage={this.hideImage} />
+           <link id="pagestyle" rel="stylesheet" type="text/css" href="styles/Dark.css" /> 
+
+
+          <Route exact path="/" render={() => {
               if(this.state.showImage) this.hideImage();
-              return(<LandingPage/>)
-              }
-            }
-          />
-          <Route exact path="/:username/boards" render={(routerProps) => {
-              if(this.state.showImage) this.hideImage();
-              return(<BoardView routerProps={routerProps} boards={this.state.boards} showBoard={this.showBoard}/>)
+              return(<BoardView boards={this.state.boards} showBoard={this.showBoard}/>)
               }
             }
           />
 
-          <Route path="/:username/addBoard" render={(routerProps) =>{
+          <Route path="/addBoard" render={() =>{
               if(this.state.showImage) this.hideImage();
-              return(<NewBoardView routerProps={routerProps} addBoard={this.addBoard}/>)
+              return(<NewBoardView addBoard={this.addBoard}/>)
               }
             }
           />
 
-          <Route path="/🐝/:boardboard" render={props => (
+          <Route path="/showBoard" render={props => (
             <OpenBoardView 
               deleteBoard={this.deleteBoard} changeBoardName={this.changeBoardName} 
               changeBoardBG={this.changeBoardBG} addSwimLane={this.addSwimLane} 
               currentBoard={this.state.currentBoard} changeSwimlaneTitle={this.changeSwimlaneTitle}
               deleteSwimlane={this.deleteSwimlane} addCard={this.addCard}
               updateCard={this.updateCard} deleteCard={this.deleteCard}
-              addComment={this.addComment} deleteComment={this.deleteComment}
-              moveCard={this.moveCard} moveCardAbove={this.moveCardAbove}
-              moveSwimlaneToEnd={this.moveSwimlaneToEnd}
-              moveSwimlaneInFrontOfTargetSwimlane={this.moveSwimlaneInFrontOfTargetSwimlane}
-	      addLabel={this.addLabel} deleteLabel={this.deleteLabel}
-	      updateComment={this.updateComment}/>
+              addComment={this.addComment} deleteComment={this.deleteComment} updateComment={this.updateComment} setDueDate={this.setDueDate}/>
               )}
           />
         </div>  

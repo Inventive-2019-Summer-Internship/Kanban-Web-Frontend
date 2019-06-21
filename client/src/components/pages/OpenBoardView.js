@@ -1,14 +1,12 @@
 ///////////////  Package Imports  ////////////////////////////////
 import React from 'react'
 import PropTypes from 'prop-types'
-import { ToastContainer } from 'react-toastr'
 ////////////// Components Imports ////////////////////////////////
 import PopoutMenu from '../PopoutMenu'
-import SwimLaneView from '../swimlane/SwimLaneView'
-import BoardHeader from '../board/BoardHeader'
+import SwimLaneView from '../SwimLaneView'
+import BoardHeader from '../BoardHeader'
 import AddCardForm from '../card/AddCardForm';
 import DisplayEditCardForm  from '../card/DisplayEditCardForm';
-import AddLabelForm from '../card/AddLabelForm';
 //////////////////////////////////////////////////////////////////
 
 /**
@@ -25,13 +23,6 @@ export class OpenBoardView extends React.Component {
       comments: [
         {
           comment: "",
-          id: -1
-        }
-      ],
-      labels: [
-        {
-          title: "",
-          color: "",
           id: -1
         }
       ]
@@ -60,15 +51,9 @@ export class OpenBoardView extends React.Component {
   deleteComment = (commentId, cardId) => {
     this.props.deleteComment(commentId, cardId, this.state.currentSwimlane.id, this.props.currentBoard.id)
   }
-
-  //Label stuff
-  addLabel = (title, color) => {
-    this.props.addLabel(title, color, this.state.activeCard.id, this.state.currentSwimlane.id, this.props.currentBoard.id)
+  setDueDate = (dueDate, cardId) => {
+    this.props.setDueDate(dueDate, cardId, this.state.currentSwimlane.id)
   }
-  deleteLabel = (labelId, cardId) => {
-    this.props.deleteLabel(labelId, cardId, this.state.currentSwimlane.id, this.props.currentBoard.id)
-  }
-
   changeBoardName = () => {
     var name = prompt("Name your Board", this.props.currentBoard.name);
     if(name === null || name === "" || name === this.props.currentBoard.name) {
@@ -95,6 +80,7 @@ export class OpenBoardView extends React.Component {
 
   setCurrentSwimlane = (swimlane) => {
     this.setState({currentSwimlane: swimlane})
+    console.log(swimlane);
   }
 
   deleteBoard = () => {
@@ -103,33 +89,19 @@ export class OpenBoardView extends React.Component {
         alert("Board Not Deleted");
     }
     else {
-
         this.props.deleteBoard(this.props.currentBoard.id);
     }
   }
 
   render(props) {
-    let container;
     return (
       <div style={{height:"90%", overflow:"hidden", width: "100%"}}>
-        <ToastContainer ref={ref => container = ref}/>
+        
         <BoardHeader currentBoard={this.props.currentBoard} />
-
-        <SwimLaneView setCard={this.setCard} setCurrentSwimlane={this.setCurrentSwimlane} 
-                      currentBoard={this.props.currentBoard} addSwimLane={this.addSwimLane} 
-                      changeTitle={this.changeSwimlaneTitle} deleteSwimlane={this.props.deleteSwimlane}
-                      moveCard={this.props.moveCard} moveCardAbove={this.props.moveCardAbove} 
-                      deleteCard={this.deleteCard} moveSwimlaneToEnd={this.props.moveSwimlaneToEnd}
-                      moveSwimlaneInFrontOfTargetSwimlane={this.props.moveSwimlaneInFrontOfTargetSwimlane}/>
-
-        <PopoutMenu changeBoardName={this.changeBoardName} changeBoardBG={this.changeBoardBG} 
-                    deleteBoard={this.deleteBoard} />
-
-        <AddCardForm addCard={this.props.addCard} currentSwimlane={this.state.currentSwimlane} 
-                     toastContainer={container}/>
-
-        <DisplayEditCardForm deleteLabel={this.deleteLabel} addComment={this.addComment} updateComment={this.updateComment} deleteComment={this.deleteComment} deleteCard={this.deleteCard} updateCard={this.updateCard} card={this.state.activeCard}/>
-        <AddLabelForm addLabel={this.addLabel}/>
+        <SwimLaneView setCard={this.setCard} setCurrentSwimlane={this.setCurrentSwimlane} currentBoard={this.props.currentBoard} addSwimLane={this.addSwimLane} changeTitle={this.changeSwimlaneTitle} deleteSwimlane={this.props.deleteSwimlane} />
+        <PopoutMenu changeBoardName={this.changeBoardName} changeBoardBG={this.changeBoardBG} deleteBoard={this.deleteBoard} />
+        <AddCardForm addCard={this.props.addCard} currentSwimlane={this.state.currentSwimlane} />
+        <DisplayEditCardForm addComment={this.addComment} deleteComment={this.deleteComment} updateComment={this.updateComment} deleteCard={this.deleteCard} updateCard={this.updateCard} card={this.state.activeCard} setDueDate={this.setDueDate} />
 
       </div>
     )
