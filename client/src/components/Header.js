@@ -7,12 +7,15 @@ import {Link} from 'react-router-dom'
 
 
 export class Header extends React.Component {
+   user = {
+    name: "rubenr"
+  }
   render() {
     return (
       <div className="App-header">
-          <a href="/" ><h3 style={{margin:"0", marginLeft:"10px", float:"left", color:"white"}}>Kanban</h3></a>
-          <Link to="/rubenr/addBoard" className="standardLink">+</Link>
-          <Link onClick={this.props.hideImage} to="/rubenr/boards" className="standardLink">Boards</Link>
+          <Link to="/" ><h3 style={{margin:"0", marginLeft:"10px", float:"left", color:"white"}}>Kanban</h3></Link>
+          <Link to={`/${this.user.name}/addBoard`} className="standardLink">+</Link>
+          <Link onClick={this.props.hideImage} to={`/${this.user.name}/boards`} className="standardLink">Boards</Link>
           <span id="SpaceyWacey" onClick={this.props.toggleSpace} className="standardLink">Activate Space</span>          
       </div>
     )

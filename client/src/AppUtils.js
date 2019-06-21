@@ -272,13 +272,7 @@ class AppUtils extends React.Component {
                 break;
             }
         }
-        // eslint-disable-next-line
-        for(var i = 0; i < currentBoard.swimLanes.length; i++) {
-            if(currentBoard.swimLanes[i].id === cardId) {
-                currentBoard.swimLanes[i] = currentSwimlane
-                break;
-            }
-        }
+        
         let boards = [...this.state.boards.filter(board => board.id !== boardId), currentBoard]
         boards.push(boards.shift());
         this.setState({currentBoard,boards})
