@@ -13,7 +13,6 @@ class AppUtils extends React.Component {
     if(typeof targetSwimlaneId === "object" || draggedSwimlaneId === targetSwimlaneId) return;
     let currentBoard = this.state.currentBoard
     let movingSwimlane = currentBoard.swimLanes.filter(swimlane => swimlane.id === draggedSwimlaneId)[0]
-    console.log(`${draggedSwimlaneId} => ${targetSwimlaneId} : ${typeof targetSwimlaneId}`)
     currentBoard.swimLanes = currentBoard.swimLanes.filter(swimlane => swimlane.id !== draggedSwimlaneId)
     let sl = []
     for(var i = 0; i < currentBoard.swimLanes.length; i++) {
@@ -23,7 +22,6 @@ class AppUtils extends React.Component {
       sl.push(currentBoard.swimLanes[i])
 
     }
-    console.log(sl)
     currentBoard.swimLanes = sl
     let boards = [...this.state.boards.filter(board => board.id !== currentBoard.id), currentBoard]
     boards.push(boards.shift());
@@ -33,7 +31,6 @@ class AppUtils extends React.Component {
     let card = this.state.currentBoard.swimLanes.filter(
            swimlane => swimlane.id === currentSwimlaneId)[0].cards.filter(
                card => card.id === cardId)[0]
-    console.log(card)
     if(card !== undefined) {
       this.deleteCard(cardId, currentSwimlaneId, this.state.currentBoard.id)
       this.addExistingCard(card,targetSwimlaneId)
@@ -45,7 +42,6 @@ class AppUtils extends React.Component {
     let card = this.state.currentBoard.swimLanes.filter(
            swimlane => swimlane.id === currentSwimlaneId)[0].cards.filter(
                card => card.id === cardId)[0]
-    console.log(card)
     if(card !== undefined) {
       this.deleteCard(cardId, currentSwimlaneId, this.state.currentBoard.id)
       this.addExistingCardAbove(card,targetSwimlaneId, cardBelowId)
@@ -187,7 +183,6 @@ class AppUtils extends React.Component {
   addExistingCardAbove = (card, swimlaneId, cardBelowId) => {
     let currentBoard = this.state.currentBoard
     let updatedCards = []
-    console.log(card)
     for(var i = 0; i < currentBoard.swimLanes.length; i++) {
       if(currentBoard.swimLanes[i].id === swimlaneId) {
         for(var j = 0; j < currentBoard.swimLanes[i].cards.length; j++) {
@@ -230,7 +225,6 @@ class AppUtils extends React.Component {
      var mtitle="../music/"+this.state.musicList[q];
      var audio = new Audio(mtitle);
      audio.play();
-     console.log(this.state.musicList[q])
      document.getElementById("pagestyle").setAttribute('href','../styles/space.css')
      document.getElementById("SpaceyWacey").remove();
   }
@@ -341,17 +335,31 @@ class AppUtils extends React.Component {
       this.setState({currentBoard,boards})
       
   }
-  moveSwimlaneToEnd = (swimlaneId) => {
+
+  setDueDate = (dueDate, cardId, swimlaneId) => {
     let currentBoard = this.state.currentBoard
-    let swimlaneToEnd = currentBoard.swimLanes.filter(swimlane => swimlane.id === swimlaneId)[0]
-    console.log(swimlaneToEnd)
-    if(swimlaneToEnd === undefined) return;
-    currentBoard.swimLanes = [...currentBoard.swimLanes.filter(swimlane => swimlane.id !== swimlaneId), swimlaneToEnd]
-    console.log(currentBoard.swimLanes)
+    let currentSwimlane = currentBoard.swimLanes.filter(swimlane => swimlane.id === swimlaneId)[0]
+
+    for( var i = 0; i < currentSwimlane.cards.length; i++) {
+        if(currentSwimlane.cards[i].id === cardId) {
+          currentSwimlane.cards[i].dueDate = dueDate
+          break;
+        }
+      }
+    
     let boards = [...this.state.boards.filter(board => board.id !== currentBoard.id), currentBoard]
     boards.push(boards.shift());
     this.setState({currentBoard,boards})
-    console.log("moved to end")
+  }
+
+  moveSwimlaneToEnd = (swimlaneId) => {
+    let currentBoard = this.state.currentBoard
+    let swimlaneToEnd = currentBoard.swimLanes.filter(swimlane => swimlane.id === swimlaneId)[0]
+    if(swimlaneToEnd === undefined) return;
+    currentBoard.swimLanes = [...currentBoard.swimLanes.filter(swimlane => swimlane.id !== swimlaneId), swimlaneToEnd]
+    let boards = [...this.state.boards.filter(board => board.id !== currentBoard.id), currentBoard]
+    boards.push(boards.shift());
+    this.setState({currentBoard,boards})
   }
   
 }

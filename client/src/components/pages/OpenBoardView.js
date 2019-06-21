@@ -34,7 +34,8 @@ export class OpenBoardView extends React.Component {
           color: "",
           id: -1
         }
-      ]
+      ],
+      dueDate: Date.now()
     },
     currentSwimlane: this.props.currentBoard.swimLanes[0]
   }
@@ -67,6 +68,10 @@ export class OpenBoardView extends React.Component {
   }
   deleteLabel = (labelId, cardId) => {
     this.props.deleteLabel(labelId, cardId, this.state.currentSwimlane.id, this.props.currentBoard.id)
+  }
+
+  setDueDate = (dueDate, cardId) => {
+    this.props.setDueDate(dueDate, cardId, this.state.currentSwimlane.id)
   }
 
   changeBoardName = () => {
@@ -128,7 +133,7 @@ export class OpenBoardView extends React.Component {
         <AddCardForm addCard={this.props.addCard} currentSwimlane={this.state.currentSwimlane} 
                      toastContainer={container}/>
 
-        <DisplayEditCardForm deleteLabel={this.deleteLabel} addComment={this.addComment} updateComment={this.updateComment} deleteComment={this.deleteComment} deleteCard={this.deleteCard} updateCard={this.updateCard} card={this.state.activeCard}/>
+        <DisplayEditCardForm setDueDate={this.setDueDate} deleteLabel={this.deleteLabel} addComment={this.addComment} updateComment={this.updateComment} deleteComment={this.deleteComment} deleteCard={this.deleteCard} updateCard={this.updateCard} card={this.state.activeCard}/>
         <AddLabelForm addLabel={this.addLabel}/>
 
       </div>

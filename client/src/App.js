@@ -71,7 +71,8 @@ class App extends AppUtils {
                     color: "#d83656",
                     id: uuid()
                   }
-                ]
+                ],
+                dueDate: Date.now()
               }
             ]
           }
@@ -164,8 +165,8 @@ componentWillMount() {
               moveCard={this.moveCard} moveCardAbove={this.moveCardAbove}
               moveSwimlaneToEnd={this.moveSwimlaneToEnd}
               moveSwimlaneInFrontOfTargetSwimlane={this.moveSwimlaneInFrontOfTargetSwimlane}
-	      addLabel={this.addLabel} deleteLabel={this.deleteLabel}
-	      updateComment={this.updateComment}/>
+	            addLabel={this.addLabel} deleteLabel={this.deleteLabel}
+	            updateComment={this.updateComment} setDueDate={this.setDueDate}/>
               )}
           />
         </div>  
