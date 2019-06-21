@@ -146,11 +146,11 @@ class AppUtils extends React.Component {
   }
   toggleSpace = () => {
      var q = (Math.floor(Math.random()*this.state.musicList.length));
-     var mtitle="music/"+this.state.musicList[q];
+     var mtitle="../music/"+this.state.musicList[q];
      var audio = new Audio(mtitle);
      audio.play();
      console.log(this.state.musicList[q])
-     document.getElementById("pagestyle").setAttribute('href','styles/space.css')
+     document.getElementById("pagestyle").setAttribute('href','../styles/space.css')
      document.getElementById("SpaceyWacey").remove();
   }
   addComment = (comment, cardId, swimlaneId, boardId) => {
