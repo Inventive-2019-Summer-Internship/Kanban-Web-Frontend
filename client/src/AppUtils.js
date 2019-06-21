@@ -205,12 +205,7 @@ class AppUtils extends React.Component {
             break;
         }
     }
-    for(var i = 0; i < currentBoard.swimLanes.length; i++) {
-        if(currentBoard.swimLanes[i].id === cardId) {
-            currentBoard.swimLanes[i] = currentSwimlane
-            break;
-        }
-    }
+
     let boards = [...this.state.boards.filter(board => board.id !== boardId), currentBoard]
     boards.push(boards.shift());
     this.setState({currentBoard,boards})
@@ -253,13 +248,6 @@ class AppUtils extends React.Component {
       for (var i=0; i < currentSwimlane.cards.length; i++) {
           if (currentSwimlane.cards[i].id === cardId) {
               currentSwimlane.cards[i] = currentCard
-              break;
-          }
-      }
-
-      for (var i=0; i < currentBoard.swimLanes.length; i++) {
-          if (currentBoard.swimLanes[i].id === cardId) {
-              currentBoard.swimLanes[i] = currentSwimlane
               break;
           }
       }

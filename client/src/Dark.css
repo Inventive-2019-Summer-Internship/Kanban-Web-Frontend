@@ -328,25 +328,23 @@ button.formAdd:hover {
 
 .contentArea {
   display: flex;
-  height: 75%;
+  height: 85%;
 }
 
 .primary-contentArea {
-  margin: 0;
+  margin: 0 0 0 15px;
   height: 100%;
-  width: 55%;
+  width: 50%;
   position: relative;
 }
 
 .descriptionArea {
   height: 50%;
-  margin-left: 15px;
   float: left;
   background-color: transparent;
 }
 
 .additionalInformationSidebar {
-  margin: 15px 0 0 0;
   height: 45%;
   width: 100%;
   float: left;
@@ -359,7 +357,7 @@ button.formAdd:hover {
   width: 45%;
 }
 
-.displayCardInfoContainer { /* "Background of Form */
+.displayCardInfoContainer { /* "Background" of Form */
   position: absolute;
   z-index: 3;
   display: none;
@@ -477,9 +475,9 @@ button.displayCardInfoButton:disabled {
   color: white;
 }
 
-/* Card Form - Card Comment Elements*/
+/* Card Form - Card Comment Elements */
 .cardCommentContainer {
-  padding-left: 15px;
+  margin-top: 15px;
   height: 100%;
   background-color: transparent;
 }

@@ -71,11 +71,6 @@ export class DisplayEditCardForm extends Component {
                         <p class="closeCardInfoButton" onClick={this.closeForm}>x</p>
                 </div>
                 <CardInfoContent deleteLabel={this.deleteLabel} addComment={this.addComment} deleteComment={this.deleteComment} updateComment={this.updateComment} updateDescription={this.updateDescription} onClick={this.loadText} card={this.props.card}/>              
-                
-                <div class="displayCardInfoButtonArea">
-                    <button id="displayCardUpdateButton" class="displayCardInfoButton" onClick={this.doThis}>Update</button>
-                    <button id="displayCardDeleteButton" class="displayCardInfoButton" onClick={this.doThis}>Delete Card</button>
-                </div>
             </div>
         </div>
         )
