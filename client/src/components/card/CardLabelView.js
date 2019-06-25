@@ -5,7 +5,7 @@ export class CardLabelView extends Component {
     render () {
         return (
             <div class="cardLabels">
-                <CardLabels deleteLabel={this.props.deleteLabel} labels={this.props.labels}/>
+                <CardLabels deleteLabel={this.props.deleteLabel} updateLabel={this.props.updateLabel} labels={this.props.labels}/>
             </div>
         )
     }
