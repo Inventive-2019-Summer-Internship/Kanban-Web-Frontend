@@ -165,8 +165,9 @@ componentWillMount() {
               moveCard={this.moveCard} moveCardAbove={this.moveCardAbove}
               moveSwimlaneToEnd={this.moveSwimlaneToEnd}
               moveSwimlaneInFrontOfTargetSwimlane={this.moveSwimlaneInFrontOfTargetSwimlane}
-	            addLabel={this.addLabel} deleteLabel={this.deleteLabel}
-	            updateComment={this.updateComment} setDueDate={this.setDueDate}/>
+              addLabel={this.addLabel} deleteLabel={this.deleteLabel}
+              updateLabel={this.updateLabel} updateComment={this.updateComment}
+              setDueDate={this.setDueDate}/>
               )}
           />
         </div>  

@@ -5,7 +5,7 @@ export class CardLabels extends Component {
     render () {
         return (
             this.props.labels.map( (label) => (
-                <CardLabel deleteLabel={this.props.deleteLabel} label={label}/>
+                <CardLabel deleteLabel={this.props.deleteLabel} updateLabel={this.props.updateLabel} label={label}/>
             ))
         )
     }

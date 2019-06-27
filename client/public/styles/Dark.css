@@ -583,7 +583,15 @@ div.cardComment:nth-child(even) {
   cursor: default;
   margin-right: 10px;
   margin-bottom: 10px;
+  width: 41%;
 }
+
+#labelInput {
+  align-self: center;
+  min-width: 80px;
+  max-width: 500px;
+}
+
 .addLabelBtn {
   background-color: #3b587c;
 }

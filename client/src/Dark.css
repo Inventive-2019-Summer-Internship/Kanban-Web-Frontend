@@ -573,7 +573,7 @@ div.cardComment:nth-child(even) {
   width: max-content;
   padding: 5px 8px;
   margin: 0;
-  border-radius: 20px;
+  border-radius: 20px; 
 }
 .cardLabel p, .addLabelBtn p {
   margin: 0;
@@ -583,7 +583,13 @@ div.cardComment:nth-child(even) {
   cursor: default;
   margin-right: 10px;
   margin-bottom: 10px;
+  width: 41%;
 }
+
+#labelInput {
+  width: 60%;
+}
+
 .addLabelBtn {
   background-color: #3b587c;
 }
@@ -594,6 +600,7 @@ div.cardComment:nth-child(even) {
 
 .cardLabels {
   text-align: left;
+  width: 70%;
 }
 
 /* Label Form Elements */
