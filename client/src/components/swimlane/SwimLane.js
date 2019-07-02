@@ -82,7 +82,7 @@ export class SwimLane extends React.Component {
     return (
       <div onClick={this.setCurrentSwimlane} onDragEnter={this.onDragEnter}
            onDragStart={this.onDragStart} onDragExit={this.onDragExit}
-           id={this.props.swimlane.id} className="swimLane" draggable>
+           id={this.props.swimlane.id} className="swimLane" draggable data-simplebar>
 
         <SwimLaneHeader swimlane={this.props.swimlane} changeTitle={this.props.changeTitle}
                         deleteSwimlane={this.props.deleteSwimlane}/>

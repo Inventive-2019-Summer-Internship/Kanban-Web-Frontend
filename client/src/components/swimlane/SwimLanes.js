@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import SwimLane from './SwimLane'
-import uuid from 'uuid/v4';
 import MoveSwimLanePointer from './MoveSwimLanePointer';
 
 export class SwimLanes extends Component {
@@ -11,7 +10,7 @@ export class SwimLanes extends Component {
     this.setState({overSwimlane: value})
   }
   render() {
-    console.log(this.props.currentBoard.swimLanes)
+    //console.log(this.props.currentBoard.swimLanes)
     if(this.props.currentBoard.swimLanes !== undefined) {
       return (
           this.props.currentBoard.swimLanes.map((swimlane) =>(

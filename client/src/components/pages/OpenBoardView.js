@@ -58,6 +58,9 @@ export class OpenBoardView extends React.Component {
   updateComment = (comment, commentId, cardId) => {
     this.props.updateComment(comment, commentId, cardId, this.state.currentSwimlane.id, this.props.currentBoard.id)
   }
+  setCardCoverImage = (cardCoverImageURL, cardId) => {
+    this.props.setCardCoverImage(cardCoverImageURL, cardId, this.state.currentSwimlane.id, this.props.currentBoard.id)
+  }
   deleteComment = (commentId, cardId) => {
     this.props.deleteComment(commentId, cardId, this.state.currentSwimlane.id, this.props.currentBoard.id)
   }
@@ -133,7 +136,12 @@ export class OpenBoardView extends React.Component {
         <AddCardForm addCard={this.props.addCard} currentSwimlane={this.state.currentSwimlane} 
                      toastContainer={container}/>
 
-        <DisplayEditCardForm setDueDate={this.setDueDate} deleteLabel={this.deleteLabel} addComment={this.addComment} updateComment={this.updateComment} deleteComment={this.deleteComment} deleteCard={this.deleteCard} updateCard={this.updateCard} card={this.state.activeCard}/>
+        <DisplayEditCardForm setDueDate={this.setDueDate} deleteLabel={this.deleteLabel}
+                             addComment={this.addComment} updateComment={this.updateComment}
+                             deleteComment={this.deleteComment} deleteCard={this.deleteCard}
+                             updateCard={this.updateCard} setCardCoverImage={this.setCardCoverImage}
+                             card={this.state.activeCard}/>
+
         <AddLabelForm addLabel={this.addLabel}/>
 
       </div>

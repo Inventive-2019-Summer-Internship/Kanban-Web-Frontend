@@ -173,7 +173,7 @@ form {
   background-color: #4b5162;
   flex: 0 0 auto;
   margin: 0 10px;
-  width: 350px;
+  width: 20vmax;
   height: 45px;
   border-radius: 5px;
 }
@@ -194,9 +194,8 @@ form {
   flex: 0 0 auto;
   margin-left: 10px;
   padding-left: 10px;
-  width: 350px;
+  width: 20vmax;
   height: 95%;
-  /*overflow-y: hidden;*/
   border-radius: 5px;
 }
 
@@ -445,37 +444,7 @@ button.displayCardInfoButton:disabled {
 .cardTitle::-ms-input-placeholder {
   color: white;
 }
-.cardCoverImageContainer {
-  margin-top: 15px;
-  text-align: left;
-}
-.cardCoverImage {
-  cursor: pointer;
-  color: white;
-  display: inline;
-  float: right;
-  font-size: 16px;
-  width: 75%;
-  margin-top: 3px;
-  background-color: transparent;
-  box-sizing: border-box;
-  border: none;
-}
-.cardCoverImage:focus {
-  cursor: auto;
-  background-color: #6a738680;
-  color: white;
-}
-.cardCoverImage::placeholder {
-  color: white;
-  opacity: 1;
-}
-.cardCoverImage:-ms-input-placeholder {
-  color: white;
-}
-.cardCoverImage::-ms-input-placeholder {
-  color: white;
-}
+
 .cardDescription {
   resize: none;
   cursor: pointer;
@@ -855,25 +824,4 @@ div.cardComment:nth-child(even) {
 .moveSwimlane {
   height: 95%;
   width: 155px;
-}
-
-.dateInput {
-  background-color: #6a738680;
-  color: #ffffff;
-  border: none;
-  font-size: 16px;
-  border-radius: 5px;
-  height: 25px;
-  margin-left: 10px;
-}
-.dateInput:hover {
-  background-color: #6a7386;
-}
-.cardDueDateContainer {
-  margin-top: 15px;
-  text-align: left;
-}
-
-.coverImage {
-  border-radius: 5px 5px 0px 0px;
 }
