@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import { Menu as Camera } from 'react-feather'
 
 export class BoardHeader extends Component {
     showDiv = () => {
@@ -20,7 +20,7 @@ export class BoardHeader extends Component {
         return (
         <div className="titleDiv">
           <h3 className="title">{this.props.currentBoard.name}</h3>
-          <p onClick={this.showDiv} id="sideBarActivator">&#9776;</p>
+          <p onClick={this.showDiv} id="sideBarActivator"><Camera /></p>
           <br />
         </div>
         )
