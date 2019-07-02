@@ -37,6 +37,9 @@ export class DisplayEditCardForm extends Component {
     updateLabel = (labelValue, labelId) => {
         this.props.updateLabel(labelValue, labelId, this.props.card.id)
     }
+    setCardCoverImage = (coverImageURL) => {
+        this.props.setCardCoverImage(coverImageURL, this.props.card.id)
+    }
     addComment = (comment) => {
         this.props.addComment(comment, this.props.card.id)
     }
@@ -83,7 +86,7 @@ export class DisplayEditCardForm extends Component {
                         <input name="title" type="text" onChange={this.updateState} onClick={this.loadText} placeholder={this.props.card.title} className="cardTitle"/>
                         <p className="closeCardInfoButton" onClick={this.closeForm}>x</p>
                 </div>
-                <CardInfoContent setDueDate={this.setDueDate} deleteLabel={this.deleteLabel} updateLabel={this.updateLabel} addComment={this.addComment} deleteComment={this.deleteComment} updateComment={this.updateComment} updateDescription={this.updateDescription} onClick={this.loadText} card={this.props.card}/>              
+                <CardInfoContent setDueDate={this.setDueDate} deleteLabel={this.deleteLabel} addComment={this.addComment} deleteComment={this.deleteComment} updateComment={this.updateComment} updateDescription={this.updateDescription} onClick={this.loadText} card={this.props.card}/>              
             </div>
         </div>
         )

@@ -49,7 +49,7 @@ export class Card extends Component {
                  onDragEnd={this.dropCard} onDragOver={this.onDragOver}
                  onDragEnter={this.overCard} onDragExit={this.notOverCard} 
                  onClick={this.showCardInfo} draggable>
-
+                {(this.props.card.coverImage !== null) ? <img className="coverImage" src={this.props.card.coverImage} width="100%" height="200px" />: <React.Fragment />}
                 <h4>{this.props.card.title}</h4>
             </div>
         

@@ -53,6 +53,32 @@ class App extends AppUtils {
               {
                 title: "sample card",
                 description: "This is a sample description",
+                coverImage: "https://i.imgur.com/cuq7xl7.gif",
+                id: uuid(),
+                comments: [
+                  {
+                    comment: "This is a sample comment",
+                    id: uuid()
+                  }
+                ],
+                labels: [
+                  {
+                    title: "SampleLabel",
+                    color: "#1a1a1a",
+                    id: uuid()
+                  },
+                  {
+                    title: "SecondLab",
+                    color: "#d83656",
+                    id: uuid()
+                  }
+                ],
+                dueDate: Date.now()
+              },
+              {
+                title: "sample card",
+                description: "This is a sample description",
+                coverImage: "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.memecdn.com%2Fbest-gif-ever_o_901136.gif&f=1",
                 id: uuid(),
                 comments: [
                   {
@@ -77,20 +103,9 @@ class App extends AppUtils {
             ]
           }
         ],
-        img: "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.memecdn.com%2Fbest-gif-ever_o_901136.gif&f=1"
+        img: ""
       },
-      {
-        id: uuid(),
-        name: "My Second Board",
-        swimLanes: [
-          {
-            title: "Sample",
-            id: uuid(),
-            cards: []
-          }
-        ],
-        img: "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia1.tenor.com%2Fimages%2F42283b6ad92daba7e619865e2e1aa9bd%2Ftenor.gif%3Fitemid%3D13154832&f=1"
-      },
+      
 
     ]
     
@@ -121,6 +136,7 @@ componentWillMount() {
      */
     return (
       <Router>
+        <link id="pagestyle" rel="stylesheet" type="text/css" href="styles/Dark.css" />
         <div style={{backgroundRepeat:'repeat', height:"100%", backgroundImage: (this.state.currentBoard.img && this.state.showImage) ? `url(${this.state.currentBoard.img})`: "none"}} className="App">
           <Switch>
             <Route exact path="/" render={() => {
@@ -133,10 +149,10 @@ componentWillMount() {
             />
           </Switch>
           
-          <link id="pagestyle" rel="stylesheet" type="text/css" href="styles/Dark.css" /> 
+           
           <Route exact path="/" render={(routerProps) => {
               if(this.state.showImage) this.hideImage();
-              return(<LandingPage/>)
+              return(<LandingPage routerProps={routerProps}/>)
               }
             }
           />
@@ -165,9 +181,9 @@ componentWillMount() {
               moveCard={this.moveCard} moveCardAbove={this.moveCardAbove}
               moveSwimlaneToEnd={this.moveSwimlaneToEnd}
               moveSwimlaneInFrontOfTargetSwimlane={this.moveSwimlaneInFrontOfTargetSwimlane}
-              addLabel={this.addLabel} deleteLabel={this.deleteLabel}
               updateLabel={this.updateLabel} updateComment={this.updateComment}
-              setDueDate={this.setDueDate}/>
+              addLabel={this.addLabel} deleteLabel={this.deleteLabel}
+              setCardCoverImage={this.setCardCoverImage}/>
               )}
           />
         </div>  

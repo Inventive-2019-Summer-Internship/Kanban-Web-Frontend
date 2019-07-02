@@ -202,10 +202,11 @@ class AppUtils extends React.Component {
     this.setState({currentBoard})
     this.setState({boards})
   }
-  addCard = (title, description, swimlaneId) => {
+  addCard = (title, description, coverImage, swimlaneId) => {
     let newCard = {
       title,
       description,
+      coverImage: (coverImage === "") ? null : coverImage,
       id: uuid(),
       comments: [],
       labels: []
@@ -371,6 +372,22 @@ class AppUtils extends React.Component {
     let boards = [...this.state.boards.filter(board => board.id !== currentBoard.id), currentBoard]
     boards.push(boards.shift());
     this.setState({currentBoard,boards})
+  }
+  setCardCoverImage = (cardCoverImageURL, cardId, swimlaneId, boardId) => {
+    let coverImageURL
+    if(!cardCoverImageURL.match(/http[s]?:\/\/.+/))
+      coverImageURL = `http://${cardCoverImageURL}`
+    else
+      coverImageURL = cardCoverImageURL
+    let currentBoard = this.state.currentBoard
+    let currentSwimlane = currentBoard.swimLanes.filter(swimlane => swimlane.id === swimlaneId)[0]
+    let currentCard = currentSwimlane.cards.filter(card => card.id === cardId)[0]
+    
+    currentCard.coverImage = coverImageURL
+    let boards = [...this.state.boards.filter(board => board.id !== boardId), currentBoard]
+    boards.push(boards.shift());
+    this.setState({currentBoard,boards})
+    //console.log(this.state.currentBoard.swimLanes.filter(swimlane => swimlane.id === swimlaneId)[0].cards.filter(card => card.id === cardId)[0].comments)
   }
   
 }

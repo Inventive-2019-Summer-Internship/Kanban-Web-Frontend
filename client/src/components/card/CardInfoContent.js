@@ -26,12 +26,14 @@ export class CardInfoContent extends Component {
             <div class="contentArea">
                 <div class="primary-contentArea">
                     <div class="descriptionArea">
-                        <textarea name="description" rows="25" cols="80" onChange={this.updateState} onClick={this.loadText} placeholder={this.props.card.description} class="cardDescription"/> 
+                        <textarea name="description" rows="25" cols="200" onChange={this.updateState} onClick={this.loadText} placeholder={this.props.card.description} class="cardDescription"/> 
                     </div>
                     <CardInfoContentSidebar deleteComment={this.props.deleteComment} addComment={this.props.addComment} updateComment={this.props.updateComment} card={this.props.card} />
                 </div>
                 <div class="secondary-contentArea">
-                    <CardInfoSidebarItems setDueDate={this.props.setDueDate} deleteLabel={this.props.deleteLabel} updateLabel={this.props.updateLabel} card={this.props.card}/>
+                    <CardInfoSidebarItems setDueDate={this.props.setDueDate} deleteLabel={this.props.deleteLabel}
+                                          updateLabel={this.props.updateLabel} setCardCoverImage={this.props.setCardCoverImage}
+                                          card={this.props.card}/>
                 </div>
             </div>
         )
