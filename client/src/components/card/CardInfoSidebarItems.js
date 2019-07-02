@@ -9,7 +9,7 @@ export class CardInfoSidebarItems extends Component {
         return (
             <div class="cardSidebarItems">
                 <div class="cardLabelContainer">
-                    <CardLabelView deleteLabel={this.props.deleteLabel} labels={this.props.card.labels}/>
+                    <CardLabelView deleteLabel={this.props.deleteLabel} updateLabel={this.props.updateLabel} labels={this.props.card.labels}/>
                     <CardAddLabel/>
                     <SetCardDueDate setDueDate={this.props.setDueDate} card={this.props.card}/>
                     <SetCardCoverImage card={this.props.card} setCardCoverImage={this.props.setCardCoverImage}/>

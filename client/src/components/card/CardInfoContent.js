@@ -31,8 +31,9 @@ export class CardInfoContent extends Component {
                     <CardInfoContentSidebar deleteComment={this.props.deleteComment} addComment={this.props.addComment} updateComment={this.props.updateComment} card={this.props.card} />
                 </div>
                 <div class="secondary-contentArea">
-                    <CardInfoSidebarItems setDueDate={this.props.setDueDate} deleteLabel={this.props.deleteLabel} 
-                                          card={this.props.card} setCardCoverImage={this.props.setCardCoverImage}/>
+                    <CardInfoSidebarItems setDueDate={this.props.setDueDate} deleteLabel={this.props.deleteLabel}
+                                          updateLabel={this.props.updateLabel} setCardCoverImage={this.props.setCardCoverImage}
+                                          card={this.props.card}/>
                 </div>
             </div>
         )
